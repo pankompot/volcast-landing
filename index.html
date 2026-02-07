@@ -173,25 +173,16 @@
       letter-spacing: 2px;
     }
     .nav-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: var(--primary-glow);
-      border: 1px solid rgba(0, 255, 157, 0.15);
-      border-radius: 999px;
-      padding: 4px 12px;
       font-family: var(--font-body);
-      font-size: 11px;
+      font-size: 9px;
       font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
       color: var(--primary);
-      letter-spacing: 0.5px;
-    }
-    .nav-badge-dot {
-      width: 5px;
-      height: 5px;
-      border-radius: 50%;
-      background: var(--primary);
-      animation: dot-blink 2s ease-in-out infinite;
+      opacity: 0.6;
+      margin-left: 2px;
+      align-self: flex-start;
+      margin-top: 2px;
     }
     .nav-links {
       display: flex;
@@ -287,10 +278,6 @@
       66% { transform: translate(-20px, 15px) scale(0.97); }
     }
     .hero-content { position: relative; z-index: 2; max-width: 720px; }
-    @keyframes dot-blink {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.3; }
-    }
     .hero h1 {
       font-family: var(--font-display);
       font-size: clamp(40px, 7vw, 72px);
@@ -773,7 +760,7 @@
           </g>
         </svg>
         <span>Volcast</span>
-        <span class="nav-badge"><span class="nav-badge-dot"></span>Coming soon</span>
+        <span class="nav-badge">Soon</span>
       </a>
       <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
         <span></span><span></span><span></span>
@@ -1111,4 +1098,3 @@
   </script>
 </body>
 </html>
-
