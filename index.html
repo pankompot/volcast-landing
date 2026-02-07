@@ -172,6 +172,27 @@
       color: var(--primary);
       letter-spacing: 2px;
     }
+    .nav-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--primary-glow);
+      border: 1px solid rgba(0, 255, 157, 0.15);
+      border-radius: 999px;
+      padding: 4px 12px;
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--primary);
+      letter-spacing: 0.5px;
+    }
+    .nav-badge-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--primary);
+      animation: dot-blink 2s ease-in-out infinite;
+    }
     .nav-links {
       display: flex;
       align-items: center;
@@ -266,36 +287,6 @@
       66% { transform: translate(-20px, 15px) scale(0.97); }
     }
     .hero-content { position: relative; z-index: 2; max-width: 720px; }
-    .hero-logo {
-      width: 72px;
-      height: 72px;
-      margin: 0 auto 24px;
-      animation: logo-pulse 3s ease-in-out infinite;
-    }
-    @keyframes logo-pulse {
-      0%, 100% { filter: drop-shadow(0 0 12px rgba(0, 255, 157, 0.2)); }
-      50% { filter: drop-shadow(0 0 24px rgba(0, 255, 157, 0.4)); }
-    }
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--primary-glow);
-      border: 1px solid rgba(0, 255, 157, 0.15);
-      border-radius: 999px;
-      padding: 6px 16px;
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--primary);
-      margin-bottom: 32px;
-    }
-    .hero-badge-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--primary);
-      animation: dot-blink 2s ease-in-out infinite;
-    }
     @keyframes dot-blink {
       0%, 100% { opacity: 1; }
       50% { opacity: 0.3; }
@@ -782,6 +773,7 @@
           </g>
         </svg>
         <span>Volcast</span>
+        <span class="nav-badge"><span class="nav-badge-dot"></span>Coming soon</span>
       </a>
       <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
         <span></span><span></span><span></span>
@@ -803,23 +795,6 @@
     <div class="hero-orb hero-orb--2"></div>
     <div class="hero-orb hero-orb--3"></div>
     <div class="hero-content">
-      <svg class="hero-logo" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M18 18 L40 62 L62 18" stroke="#00FF9D" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-        <line x1="25" y1="30" x2="40" y2="54" stroke="#00FF9D" stroke-width="1.5" opacity="0.4"/>
-        <line x1="55" y1="30" x2="40" y2="54" stroke="#00FF9D" stroke-width="1.5" opacity="0.4"/>
-        <line x1="29" y1="26" x2="51" y2="26" stroke="#00FF9D" stroke-width="1.5" opacity="0.4"/>
-        <line x1="33" y1="36" x2="47" y2="36" stroke="#00FF9D" stroke-width="1.5" opacity="0.4"/>
-        <circle cx="40" cy="12" r="4" fill="#00FF9D"/>
-        <g stroke="#00FF9D" stroke-width="1.5" stroke-linecap="round" opacity="0.5">
-          <line x1="40" y1="4" x2="40" y2="6"/>
-          <line x1="48" y1="12" x2="46" y2="12"/>
-          <line x1="32" y1="12" x2="34" y2="12"/>
-        </g>
-      </svg>
-      <div class="hero-badge">
-        <span class="hero-badge-dot"></span>
-        Coming soon
-      </div>
       <h1>Know what your<br>panels <em>will produce</em></h1>
       <p class="hero-desc">
         Accurate solar forecasts, auto-calibration that learns your system,
@@ -1136,3 +1111,4 @@
   </script>
 </body>
 </html>
+
