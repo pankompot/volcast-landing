@@ -760,7 +760,7 @@
           </g>
         </svg>
         <span>Volcast</span>
-        <span class="nav-badge">    Coming Soon</span>
+        <span class="nav-badge">Soon</span>
       </a>
       <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
         <span></span><span></span><span></span>
@@ -1080,22 +1080,55 @@
 
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-    // Newsletter form (placeholder — connect to Resend later)
-    document.getElementById('newsletterForm').addEventListener('submit', (e) => {
+    // Newsletter — zapis do Supabase waitlist table
+    // Uzupelnij przed deployem na GitHub Pages:
+    const SUPABASE_URL = 'YOUR_SUPABASE_URL';       // np. https://xyz.supabase.co
+    const SUPABASE_ANON_KEY = 'YOUR_SUPABASE_ANON_KEY';
+
+    document.getElementById('newsletterForm').addEventListener('submit', async (e) => {
       e.preventDefault();
       const btn = e.target.querySelector('.newsletter-btn');
       const input = e.target.querySelector('.newsletter-input');
+      const email = input.value.trim();
+      if (!email) return;
+
       btn.disabled = true;
       btn.textContent = 'Joining...';
 
-      // Symulacja — zamien na fetch do Resend API
-      setTimeout(() => {
-        e.target.style.display = 'none';
-        document.querySelector('.newsletter-note').style.display = 'none';
-        document.getElementById('newsletterSuccess').style.display = 'block';
-      }, 800);
+      try {
+        const res = await fetch(`${SUPABASE_URL}/rest/v1/waitlist`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'apikey': SUPABASE_ANON_KEY,
+            'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+            'Prefer': 'return=minimal',
+          },
+          body: JSON.stringify({ email, source: 'landing' }),
+        });
+
+        if (res.ok || res.status === 201) {
+          e.target.style.display = 'none';
+          document.querySelector('.newsletter-note').style.display = 'none';
+          document.getElementById('newsletterSuccess').style.display = 'block';
+        } else if (res.status === 409) {
+          // Duplikat — email juz jest na liscie
+          e.target.style.display = 'none';
+          document.querySelector('.newsletter-note').style.display = 'none';
+          const msg = document.getElementById('newsletterSuccess');
+          msg.textContent = "You're already on the list! We'll be in touch.";
+          msg.style.display = 'block';
+        } else {
+          throw new Error(`HTTP ${res.status}`);
+        }
+      } catch (err) {
+        btn.disabled = false;
+        btn.textContent = 'Join Waitlist';
+        input.style.borderColor = 'var(--error)';
+        input.placeholder = 'Something went wrong — try again';
+        input.value = '';
+      }
     });
   </script>
 </body>
 </html>
-
