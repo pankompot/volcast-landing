@@ -463,61 +463,198 @@
     .screenshots {
       background: linear-gradient(180deg, transparent, rgba(0, 255, 157, 0.02) 50%, transparent);
     }
+    .mockup-stage {
+      position: relative;
+      max-width: 880px;
+      margin: 0 auto;
+    }
+    /* Emerald glow behind center phone */
+    .mockup-stage::before {
+      content: '';
+      position: absolute;
+      top: 45%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 260px;
+      height: 480px;
+      background: radial-gradient(ellipse, rgba(0, 255, 157, 0.10) 0%, rgba(0, 255, 157, 0.03) 50%, transparent 75%);
+      filter: blur(50px);
+      pointer-events: none;
+      z-index: 0;
+    }
+    /* Secondary indigo glow — right side accent */
+    .mockup-stage::after {
+      content: '';
+      position: absolute;
+      top: 55%;
+      right: 5%;
+      transform: translateY(-50%);
+      width: 200px;
+      height: 300px;
+      background: radial-gradient(ellipse, rgba(129, 140, 248, 0.06) 0%, transparent 70%);
+      filter: blur(40px);
+      pointer-events: none;
+      z-index: 0;
+    }
     .mockup-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-      max-width: 800px;
-      margin: 0 auto;
+      gap: 28px;
+      position: relative;
+      z-index: 1;
+      perspective: 1200px;
     }
     .mockup-frame {
-      aspect-ratio: 9 / 19.5;
-      border-radius: 28px;
-      background: var(--surface);
-      border: 1px solid var(--surface-border);
+      position: relative;
+      aspect-ratio: 9 / 17.5;
+      border-radius: 36px;
+      background: #08090d;
+      border: 3px solid #1c2135;
+      overflow: hidden;
+      box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.45),
+        0 2px 8px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.03);
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+                  box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    /* Side phones tilt inward */
+    .mockup-frame:nth-child(1) {
+      transform: rotateY(5deg);
+    }
+    .mockup-frame:nth-child(2) {
+      transform: translateY(-28px) scale(1.06);
+      z-index: 2;
+      border-color: #252b44;
+      box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.55),
+        0 4px 16px rgba(0, 0, 0, 0.4),
+        0 0 60px rgba(0, 255, 157, 0.06),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    }
+    .mockup-frame:nth-child(3) {
+      transform: rotateY(-5deg);
+    }
+    /* Hover */
+    .mockup-frame:nth-child(1):hover {
+      transform: rotateY(2deg) translateY(-10px);
+      box-shadow:
+        0 24px 64px rgba(0, 0, 0, 0.5),
+        0 4px 16px rgba(0, 0, 0, 0.35),
+        0 0 40px rgba(0, 255, 157, 0.06);
+    }
+    .mockup-frame:nth-child(2):hover {
+      transform: translateY(-36px) scale(1.07);
+      box-shadow:
+        0 28px 72px rgba(0, 0, 0, 0.55),
+        0 8px 24px rgba(0, 0, 0, 0.4),
+        0 0 80px rgba(0, 255, 157, 0.10),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    }
+    .mockup-frame:nth-child(3):hover {
+      transform: rotateY(-2deg) translateY(-10px);
+      box-shadow:
+        0 24px 64px rgba(0, 0, 0, 0.5),
+        0 4px 16px rgba(0, 0, 0, 0.35),
+        0 0 40px rgba(129, 140, 248, 0.06);
+    }
+    /* Notch — camera cutout pill */
+    .mockup-notch {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 84px;
+      height: 26px;
+      background: #08090d;
+      border-radius: 0 0 16px 16px;
+      z-index: 4;
       display: flex;
       align-items: center;
       justify-content: center;
-      position: relative;
-      overflow: hidden;
-      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s;
+      gap: 6px;
     }
-    .mockup-frame:nth-child(2) {
-      transform: translateY(-20px);
-    }
-    .mockup-frame:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-    }
-    .mockup-frame:nth-child(2):hover {
-      transform: translateY(-28px);
-    }
-    /* Notch */
-    .mockup-frame::before {
+    /* Camera dot inside notch */
+    .mockup-notch::after {
       content: '';
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #141720;
+      box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.5);
+    }
+    /* Screen inner vignette */
+    .mockup-screen-overlay {
       position: absolute;
-      top: 8px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 80px;
-      height: 24px;
-      border-radius: 12px;
-      background: var(--canvas);
-      z-index: 2;
+      inset: 0;
+      border-radius: 33px;
+      box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.4);
+      pointer-events: none;
+      z-index: 3;
     }
-    .mockup-placeholder {
-      color: var(--text-muted);
-      font-size: 13px;
-      font-weight: 500;
-      letter-spacing: 1px;
-      text-transform: uppercase;
+    /* Screenshot image */
+    .mockup-frame picture {
+      position: absolute;
+      inset: 0;
     }
-    /* Future: replace .mockup-placeholder with <img> */
     .mockup-frame img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      border-radius: 28px;
+      border-radius: 33px;
+    }
+    /* Per-image crop positioning (hides status bar + nav bar) */
+    .mockup-frame--widgets img {
+      object-position: center 30%;
+    }
+    .mockup-frame--forecast img {
+      object-position: center 36%;
+    }
+    .mockup-frame--notifications img {
+      object-position: center 22%;
+    }
+    /* Hover label chip */
+    .mockup-label {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(5, 7, 10, 0.80);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 6px 18px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--primary);
+      border: 1px solid rgba(0, 255, 157, 0.15);
+      z-index: 5;
+      opacity: 0;
+      transition: opacity 0.3s;
+      pointer-events: none;
+      white-space: nowrap;
+    }
+    .mockup-frame:hover .mockup-label {
+      opacity: 1;
+    }
+    /* Reflection fade below phones */
+    .mockup-reflection {
+      position: relative;
+      max-width: 880px;
+      margin: -4px auto 0;
+      height: 80px;
+      z-index: 1;
+      background: linear-gradient(
+        to bottom,
+        rgba(0, 255, 157, 0.015) 0%,
+        transparent 100%
+      );
+      -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, transparent 100%);
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, transparent 100%);
+      border-radius: 0 0 40px 40px;
+      pointer-events: none;
     }
 
     /* ================================================================
@@ -719,9 +856,17 @@
       .mockup-grid {
         grid-template-columns: repeat(3, 1fr);
         gap: 12px;
+        perspective: 800px;
       }
-      .mockup-frame:nth-child(2) { transform: translateY(-12px); }
-      .mockup-frame::before { width: 48px; height: 16px; border-radius: 8px; top: 6px; }
+      .mockup-frame { border-radius: 24px; }
+      .mockup-frame:nth-child(1) { transform: rotateY(3deg); }
+      .mockup-frame:nth-child(2) { transform: translateY(-14px) scale(1.04); }
+      .mockup-frame:nth-child(3) { transform: rotateY(-3deg); }
+      .mockup-notch { width: 52px; height: 16px; border-radius: 0 0 10px 10px; }
+      .mockup-notch::after { width: 5px; height: 5px; }
+      .mockup-screen-overlay { border-radius: 21px; }
+      .mockup-frame img { border-radius: 21px; }
+      .mockup-label { font-size: 9px; padding: 4px 12px; bottom: 12px; }
       .newsletter-form { flex-direction: column; }
       .newsletter-card { padding: 40px 28px; }
       .footer .container {
@@ -735,8 +880,12 @@
       .hero { padding: 100px 20px 60px; }
       .section { padding: 64px 0; }
       .section-header { margin-bottom: 40px; }
-      .mockup-frame { border-radius: 18px; }
-      .mockup-frame::before { width: 36px; height: 12px; border-radius: 6px; }
+      .mockup-frame { border-radius: 18px; border-width: 2px; }
+      .mockup-notch { width: 40px; height: 12px; border-radius: 0 0 6px 6px; }
+      .mockup-notch::after { width: 4px; height: 4px; }
+      .mockup-screen-overlay { border-radius: 16px; }
+      .mockup-frame img { border-radius: 16px; }
+      .mockup-reflection { height: 40px; }
     }
   </style>
 </head>
@@ -886,16 +1035,37 @@
           A dark, focused interface that puts your energy data front and center.
         </p>
       </div>
-      <div class="mockup-grid reveal">
-        <div class="mockup-frame">
-          <span class="mockup-placeholder">Dashboard</span>
+      <div class="mockup-stage">
+        <div class="mockup-grid reveal">
+          <div class="mockup-frame mockup-frame--widgets">
+            <div class="mockup-notch"></div>
+            <picture>
+              <source srcset="img/widgets.webp" type="image/webp">
+              <img src="img/widgets.jpg" alt="Volcast home screen widgets showing today and tomorrow forecast with 4-day chart" loading="lazy" width="540" height="1200">
+            </picture>
+            <div class="mockup-screen-overlay"></div>
+            <span class="mockup-label">Widgets</span>
+          </div>
+          <div class="mockup-frame mockup-frame--forecast">
+            <div class="mockup-notch"></div>
+            <picture>
+              <source srcset="img/forecast.webp" type="image/webp">
+              <img src="img/forecast.jpg" alt="Volcast 7-day solar forecast with hourly power breakdown and peak production data" loading="lazy" width="540" height="1200">
+            </picture>
+            <div class="mockup-screen-overlay"></div>
+            <span class="mockup-label">Forecast</span>
+          </div>
+          <div class="mockup-frame mockup-frame--notifications">
+            <div class="mockup-notch"></div>
+            <picture>
+              <source srcset="img/notifications.webp" type="image/webp">
+              <img src="img/notifications.jpg" alt="Volcast forecast change notification and panel section configuration" loading="lazy" width="540" height="1200">
+            </picture>
+            <div class="mockup-screen-overlay"></div>
+            <span class="mockup-label">Notifications</span>
+          </div>
         </div>
-        <div class="mockup-frame">
-          <span class="mockup-placeholder">Forecast</span>
-        </div>
-        <div class="mockup-frame">
-          <span class="mockup-placeholder">Widgets</span>
-        </div>
+        <div class="mockup-reflection"></div>
       </div>
     </div>
   </section>
