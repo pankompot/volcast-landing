@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Regulamin — Volcast</title>
+  <meta name="description" content="Regulamin Volcast. Zapoznaj się z warunkami korzystania z aplikacji Volcast.">
+  <meta name="theme-color" content="#05070A">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg viewBox='0 0 80 80' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M18 18 L40 62 L62 18' stroke='%2300FF9D' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='40' cy='12' r='4' fill='%2300FF9D'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --canvas: #05070A;
+      --surface: #0F1218;
+      --surface-border: #1a1f2e;
+      --primary: #00FF9D;
+      --primary-dim: rgba(0, 255, 157, 0.6);
+      --primary-glow: rgba(0, 255, 157, 0.08);
+      --secondary: #818CF8;
+      --text-primary: #FFFFFF;
+      --text-secondary: #94A3B8;
+      --text-muted: #64748b;
+      --divider: #1e293b;
+      --font-display: 'Syne', sans-serif;
+      --font-body: 'DM Sans', system-ui, sans-serif;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body {
+      background: var(--canvas);
+      color: var(--text-secondary);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+    a { color: var(--primary); text-decoration: none; transition: opacity 0.2s; }
+    a:hover { opacity: 0.8; }
+    ::selection { background: rgba(0, 255, 157, 0.25); color: #fff; }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      pointer-events: none;
+      opacity: 0.03;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-repeat: repeat;
+      background-size: 256px 256px;
+    }
+
+    /* Nav */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 16px 0;
+      transition: background 0.3s, padding 0.3s, border-color 0.3s;
+      border-bottom: 1px solid transparent;
+    }
+    .nav.scrolled {
+      background: rgba(5, 7, 10, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      padding: 10px 0;
+      border-bottom-color: var(--surface-border);
+    }
+    .nav .container {
+      max-width: 1120px; margin: 0 auto; padding: 0 32px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-brand {
+      display: flex; align-items: center; gap: 10px;
+      color: var(--text-primary); font-weight: 700; font-size: 18px;
+    }
+    .nav-brand svg { width: 32px; height: 32px; }
+    .nav-back {
+      color: var(--text-secondary);
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .nav-back:hover { color: var(--primary); }
+
+    /* Content */
+    .container { max-width: 1120px; margin: 0 auto; padding: 0 32px; }
+    .legal-hero {
+      padding: 140px 0 60px;
+      text-align: center;
+    }
+    .legal-hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 12px;
+    }
+    .legal-hero .effective {
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+    .legal-content {
+      max-width: 760px;
+      margin: 0 auto;
+      padding-bottom: 100px;
+    }
+    .legal-content h2 {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-top: 48px;
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--divider);
+    }
+    .legal-content h3 {
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--primary-dim);
+      margin-top: 28px;
+      margin-bottom: 10px;
+    }
+    .legal-content p {
+      margin-bottom: 14px;
+    }
+    .legal-content ul, .legal-content ol {
+      margin-bottom: 14px;
+      padding-left: 24px;
+    }
+    .legal-content li {
+      margin-bottom: 6px;
+    }
+    .legal-content strong {
+      color: var(--text-primary);
+    }
+    .legal-content .highlight-box {
+      background: var(--primary-glow);
+      border: 1px solid var(--surface-border);
+      border-radius: var(--radius-md);
+      padding: 20px 24px;
+      margin: 20px 0;
+    }
+
+    /* Footer */
+    .footer {
+      border-top: 1px solid var(--divider);
+      padding: 32px 0;
+    }
+    .footer .container {
+      display: flex; align-items: center; justify-content: space-between;
+      font-size: 14px; color: var(--text-muted);
+    }
+    .footer-brand { display: flex; align-items: center; gap: 10px; }
+    .footer-brand svg { width: 24px; height: 24px; }
+    .footer-links { display: flex; list-style: none; gap: 24px; }
+    .footer-links a { color: var(--text-muted); }
+    .footer-links a:hover { color: var(--primary); }
+
+    @media (max-width: 768px) {
+      .legal-hero { padding: 120px 0 40px; }
+      .legal-content h2 { font-size: 19px; margin-top: 36px; }
+      .footer .container {
+        flex-direction: column; align-items: center; text-align: center; gap: 12px;
+      }
+    }
+
+    .lang-switch {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .lang-btn {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-muted);
+      padding: 4px 8px;
+      border-radius: 4px;
+      transition: color 0.2s, background 0.2s;
+    }
+    .lang-btn:hover {
+      color: var(--text-primary);
+      opacity: 1;
+    }
+    .lang-btn--active {
+      color: var(--primary);
+      background: rgba(0, 255, 157, 0.08);
+      pointer-events: none;
+    }
+    .lang-sep {
+      color: var(--text-muted);
+      font-size: 12px;
+      opacity: 0.3;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="container">
+      <a href="/pl/" class="nav-brand">
+        <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M18 18 L40 62 L62 18" stroke="#00FF9D" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="40" cy="12" r="4" fill="#00FF9D"/>
+        </svg>
+        <span>Volcast</span>
+      </a>
+      <div style="display:flex;align-items:center;gap:16px;">
+        <a href="/pl/" class="nav-back">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+          Powrót na stronę główną
+        </a>
+        <div class="lang-switch">
+          <span class="lang-btn lang-btn--active">PL</span>
+          <span class="lang-sep">|</span>
+          <a href="/terms" class="lang-btn" onclick="localStorage.setItem('volcast-lang','en')">EN</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <section class="legal-hero">
+    <div class="container">
+      <h1>Regulamin</h1>
+      <p class="effective">Data wejścia w życie: 7 lutego 2026 &middot; Ostatnia aktualizacja: 7 lutego 2026</p>
+    </div>
+  </section>
+
+  <div class="legal-content">
+    <div class="container">
+
+      <div class="highlight-box">
+        <strong>Podsumowanie:</strong> Korzystając z Volcast, akceptujesz niniejszy regulamin. Volcast dostarcza prognozy produkcji solarnej wyłącznie w celach informacyjnych. Prognozy nie są gwarantowane i nie powinny być jedyną podstawą decyzji finansowych lub operacyjnych.
+      </div>
+
+      <h2>1. Akceptacja regulaminu</h2>
+      <p>
+        Niniejszy Regulamin ("Regulamin") określa zasady korzystania z aplikacji mobilnej i strony internetowej Volcast ("Usługa") prowadzonej przez <strong>Volcast</strong> ("my", "nas", "nasz").
+      </p>
+      <p>
+        Tworząc konto, pobierając aplikację lub korzystając z jakiejkolwiek części Usługi, akceptujesz niniejszy Regulamin. Jeśli nie wyrażasz zgody, nie korzystaj z Usługi.
+      </p>
+
+      <h2>2. Opis usługi</h2>
+      <p>
+        Volcast to aplikacja do prognozowania produkcji energii słonecznej, która:
+      </p>
+      <ul>
+        <li>Generuje prognozy produkcji PV na podstawie konfiguracji systemu, lokalizacji i danych pogodowych</li>
+        <li>Oferuje automatyczną kalibrację w celu poprawy dokładności prognoz w czasie</li>
+        <li>Dostarcza inteligentne powiadomienia o zmianach prognozy i optymalnych oknach zużycia energii</li>
+      </ul>
+
+      <h2>3. Rejestracja konta</h2>
+      <h3>3.1 Wymagania</h3>
+      <p>
+        Aby utworzyć konto i korzystać z Usługi, musisz mieć ukończone <strong>16 lat</strong>. Rejestrując się, oświadczasz, że spełniasz ten wymóg.
+      </p>
+
+      <h3>3.2 Bezpieczeństwo konta</h3>
+      <p>Jesteś odpowiedzialny(-a) za:</p>
+      <ul>
+        <li>Podanie dokładnych i kompletnych danych rejestracyjnych</li>
+        <li>Zachowanie poufności danych logowania do konta</li>
+        <li>Wszelkie działania wykonywane na Twoim koncie</li>
+        <li>Niezwłoczne powiadomienie nas pod adresem <a href="mailto:hello@volcast.app">hello@volcast.app</a> o każdym nieautoryzowanym użyciu</li>
+      </ul>
+      <p>
+        Hasło musi zawierać co najmniej 8 znaków. Stosujemy ograniczenie liczby prób logowania w celu ochrony Twojego konta.
+      </p>
+
+      <h3>3.3 Jedno konto na osobę</h3>
+      <p>
+        Każda osoba może posiadać jedno konto. Zastrzegamy sobie prawo do scalania lub usuwania zduplikowanych kont.
+      </p>
+
+      <h2>4. Plan darmowy i premium</h2>
+
+      <h3>4.1 Plan darmowy</h3>
+      <p>Plan darmowy obejmuje:</p>
+      <ul>
+        <li>2-dniową prognozę produkcji PV</li>
+        <li>Podstawową konfigurację systemu</li>
+        <li>Ręczne wpisywanie produkcji</li>
+      </ul>
+
+      <h3>4.2 Plan premium</h3>
+      <p>Plan premium jest dostępny jako <strong>jednorazowy zakup</strong> (bez subskrypcji) i obejmuje:</p>
+      <ul>
+        <li>7-dniową prognozę produkcji PV</li>
+        <li>Funkcje automatycznej kalibracji</li>
+        <li>Wszystkie przyszłe funkcje premium</li>
+      </ul>
+
+      <h3>4.3 Zakupy</h3>
+      <p>
+        Zakupy premium są przetwarzane przez <strong>Apple App Store</strong> lub <strong>Google Play Store</strong>.
+        Wszystkie zakupy podlegają regulaminowi i polityce zwrotów danego sklepu:
+      </p>
+      <ul>
+        <li><strong>Apple:</strong> Wnioski o zwrot należy składać przez Apple. Zobacz <a href="https://support.apple.com/en-us/HT204084">politykę zwrotów Apple</a>.</li>
+        <li><strong>Google:</strong> Wnioski o zwrot należy składać przez Google Play. Zobacz <a href="https://support.google.com/googleplay/answer/2479637">politykę zwrotów Google</a>.</li>
+      </ul>
+      <p>Nie przetwarzamy płatności bezpośrednio i nie możemy dokonywać zwrotów poza mechanizmami sklepów z aplikacjami.</p>
+
+      <h2>5. Dopuszczalne użytkowanie</h2>
+      <p>Zobowiązujesz się <strong>nie</strong>:</p>
+      <ul>
+        <li>Korzystać z Usługi w celach niezgodnych z prawem</li>
+        <li>Podejmować prób uzyskania nieautoryzowanego dostępu do Usługi, innych kont lub naszych serwerów</li>
+        <li>Dokonywać inżynierii wstecznej, dekompilacji lub dezasemblacji aplikacji bądź jej usług backendowych</li>
+        <li>Scrapować, crawlować lub automatycznie wyciągać dane z Usługi</li>
+        <li>Wykorzystywać Usługi do wysyłania spamu, wiadomości phishingowych lub niechcianej korespondencji</li>
+        <li>Podszywać się pod inną osobę lub podmiot</li>
+        <li>Zakłócać działania Usługi lub serwerów</li>
+        <li>Obchodzić ograniczenia liczby zapytań, uwierzytelnianie lub inne zabezpieczenia</li>
+        <li>Udostępniać danych logowania innym osobom lub umożliwiać osobom trzecim dostęp do konta</li>
+        <li>Korzystać z Usługi za pośrednictwem automatycznych botów lub skryptów bez uprzedniej pisemnej zgody</li>
+      </ul>
+
+      <h2>6. Integracje z podmiotami trzecimi</h2>
+
+      <h3>6.1 Dane pogodowe</h3>
+      <p>
+        Generowanie prognoz opiera się na danych pogodowych od <strong>Open-Meteo</strong>, zewnętrznego dostawcy API pogodowego.
+        Dokładność i dostępność danych pogodowych pozostaje poza naszą kontrolą. Przerwy w działaniu usług dostawcy danych pogodowych mogą tymczasowo wpływać na dostępność prognoz.
+      </p>
+
+      <h3>6.2 Powiadomienia push</h3>
+      <p>
+        Powiadomienia push są dostarczane za pośrednictwem <strong>Expo Push Service</strong>, <strong>Firebase Cloud Messaging</strong> (Android) oraz <strong>Apple Push Notification Service</strong> (iOS).
+        Niezawodność dostarczania zależy od tych usług zewnętrznych, ustawień Twojego urządzenia oraz warunków sieciowych.
+      </p>
+
+      <h2>7. Własność intelektualna</h2>
+
+      <h3>7.1 Nasze prawa</h3>
+      <p>
+        Usługa, w tym jej projekt, kod, algorytmy, grafiki, logotypy, znaki towarowe i treści, stanowi własność intelektualną Volcast i jest chroniona stosownymi przepisami prawa autorskiego, prawa znaków towarowych oraz innymi przepisami dotyczącymi własności intelektualnej.
+      </p>
+
+      <h3>7.2 Twoje treści</h3>
+      <p>
+        Zachowujesz własność wszelkich danych, które przekazujesz do Usługi (konfiguracja systemu, dane produkcji, preferencje).
+        Korzystając z Usługi, udzielasz nam ograniczonej licencji na przetwarzanie tych danych wyłącznie w celu świadczenia i ulepszania Usługi.
+      </p>
+
+      <h3>7.3 Opinie</h3>
+      <p>
+        Jeśli przekażesz nam opinię, sugestie lub pomysły dotyczące Usługi, udzielasz nam niewyłącznej, nieodpłatnej, ogólnoświatowej licencji na wykorzystanie, modyfikację i włączenie takich opinii do Usługi bez jakichkolwiek zobowiązań wobec Ciebie.
+      </p>
+
+      <h2>8. Zastrzeżenia</h2>
+
+      <h3>8.1 Dokładność prognoz</h3>
+      <div class="highlight-box">
+        <strong>Prognozy produkcji solarnej są szacunkami opartymi na prognozach pogody i parametrach Twojego systemu. Nie jest gwarantowana ich dokładność.</strong> Rzeczywista produkcja może znacząco odbiegać od prognoz ze względu na zmienność pogody, zacienienie, awarie sprzętu, przerwy w sieci elektroenergetycznej lub inne czynniki pozostające poza naszą kontrolą.
+      </div>
+      <p>
+        Prognozy są dostarczane <strong>wyłącznie w celach informacyjnych</strong>. Nie podejmuj zobowiązań finansowych, decyzji dotyczących handlu energią ani kluczowych decyzji operacyjnych wyłącznie na podstawie prognoz Volcast.
+      </p>
+
+      <h3>8.2 Dostępność usługi</h3>
+      <p>
+        Usługa jest świadczona w stanie <strong>"takim, jaki jest" i "w miarę dostępności"</strong>, bez jakichkolwiek gwarancji, zarówno wyraźnych, dorozumianych, jak i ustawowych, w tym między innymi gwarancji przydatności handlowej, przydatności do określonego celu oraz nienaruszalności praw osób trzecich.
+      </p>
+      <p>Nie gwarantujemy, że Usługa będzie:</p>
+      <ul>
+        <li>Nieprzerwana, terminowa, bezpieczna lub wolna od błędów</li>
+        <li>Dokładna, niezawodna lub kompletna</li>
+        <li>Wolna od wirusów lub innych szkodliwych elementów</li>
+        <li>Dostępna we wszystkich regionach geograficznych</li>
+      </ul>
+
+      <h2>9. Ograniczenie odpowiedzialności</h2>
+      <p>
+        W maksymalnym zakresie dozwolonym przez obowiązujące prawo:
+      </p>
+      <ul>
+        <li>
+          <strong>Volcast nie ponosi odpowiedzialności</strong> za jakiekolwiek szkody pośrednie, uboczne, szczególne, wynikowe lub o charakterze karnym, w tym między innymi utratę zysków, danych, możliwości korzystania lub wartości firmy, wynikające z korzystania z Usługi lub związane z nim.
+        </li>
+        <li>
+          Nasza łączna odpowiedzialność z tytułu wszelkich roszczeń wynikających z Usługi lub z nią związanych nie przekroczy <strong>kwoty zapłaconej przez Ciebie za Usługę w ciągu 12 miesięcy poprzedzających roszczenie</strong> lub <strong>50 EUR</strong>, w zależności od tego, która wartość jest wyższa.
+        </li>
+        <li>
+          Nie ponosimy odpowiedzialności za szkody wynikające z: niedokładnych prognoz, błędów w danych pogodowych, awarii usług podmiotów trzecich, nieautoryzowanego dostępu spowodowanego brakiem zabezpieczenia danych logowania lub zdarzeń siły wyższej.
+        </li>
+      </ul>
+      <p>
+        Niektóre jurysdykcje nie zezwalają na wyłączenie lub ograniczenie określonych rodzajów szkód. W takich przypadkach nasza odpowiedzialność będzie ograniczona w najszerszym zakresie dozwolonym przez prawo.
+      </p>
+
+      <h2>10. Zwolnienie z odpowiedzialności</h2>
+      <p>
+        Zobowiązujesz się zwolnić z odpowiedzialności, bronić i chronić Volcast oraz jego przedstawicieli przed wszelkimi roszczeniami, szkodami, stratami, zobowiązaniami i wydatkami (w tym kosztami obsługi prawnej) wynikającymi z:
+      </p>
+      <ul>
+        <li>Twojego korzystania z Usługi</li>
+        <li>Naruszenia przez Ciebie niniejszego Regulaminu</li>
+        <li>Naruszenia przez Ciebie praw osób trzecich</li>
+        <li>Działań podjętych na Twoim koncie przez Ciebie lub osoby przez Ciebie upoważnione</li>
+      </ul>
+
+      <h2>11. Zamknięcie konta</h2>
+
+      <h3>11.1 Zamknięcie przez użytkownika</h3>
+      <p>
+        Możesz usunąć swoje konto w dowolnym momencie z poziomu <strong>Ustawienia &gt; Konto &gt; Usuń konto</strong> w aplikacji lub wysyłając wiadomość na adres <a href="mailto:hello@volcast.app">hello@volcast.app</a>.
+        Po usunięciu Twoje dane osobowe zostaną trwale usunięte z naszych serwerów w ciągu 30 dni, zgodnie z naszą <a href="/pl/privacy">Polityką prywatności</a>.
+      </p>
+
+      <h3>11.2 Zamknięcie przez nas</h3>
+      <p>Możemy zawiesić lub zamknąć Twoje konto, jeśli:</p>
+      <ul>
+        <li>Naruszysz niniejszy Regulamin lub naszą <a href="/pl/privacy">Politykę prywatności</a></li>
+        <li>Będziesz prowadzić działania oszukańcze, obraźliwe lub niezgodne z prawem</li>
+        <li>Podejmiesz próby obejścia zabezpieczeń lub nadużywania Usługi</li>
+        <li>Utworzysz wiele kont z naruszeniem punktu 3.3</li>
+      </ul>
+      <p>
+        Dołożymy rozsądnych starań, aby powiadomić Cię przed zamknięciem konta, z wyjątkiem przypadków poważnych naruszeń wymagających natychmiastowego działania. W razie zamknięcia konta przez nas możesz zażądać kopii swoich danych w ciągu 30 dni od zamknięcia.
+      </p>
+
+      <h3>11.3 Skutki zamknięcia</h3>
+      <p>Po zamknięciu konta:</p>
+      <ul>
+        <li>Twoje prawo do korzystania z Usługi natychmiast wygasa</li>
+        <li>Twoje dane zostaną usunięte zgodnie z naszą polityką przechowywania danych</li>
+        <li>Zakupy premium nie podlegają zwrotowi w przypadku zamknięcia konta z powodu naruszenia Regulaminu</li>
+        <li>Punkty 7, 8, 9, 10 i 13 obowiązują po zamknięciu konta</li>
+      </ul>
+
+      <h2>12. Zmiany w usłudze i regulaminie</h2>
+
+      <h3>12.1 Zmiany usługi</h3>
+      <p>
+        Zastrzegamy sobie prawo do modyfikacji, zawieszenia lub zaprzestania świadczenia dowolnej części Usługi w dowolnym momencie.
+        Poinformujemy z odpowiednim wyprzedzeniem o istotnych zmianach wpływających na korzystanie z Usługi.
+      </p>
+
+      <h3>12.2 Zmiany regulaminu</h3>
+      <p>
+        Możemy od czasu do czasu aktualizować niniejszy Regulamin. W przypadku istotnych zmian:
+      </p>
+      <ul>
+        <li>Zaktualizujemy datę "Ostatnia aktualizacja"</li>
+        <li>Powiadomimy Cię za pomocą powiadomienia push lub e-maila</li>
+        <li>Dalsze korzystanie z Usługi po upływie 30 dni oznacza akceptację zmian</li>
+      </ul>
+      <p>Jeśli nie zgadzasz się ze zaktualizowanym Regulaminem, powinieneś zaprzestać korzystania z Usługi i usunąć swoje konto.</p>
+
+      <h2>13. Prawo właściwe i spory</h2>
+      <p>
+        Niniejszy Regulamin podlega prawu <strong>Polska</strong> i jest zgodnie z nim interpretowany, z wyłączeniem norm kolizyjnych.
+      </p>
+      <p>
+        Wszelkie spory wynikające z niniejszego Regulaminu lub związane z Usługą będą rozstrzygane w następujący sposób:
+      </p>
+      <ol>
+        <li><strong>Rozwiązanie polubowne:</strong> Skontaktuj się z nami pod adresem <a href="mailto:hello@volcast.app">hello@volcast.app</a>, a podejmiemy próbę polubownego rozwiązania sporu w ciągu 30 dni.</li>
+        <li><strong>Platforma ODR UE:</strong> Konsumenci w UE mogą składać skargi za pośrednictwem <a href="https://ec.europa.eu/consumers/odr">platformy ODR UE</a>.</li>
+        <li><strong>Właściwość sądowa:</strong> Jeśli polubowne rozwiązanie się nie powiedzie, spory podlegają wyłącznej jurysdykcji sądów w Polsce.</li>
+      </ol>
+      <p>
+        Żadne z postanowień niniejszego Regulaminu nie ogranicza Twoich praw wynikających z bezwzględnie obowiązujących przepisów o ochronie konsumentów w Twoim kraju zamieszkania.
+      </p>
+
+      <h2>14. Postanowienia ogólne</h2>
+      <ul>
+        <li><strong>Całość porozumienia:</strong> Niniejszy Regulamin wraz z Polityką prywatności stanowią całość porozumienia między Tobą a Volcast w zakresie Usługi.</li>
+        <li><strong>Rozdzielność postanowień:</strong> Jeżeli którekolwiek postanowienie zostanie uznane za niewykonalne, pozostałe postanowienia zachowują pełną moc obowiązującą.</li>
+        <li><strong>Zrzeczenie się:</strong> Niewykonanie przez nas jakiegokolwiek prawa lub postanowienia nie stanowi zrzeczenia się tego prawa.</li>
+        <li><strong>Cesja:</strong> Nie możesz cedować ani przenosić swoich praw wynikających z niniejszego Regulaminu bez naszej zgody. Możemy cedować nasze prawa bez ograniczeń.</li>
+        <li><strong>Siła wyższa:</strong> Nie ponosimy odpowiedzialności za opóźnienia lub niewykonanie zobowiązań spowodowane zdarzeniami pozostającymi poza naszą rozsądną kontrolą, w tym klęskami żywiołowymi, wojną, pandemią, przerwami w dostawie energii elektrycznej lub awariami usług podmiotów trzecich.</li>
+      </ul>
+
+      <h2>15. Kontakt</h2>
+      <p>
+        W przypadku pytań dotyczących niniejszego Regulaminu:
+      </p>
+      <ul>
+        <li><strong>E-mail:</strong> <a href="mailto:hello@volcast.app">hello@volcast.app</a></li>
+        <li><strong>Strona internetowa:</strong> <a href="https://volcast.app">volcast.app</a></li>
+      </ul>
+
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-brand">
+        <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M18 18 L40 62 L62 18" stroke="#00FF9D" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="40" cy="12" r="4" fill="#00FF9D"/>
+        </svg>
+        <span><strong>Volcast</strong> — Aplikacja do prognozowania solarnego</span>
+      </div>
+      <ul class="footer-links">
+        <li><a href="mailto:hello@volcast.app">hello@volcast.app</a></li>
+        <li><a href="/pl/privacy">Polityka prywatności</a></li>
+        <li><a href="/pl/terms">Regulamin</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 40);
+    }, { passive: true });
+  </script>
+</body>
+</html>

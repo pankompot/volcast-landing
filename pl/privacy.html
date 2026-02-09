@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Polityka prywatności — Volcast</title>
+  <meta name="description" content="Polityka prywatności Volcast. Dowiedz się, jak zbieramy, wykorzystujemy i chronimy Twoje dane.">
+  <meta name="theme-color" content="#05070A">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg viewBox='0 0 80 80' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M18 18 L40 62 L62 18' stroke='%2300FF9D' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='40' cy='12' r='4' fill='%2300FF9D'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --canvas: #05070A;
+      --surface: #0F1218;
+      --surface-border: #1a1f2e;
+      --primary: #00FF9D;
+      --primary-dim: rgba(0, 255, 157, 0.6);
+      --primary-glow: rgba(0, 255, 157, 0.08);
+      --secondary: #818CF8;
+      --text-primary: #FFFFFF;
+      --text-secondary: #94A3B8;
+      --text-muted: #64748b;
+      --divider: #1e293b;
+      --font-display: 'Syne', sans-serif;
+      --font-body: 'DM Sans', system-ui, sans-serif;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body {
+      background: var(--canvas);
+      color: var(--text-secondary);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+    a { color: var(--primary); text-decoration: none; transition: opacity 0.2s; }
+    a:hover { opacity: 0.8; }
+    ::selection { background: rgba(0, 255, 157, 0.25); color: #fff; }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      pointer-events: none;
+      opacity: 0.03;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-repeat: repeat;
+      background-size: 256px 256px;
+    }
+
+    /* Nav */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 16px 0;
+      transition: background 0.3s, padding 0.3s, border-color 0.3s;
+      border-bottom: 1px solid transparent;
+    }
+    .nav.scrolled {
+      background: rgba(5, 7, 10, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      padding: 10px 0;
+      border-bottom-color: var(--surface-border);
+    }
+    .nav .container {
+      max-width: 1120px; margin: 0 auto; padding: 0 32px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-brand {
+      display: flex; align-items: center; gap: 10px;
+      color: var(--text-primary); font-weight: 700; font-size: 18px;
+    }
+    .nav-brand svg { width: 32px; height: 32px; }
+    .nav-back {
+      color: var(--text-secondary);
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .nav-back:hover { color: var(--primary); }
+
+    /* Content */
+    .container { max-width: 1120px; margin: 0 auto; padding: 0 32px; }
+    .legal-hero {
+      padding: 140px 0 60px;
+      text-align: center;
+    }
+    .legal-hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 12px;
+    }
+    .legal-hero .effective {
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+    .legal-content {
+      max-width: 760px;
+      margin: 0 auto;
+      padding-bottom: 100px;
+    }
+    .legal-content h2 {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-top: 48px;
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--divider);
+    }
+    .legal-content h3 {
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--primary-dim);
+      margin-top: 28px;
+      margin-bottom: 10px;
+    }
+    .legal-content p {
+      margin-bottom: 14px;
+    }
+    .legal-content ul, .legal-content ol {
+      margin-bottom: 14px;
+      padding-left: 24px;
+    }
+    .legal-content li {
+      margin-bottom: 6px;
+    }
+    .legal-content strong {
+      color: var(--text-primary);
+    }
+    .legal-content .highlight-box {
+      background: var(--primary-glow);
+      border: 1px solid var(--surface-border);
+      border-radius: var(--radius-md);
+      padding: 20px 24px;
+      margin: 20px 0;
+    }
+    .legal-content table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0 20px;
+      font-size: 14px;
+    }
+    .legal-content table th,
+    .legal-content table td {
+      text-align: left;
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--divider);
+    }
+    .legal-content table th {
+      color: var(--text-primary);
+      font-weight: 600;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .legal-content table tr:last-child td { border-bottom: none; }
+
+    /* Footer */
+    .footer {
+      border-top: 1px solid var(--divider);
+      padding: 32px 0;
+    }
+    .footer .container {
+      display: flex; align-items: center; justify-content: space-between;
+      font-size: 14px; color: var(--text-muted);
+    }
+    .footer-brand { display: flex; align-items: center; gap: 10px; }
+    .footer-brand svg { width: 24px; height: 24px; }
+    .footer-links { display: flex; list-style: none; gap: 24px; }
+    .footer-links a { color: var(--text-muted); }
+    .footer-links a:hover { color: var(--primary); }
+
+    @media (max-width: 768px) {
+      .legal-hero { padding: 120px 0 40px; }
+      .legal-content h2 { font-size: 19px; margin-top: 36px; }
+      .legal-content table { font-size: 13px; }
+      .legal-content table th, .legal-content table td { padding: 8px 10px; }
+      .footer .container {
+        flex-direction: column; align-items: center; text-align: center; gap: 12px;
+      }
+    }
+
+    .lang-switch {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .lang-btn {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-muted);
+      padding: 4px 8px;
+      border-radius: 4px;
+      transition: color 0.2s, background 0.2s;
+    }
+    .lang-btn:hover {
+      color: var(--text-primary);
+      opacity: 1;
+    }
+    .lang-btn--active {
+      color: var(--primary);
+      background: rgba(0, 255, 157, 0.08);
+      pointer-events: none;
+    }
+    .lang-sep {
+      color: var(--text-muted);
+      font-size: 12px;
+      opacity: 0.3;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="container">
+      <a href="/pl/" class="nav-brand">
+        <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M18 18 L40 62 L62 18" stroke="#00FF9D" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="40" cy="12" r="4" fill="#00FF9D"/>
+        </svg>
+        <span>Volcast</span>
+      </a>
+      <div style="display:flex;align-items:center;gap:16px;">
+        <a href="/pl/" class="nav-back">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+          Powrót na stronę główną
+        </a>
+        <div class="lang-switch">
+          <span class="lang-btn lang-btn--active">PL</span>
+          <span class="lang-sep">|</span>
+          <a href="/privacy" class="lang-btn" onclick="localStorage.setItem('volcast-lang','en')">EN</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <section class="legal-hero">
+    <div class="container">
+      <h1>Polityka prywatności</h1>
+      <p class="effective">Data wejścia w życie: 7 lutego 2026 &middot; Ostatnia aktualizacja: 7 lutego 2026</p>
+    </div>
+  </section>
+
+  <div class="legal-content">
+    <div class="container">
+
+      <div class="highlight-box">
+        <strong>Podsumowanie:</strong> Volcast to aplikacja do prognozowania solarnego. Zbieramy tylko dane niezbędne do dostarczania dokładnych prognoz PV i inteligentnych powiadomień. Nie używamy narzędzi analitycznych ani śledzących SDK, nie wyświetlamy reklam i nie sprzedajemy Twoich danych podmiotom trzecim.
+      </div>
+
+      <h2>1. Administrator danych</h2>
+      <p>
+        Administratorem danych w aplikacji Volcast jest <strong>Volcast</strong> ("my", "nas", "nasz").
+      </p>
+      <ul>
+        <li><strong>Adres e-mail:</strong> <a href="mailto:hello@volcast.app">hello@volcast.app</a></li>
+        <li><strong>Strona internetowa:</strong> <a href="https://volcast.app">volcast.app</a></li>
+      </ul>
+      <p>
+        W przypadku pytań dotyczących prywatności, wniosków o dostęp do danych lub skarg, prosimy o kontakt pod powyższym adresem e-mail.
+      </p>
+
+      <h2>2. Dane, które zbieramy</h2>
+
+      <h3>2.1 Dane konta</h3>
+      <p>Podczas tworzenia konta zbieramy:</p>
+      <ul>
+        <li><strong>Adres e-mail</strong> — używany do uwierzytelniania, odzyskiwania hasła i niezbędnej komunikacji dotyczącej usługi</li>
+        <li><strong>Hasło</strong> — przechowywane jako hash bcrypt; nigdy nie przechowujemy ani nie widzimy Twojego hasła w postaci jawnej</li>
+        <li><strong>Identyfikator konta Google</strong> — jeśli logujesz się przez Google OAuth (otrzymujemy Twoje imię i adres e-mail; nie uzyskujemy dostępu do Twoich kontaktów Google, kalendarza ani innych danych)</li>
+        <li><strong>Nazwa wyświetlana</strong> — opcjonalna, ustawiana przez Ciebie</li>
+      </ul>
+
+      <h3>2.2 Konfiguracja systemu PV</h3>
+      <p>Aby generować prognozy solarne, zbieramy szczegóły dotyczące Twojej instalacji fotowoltaicznej:</p>
+      <ul>
+        <li>Moc paneli (kWp), orientacja (azymut), kąt nachylenia</li>
+        <li>Liczba paneli, moc jednostkowa, technologia ogniw</li>
+        <li>Typ montażu, wiek instalacji, współczynniki wydajności</li>
+      </ul>
+
+      <h3>2.3 Dane lokalizacyjne</h3>
+      <p>
+        Prosimy o uprawnienie <strong>lokalizacji GPS na pierwszym planie</strong> podczas kreatora konfiguracji systemu, aby wykryć współrzędne Twojej instalacji PV. Jest to <strong>opcjonalne</strong> — możesz zamiast tego wprowadzić współrzędne ręcznie. Przechowujemy:
+      </p>
+      <ul>
+        <li>Szerokość i długość geograficzną oraz wysokość Twojej instalacji PV (zaokrąglone do ~11 m precyzji)</li>
+        <li>Nazwę lokalizacji (np. miasto lub adres podany przez Ciebie)</li>
+      </ul>
+      <p>
+        <strong>Nie</strong> śledzimy Twojej lokalizacji w czasie rzeczywistym, nie zbieramy danych lokalizacyjnych w tle ani nie tworzymy profili ruchu.
+        Dane lokalizacyjne są wykorzystywane wyłącznie do pobierania prognoz pogody dla Twojej instalacji z API pogodowego Open-Meteo.
+      </p>
+
+      <h3>2.4 Dane produkcji</h3>
+      <p>Jeśli ręcznie wprowadzasz rzeczywistą produkcję solarną w celach kalibracyjnych, przechowujemy:</p>
+      <ul>
+        <li>Dzienne wartości rzeczywistej produkcji (kWh) wraz z odpowiadającymi datami</li>
+        <li>Metryki kalibracji wynikające z porównania danych rzeczywistych z prognozowanymi</li>
+      </ul>
+
+      <h3>2.5 Preferencje i ustawienia</h3>
+      <ul>
+        <li>Preferowany język, strefa czasowa</li>
+        <li>Preferencje powiadomień (które alerty są włączone, progi, preferowana godzina alertu)</li>
+        <li>Wybrane urządzenia dla alertów okna produkcji</li>
+        <li>Stan ukończenia onboardingu/samouczka</li>
+      </ul>
+
+      <h3>2.6 Token powiadomień push</h3>
+      <p>
+        Jeśli włączysz powiadomienia, przechowujemy <strong>Expo Push Token</strong> Twojego urządzenia w celu dostarczania powiadomień push.
+        Token ten jest identyfikatorem urządzenia specyficznym dla naszej aplikacji — nie może być użyty do identyfikacji Ciebie ani śledzenia Cię w innych aplikacjach.
+      </p>
+
+      <h3>2.7 Informacje o zakupach</h3>
+      <p>
+        Zakupy premium są przetwarzane przez Apple App Store lub Google Play Store za pośrednictwem <strong>RevenueCat</strong>.
+        Przechowujemy jedynie status zakupu (premium lub darmowy) oraz uprawnienia. <strong>Nie</strong> przetwarzamy ani nie przechowujemy danych Twojej karty płatniczej — zajmują się tym wyłącznie Apple/Google.
+      </p>
+
+      <h3>2.8 E-mail z listy oczekujących</h3>
+      <p>
+        Jeśli dołączysz do naszej listy oczekujących na stronie głównej, zbieramy Twój adres e-mail oraz źródło (np. "landing").
+        Ten adres e-mail jest używany wyłącznie do powiadomienia Cię o uruchomieniu Volcast i wczesnym dostępie.
+      </p>
+
+      <h3>2.9 Dane, których NIE zbieramy</h3>
+      <div class="highlight-box">
+        <ul>
+          <li><strong>Nie</strong> używamy żadnych narzędzi analitycznych ani śledzących SDK (brak Google Analytics, Firebase Analytics, Amplitude, Mixpanel, Sentry ani podobnych)</li>
+          <li><strong>Nie</strong> wyświetlamy reklam ani nie korzystamy z sieci reklamowych</li>
+          <li><strong>Nie</strong> zbieramy historii przeglądania, kontaktów, zdjęć ani danych z mikrofonu/kamery</li>
+          <li><strong>Nie</strong> śledzimy Twojej lokalizacji w czasie rzeczywistym ani w tle</li>
+          <li><strong>Nie</strong> tworzymy profili reklamowych ani nie udostępniamy danych brokerom danych</li>
+        </ul>
+      </div>
+
+      <h2>3. Jak wykorzystujemy Twoje dane</h2>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Cel</th>
+            <th>Wykorzystywane dane</th>
+            <th>Podstawa prawna (RODO)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Tworzenie konta i uwierzytelnianie</td>
+            <td>E-mail, hash hasła, Google ID</td>
+            <td>Wykonanie umowy (art. 6 ust. 1 lit. b)</td>
+          </tr>
+          <tr>
+            <td>Prognozowanie produkcji PV</td>
+            <td>Konfiguracja systemu, lokalizacja, dane pogodowe</td>
+            <td>Wykonanie umowy (art. 6 ust. 1 lit. b)</td>
+          </tr>
+          <tr>
+            <td>Autokalibracja prognoz</td>
+            <td>Rzeczywiste dane produkcji, historyczne dane pogodowe</td>
+            <td>Wykonanie umowy (art. 6 ust. 1 lit. b)</td>
+          </tr>
+          <tr>
+            <td>Powiadomienia push</td>
+            <td>Token push, preferencje alertów, dane prognoz</td>
+            <td>Zgoda (art. 6 ust. 1 lit. a) — samodzielnie włączasz powiadomienia</td>
+          </tr>
+          <tr>
+            <td>Dostęp do funkcji premium</td>
+            <td>Status zakupu (przez RevenueCat)</td>
+            <td>Wykonanie umowy (art. 6 ust. 1 lit. b)</td>
+          </tr>
+          <tr>
+            <td>Zapis na listę oczekujących</td>
+            <td>Adres e-mail</td>
+            <td>Zgoda (art. 6 ust. 1 lit. a)</td>
+          </tr>
+          <tr>
+            <td>Debugowanie i niezawodność usługi</td>
+            <td>Logi błędów (zanonimizowane)</td>
+            <td>Prawnie uzasadniony interes (art. 6 ust. 1 lit. f)</td>
+          </tr>
+          <tr>
+            <td>Bezpieczeństwo (rate limiting, zapobieganie nadużyciom)</td>
+            <td>Liczba prób logowania, znaczniki czasu</td>
+            <td>Prawnie uzasadniony interes (art. 6 ust. 1 lit. f)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>4. Przechowywanie i bezpieczeństwo danych</h2>
+
+      <h3>4.1 Po stronie serwera</h3>
+      <ul>
+        <li>Wszystkie dane użytkowników są przechowywane w <strong>Supabase</strong> (hostowane na infrastrukturze AWS)</li>
+        <li>Wszystkie dane są przesyłane przez <strong>HTTPS/TLS</strong></li>
+        <li>Hasła są hashowane algorytmem <strong>bcrypt</strong> (wbudowany w Supabase Auth)</li>
+        <li>Wszystkie tabele bazy danych wymuszają <strong>Row-Level Security (RLS)</strong> — każdy użytkownik ma dostęp wyłącznie do swoich danych</li>
+        <li>Funkcje bazodanowe używają weryfikacji <code>auth.uid()</code> w celu zapobiegania nieautoryzowanemu dostępowi</li>
+        <li>Uwierzytelnianie wykorzystuje <strong>przepływ PKCE</strong> (Proof Key for Code Exchange)</li>
+      </ul>
+
+      <h3>4.2 Na urządzeniu</h3>
+      <ul>
+        <li>Tokeny uwierzytelniania są przechowywane w <strong>zaszyfrowanej bezpiecznej pamięci</strong> urządzenia (Keychain na iOS, Keystore na Androidzie)</li>
+        <li>Cache prognoz i preferencje UI są przechowywane w <strong>AsyncStorage</strong> (lokalna pamięć aplikacji, niedostępna dla innych aplikacji)</li>
+        <li>Wersje produkcyjne usuwają wszystkie <strong>logi konsolowe</strong>, aby zapobiec wyciekowi danych przez logi urządzenia</li>
+      </ul>
+
+      <h2>5. Okres przechowywania danych</h2>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Rodzaj danych</th>
+            <th>Okres przechowywania</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Dane konta i profilu</td>
+            <td>Do usunięcia konta</td>
+          </tr>
+          <tr>
+            <td>Konfiguracja systemu PV</td>
+            <td>Do usunięcia konta</td>
+          </tr>
+          <tr>
+            <td>Ręczne wpisy produkcji</td>
+            <td>Do usunięcia konta</td>
+          </tr>
+          <tr>
+            <td>Cache prognoz</td>
+            <td>15 minut (automatyczne odświeżanie)</td>
+          </tr>
+          <tr>
+            <td>Snapshoty prognoz</td>
+            <td>Do usunięcia konta</td>
+          </tr>
+          <tr>
+            <td>Logi kalibracji</td>
+            <td>Do usunięcia konta</td>
+          </tr>
+          <tr>
+            <td>E-mail z listy oczekujących</td>
+            <td>Do uruchomienia usługi lub rezygnacji z subskrypcji</td>
+          </tr>
+          <tr>
+            <td>Cache na urządzeniu (AsyncStorage)</td>
+            <td>Do odinstalowania aplikacji lub wyczyszczenia cache</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        Możesz usunąć swoje konto w dowolnym momencie w aplikacji, przechodząc do <strong>Ustawienia &gt; Konto &gt; Usuń konto</strong>.
+        Alternatywnie możesz poprosić o usunięcie konta, wysyłając e-mail na adres <a href="mailto:hello@volcast.app">hello@volcast.app</a>.
+        Po usunięciu wszystkie Twoje dane osobowe zostaną trwale usunięte z naszych serwerów w ciągu 30 dni.
+      </p>
+
+      <h2>6. Usługi podmiotów trzecich</h2>
+      <p>Udostępniamy dane następującym usługom podmiotów trzecich wyłącznie w zakresie niezbędnym do świadczenia naszych podstawowych funkcji:</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Usługa</th>
+            <th>Cel</th>
+            <th>Udostępniane dane</th>
+            <th>Lokalizacja</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Supabase</strong></td>
+            <td>Baza danych, uwierzytelnianie, funkcje serverless</td>
+            <td>Wszystkie dane konta i aplikacji</td>
+            <td>AWS (US/UE)</td>
+          </tr>
+          <tr>
+            <td><strong>Open-Meteo</strong></td>
+            <td>Prognozy pogody dla produkcji PV</td>
+            <td>Wyłącznie współrzędne instalacji</td>
+            <td>Niemcy (UE)</td>
+          </tr>
+          <tr>
+            <td><strong>Google OAuth</strong></td>
+            <td>Opcjonalna metoda logowania</td>
+            <td>E-mail, imię (od Google)</td>
+            <td>US</td>
+          </tr>
+          <tr>
+            <td><strong>Expo Push Service</strong></td>
+            <td>Dostarczanie powiadomień push</td>
+            <td>Token push, treść powiadomienia</td>
+            <td>US</td>
+          </tr>
+          <tr>
+            <td><strong>RevenueCat</strong></td>
+            <td>Zarządzanie zakupami w aplikacji</td>
+            <td>Anonimowy identyfikator użytkownika, status zakupu</td>
+            <td>US</td>
+          </tr>
+          <tr>
+            <td><strong>Apple App Store / Google Play</strong></td>
+            <td>Dystrybucja aplikacji, przetwarzanie płatności</td>
+            <td>Transakcje zakupowe</td>
+            <td>US</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>Nie udostępniamy, nie sprzedajemy, nie wypożyczamy ani nie wymieniamy Twoich danych osobowych z żadnymi innymi podmiotami trzecimi, brokerami danych ani sieciami reklamowymi.</p>
+
+      <h2>7. Międzynarodowe transfery danych</h2>
+      <p>
+        Niektórzy z naszych dostawców usług mają siedzibę poza Europejskim Obszarem Gospodarczym (EOG). Gdy Twoje dane są przekazywane poza EOG, zapewniamy odpowiednie zabezpieczenia:
+      </p>
+      <ul>
+        <li><strong>Standardowe klauzule umowne (SKU)</strong> — przyjęte przez Komisję Europejską, obowiązują w relacjach z naszymi dostawcami usług z siedzibą w USA (Supabase, Expo, RevenueCat)</li>
+        <li><strong>Ramy ochrony danych UE-USA</strong> — w stosownych przypadkach nasi dostawcy usług uczestniczą w ramach i posiadają certyfikat zgodności</li>
+        <li><strong>Decyzje o adekwatności</strong> — dane udostępniane Open-Meteo pozostają w UE (Niemcy)</li>
+      </ul>
+
+      <h2>8. Twoje prawa (RODO)</h2>
+      <p>Na mocy Ogólnego rozporządzenia o ochronie danych przysługują Ci następujące prawa:</p>
+      <ul>
+        <li><strong>Prawo dostępu</strong> (art. 15) — żądanie kopii wszystkich danych osobowych, które posiadamy na Twój temat</li>
+        <li><strong>Prawo do sprostowania</strong> (art. 16) — poprawianie niedokładnych lub niekompletnych danych</li>
+        <li><strong>Prawo do usunięcia</strong> (art. 17) — żądanie usunięcia Twoich danych osobowych ("prawo do bycia zapomnianym")</li>
+        <li><strong>Prawo do ograniczenia przetwarzania</strong> (art. 18) — żądanie ograniczenia przetwarzania Twoich danych</li>
+        <li><strong>Prawo do przenoszenia danych</strong> (art. 20) — otrzymanie Twoich danych w ustrukturyzowanym formacie nadającym się do odczytu maszynowego</li>
+        <li><strong>Prawo do sprzeciwu</strong> (art. 21) — sprzeciw wobec przetwarzania opartego na prawnie uzasadnionym interesie</li>
+        <li><strong>Prawo do wycofania zgody</strong> (art. 7 ust. 3) — wycofanie zgody w dowolnym momencie w przypadku przetwarzania opartego na zgodzie (np. powiadomienia push)</li>
+      </ul>
+      <p>
+        Aby skorzystać z któregokolwiek z tych praw, napisz do nas na adres <a href="mailto:hello@volcast.app">hello@volcast.app</a>.
+        Odpowiemy w ciągu <strong>30 dni</strong>. Jeśli będziemy potrzebować dodatkowego czasu (do 60 dodatkowych dni w przypadku złożonych wniosków), poinformujemy Cię o tym.
+      </p>
+      <p>
+        Masz również prawo złożyć skargę do właściwego organu ochrony danych osobowych. W Polsce jest to
+        <strong>Prezes Urzędu Ochrony Danych Osobowych (UODO)</strong>
+        (<a href="https://uodo.gov.pl">uodo.gov.pl</a>).
+      </p>
+
+      <h2>9. Pliki cookie i pamięć lokalna</h2>
+      <p>
+        <strong>Aplikacja mobilna Volcast nie używa plików cookie.</strong>
+      </p>
+      <p>
+        Strona internetowa Volcast (volcast.app) nie używa plików cookie ani skryptów śledzących podmiotów trzecich. Formularz listy oczekujących komunikuje się bezpośrednio z naszym API bazy danych.
+      </p>
+      <p>
+        Na urządzeniu aplikacja wykorzystuje natywne mechanizmy przechowywania danych platformy (AsyncStorage, SecureStore) do buforowania prognoz, przechowywania sesji i zapamiętywania preferencji. Dane te nigdy nie opuszczają Twojego urządzenia, z wyjątkiem tokenów uwierzytelniania wysyłanych do naszych serwerów przez HTTPS.
+      </p>
+
+      <h2>10. Prywatność dzieci</h2>
+      <p>
+        Volcast nie jest przeznaczony do użytku przez dzieci poniżej <strong>16</strong> roku życia. Nie zbieramy świadomie danych osobowych od dzieci poniżej 16 lat. Jeśli jesteś rodzicem lub opiekunem i uważasz, że Twoje dziecko przekazało nam dane osobowe, prosimy o kontakt pod adresem <a href="mailto:hello@volcast.app">hello@volcast.app</a>, a niezwłocznie usuniemy te dane.
+      </p>
+
+      <h2>11. Zmiany w niniejszej polityce</h2>
+      <p>
+        Możemy od czasu do czasu aktualizować niniejszą Politykę prywatności. W przypadku istotnych zmian:
+      </p>
+      <ul>
+        <li>Zaktualizujemy datę "Ostatnia aktualizacja" na górze tej strony</li>
+        <li>Powiadomimy Cię za pomocą powiadomienia push lub e-maila w przypadku istotnych zmian</li>
+        <li>Udostępnimy poprzednią wersję do porównania na życzenie</li>
+      </ul>
+      <p>Dalsze korzystanie z Volcast po wprowadzeniu zmian oznacza akceptację zaktualizowanej polityki.</p>
+
+      <h2>12. Kontakt</h2>
+      <p>
+        Jeśli masz pytania dotyczące niniejszej Polityki prywatności lub sposobu przetwarzania Twoich danych:
+      </p>
+      <ul>
+        <li><strong>E-mail:</strong> <a href="mailto:hello@volcast.app">hello@volcast.app</a></li>
+        <li><strong>Strona internetowa:</strong> <a href="https://volcast.app">volcast.app</a></li>
+      </ul>
+
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-brand">
+        <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M18 18 L40 62 L62 18" stroke="#00FF9D" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="40" cy="12" r="4" fill="#00FF9D"/>
+        </svg>
+        <span><strong>Volcast</strong> — Aplikacja do prognozowania solarnego</span>
+      </div>
+      <ul class="footer-links">
+        <li><a href="mailto:hello@volcast.app">hello@volcast.app</a></li>
+        <li><a href="/pl/privacy">Polityka prywatności</a></li>
+        <li><a href="/pl/terms">Regulamin</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 40);
+    }, { passive: true });
+  </script>
+</body>
+</html>

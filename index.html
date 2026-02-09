@@ -933,6 +933,36 @@
       .store-badge-text small { font-size: 8px; }
       .store-badges-row { gap: 8px; }
     }
+    /* Language switcher */
+    .lang-switch {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      margin-left: 8px;
+    }
+    .lang-btn {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-muted);
+      padding: 4px 8px;
+      border-radius: 4px;
+      transition: color 0.2s, background 0.2s;
+    }
+    .lang-btn:hover {
+      color: var(--text-primary);
+      opacity: 1;
+    }
+    .lang-btn--active {
+      color: var(--primary);
+      background: rgba(0, 255, 157, 0.08);
+      pointer-events: none;
+    }
+    .lang-sep {
+      color: var(--text-muted);
+      font-size: 12px;
+      opacity: 0.3;
+    }
+
     @media (max-width: 480px) {
       .hero { padding: 100px 20px 60px; }
       .section { padding: 64px 0; }
@@ -976,6 +1006,11 @@
         <li><a href="#faq">FAQ</a></li>
         <li><a href="#newsletter" class="nav-cta">Join Waitlist</a></li>
       </ul>
+      <div class="lang-switch">
+        <span class="lang-btn lang-btn--active">EN</span>
+        <span class="lang-sep">|</span>
+        <a href="/pl/" class="lang-btn" onclick="localStorage.setItem('volcast-lang','pl')">PL</a>
+      </div>
     </div>
   </nav>
 
@@ -1269,6 +1304,20 @@
        JS — nav scroll, mobile toggle, FAQ accordion, scroll reveal, newsletter
        ============================================================ -->
   <script>
+    // Auto-detect language on first visit
+    (function() {
+      var pref = localStorage.getItem('volcast-lang');
+      if (!pref && navigator.language.startsWith('pl')) {
+        localStorage.setItem('volcast-lang', 'pl');
+        window.location.replace('/pl/');
+        return;
+      }
+      if (pref === 'pl') {
+        window.location.replace('/pl/');
+        return;
+      }
+    })();
+
     // Nav scroll effect
     const nav = document.getElementById('nav');
     window.addEventListener('scroll', () => {
