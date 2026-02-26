@@ -336,6 +336,52 @@
       });
     }, { threshold: 0.1 });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Waitlist — zapis do Supabase
+    const SUPABASE_URL = 'https://jzihchpmkhawegqcfbeo.supabase.co';
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp6aWhjaHBta2hhd2VncWNmYmVvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjgxMjk3MjQsImV4cCI6MjA4MzcwNTcyNH0.3_JqkMh-D2nfx5J1pDtWTf4Z2pqtwetS_OLFtqdKvvA';
+
+    document.getElementById('newsletterForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = e.target.querySelector('.newsletter-btn');
+      const input = e.target.querySelector('.newsletter-input');
+      const email = input.value.trim();
+      if (!email) return;
+
+      btn.disabled = true;
+      btn.textContent = 'Zapisuję...';
+
+      try {
+        const res = await fetch(`${SUPABASE_URL}/rest/v1/waitlist`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'apikey': SUPABASE_ANON_KEY,
+            'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+            'Prefer': 'return=minimal',
+          },
+          body: JSON.stringify({ email, source: 'landing_pl' }),
+        });
+
+        if (res.ok || res.status === 201) {
+          e.target.style.display = 'none';
+          document.getElementById('newsletterSuccess').style.display = 'block';
+        } else if (res.status === 409) {
+          e.target.style.display = 'none';
+          const msg = document.getElementById('newsletterSuccess');
+          msg.textContent = 'Jesteś już na liście! Odezwiemy się niebawem.';
+          msg.style.display = 'block';
+        } else {
+          throw new Error(`HTTP ${res.status}`);
+        }
+      } catch (err) {
+        btn.disabled = false;
+        btn.textContent = 'Zapisz mnie';
+        input.style.borderColor = 'var(--error)';
+        input.placeholder = 'Coś poszło nie tak — spróbuj ponownie';
+        input.value = '';
+      }
+    });
   </script>
 </body>
 </html>
