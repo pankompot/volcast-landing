@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Delete Account — Volcast</title>
+  <meta name="description" content="Request deletion of your Volcast account and all associated data.">
+  <meta name="theme-color" content="#05070A">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg viewBox='0 0 80 80' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M18 18 L40 62 L62 18' stroke='%2300FF9D' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='40' cy='12' r='4' fill='%2300FF9D'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --canvas: #05070A;
+      --surface: #0F1218;
+      --surface-border: #1a1f2e;
+      --primary: #00FF9D;
+      --primary-dim: rgba(0, 255, 157, 0.6);
+      --primary-glow: rgba(0, 255, 157, 0.08);
+      --secondary: #818CF8;
+      --text-primary: #FFFFFF;
+      --text-secondary: #94A3B8;
+      --text-muted: #64748b;
+      --divider: #1e293b;
+      --danger: #EF4444;
+      --danger-dim: rgba(239, 68, 68, 0.15);
+      --font-display: 'Syne', sans-serif;
+      --font-body: 'DM Sans', system-ui, sans-serif;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body {
+      background: var(--canvas);
+      color: var(--text-secondary);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+    a { color: var(--primary); text-decoration: none; transition: opacity 0.2s; }
+    a:hover { opacity: 0.8; }
+    ::selection { background: rgba(0, 255, 157, 0.25); color: #fff; }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      pointer-events: none;
+      opacity: 0.03;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-repeat: repeat;
+      background-size: 256px 256px;
+    }
+
+    /* Nav */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 16px 0;
+      transition: background 0.3s, padding 0.3s, border-color 0.3s;
+      border-bottom: 1px solid transparent;
+    }
+    .nav.scrolled {
+      background: rgba(5, 7, 10, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      padding: 10px 0;
+      border-bottom-color: var(--surface-border);
+    }
+    .nav .container {
+      max-width: 1120px; margin: 0 auto; padding: 0 32px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-brand {
+      display: flex; align-items: center; gap: 10px;
+      color: var(--text-primary); font-weight: 700; font-size: 18px;
+    }
+    .nav-brand svg { width: 32px; height: 32px; }
+    .nav-back {
+      color: var(--text-secondary);
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .nav-back:hover { color: var(--primary); }
+
+    /* Content */
+    .container { max-width: 1120px; margin: 0 auto; padding: 0 32px; }
+    .legal-hero {
+      padding: 140px 0 60px;
+      text-align: center;
+    }
+    .legal-hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 12px;
+    }
+    .legal-hero .effective {
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+    .legal-content {
+      max-width: 760px;
+      margin: 0 auto;
+      padding-bottom: 100px;
+    }
+    .legal-content h2 {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-top: 48px;
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--divider);
+    }
+    .legal-content h3 {
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--primary-dim);
+      margin-top: 28px;
+      margin-bottom: 10px;
+    }
+    .legal-content p {
+      margin-bottom: 14px;
+    }
+    .legal-content ul, .legal-content ol {
+      margin-bottom: 14px;
+      padding-left: 24px;
+    }
+    .legal-content li {
+      margin-bottom: 6px;
+    }
+    .legal-content strong {
+      color: var(--text-primary);
+    }
+    .legal-content .highlight-box {
+      background: var(--primary-glow);
+      border: 1px solid var(--surface-border);
+      border-radius: var(--radius-md);
+      padding: 20px 24px;
+      margin: 20px 0;
+    }
+    .legal-content .danger-box {
+      background: var(--danger-dim);
+      border: 1px solid rgba(239, 68, 68, 0.3);
+      border-radius: var(--radius-md);
+      padding: 20px 24px;
+      margin: 20px 0;
+    }
+    .legal-content .danger-box strong {
+      color: var(--danger);
+    }
+    .legal-content table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0 20px;
+      font-size: 14px;
+    }
+    .legal-content table th,
+    .legal-content table td {
+      text-align: left;
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--divider);
+    }
+    .legal-content table th {
+      color: var(--text-primary);
+      font-weight: 600;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .legal-content table tr:last-child td { border-bottom: none; }
+
+    /* Footer */
+    .footer {
+      border-top: 1px solid var(--divider);
+      padding: 32px 0;
+    }
+    .footer .container {
+      display: flex; align-items: center; justify-content: space-between;
+      font-size: 14px; color: var(--text-muted);
+    }
+    .footer-brand { display: flex; align-items: center; gap: 10px; }
+    .footer-brand svg { width: 24px; height: 24px; }
+    .footer-links { display: flex; list-style: none; gap: 24px; }
+    .footer-links a { color: var(--text-muted); }
+    .footer-links a:hover { color: var(--primary); }
+
+    /* Language switcher */
+    .lang-switch {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .lang-btn {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-muted);
+      padding: 4px 8px;
+      border-radius: 4px;
+      transition: color 0.2s, background 0.2s;
+    }
+    .lang-btn:hover {
+      color: var(--text-primary);
+      opacity: 1;
+    }
+    .lang-btn--active {
+      color: var(--primary);
+      background: rgba(0, 255, 157, 0.08);
+      pointer-events: none;
+    }
+    .lang-sep {
+      color: var(--text-muted);
+      font-size: 12px;
+      opacity: 0.3;
+    }
+
+    /* Steps */
+    .steps {
+      counter-reset: step;
+      list-style: none;
+      padding-left: 0;
+    }
+    .steps li {
+      counter-increment: step;
+      position: relative;
+      padding-left: 48px;
+      margin-bottom: 20px;
+    }
+    .steps li::before {
+      content: counter(step);
+      position: absolute;
+      left: 0;
+      top: 2px;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--primary-glow);
+      border: 1px solid var(--surface-border);
+      color: var(--primary);
+      font-weight: 700;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @media (max-width: 768px) {
+      .legal-hero { padding: 120px 0 40px; }
+      .legal-content h2 { font-size: 19px; margin-top: 36px; }
+      .legal-content table { font-size: 13px; }
+      .legal-content table th, .legal-content table td { padding: 8px 10px; }
+      .footer .container {
+        flex-direction: column; align-items: center; text-align: center; gap: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="container">
+      <a href="/" class="nav-brand">
+        <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M18 18 L40 62 L62 18" stroke="#00FF9D" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="40" cy="12" r="4" fill="#00FF9D"/>
+        </svg>
+        <span>Volcast</span>
+      </a>
+      <div style="display:flex;align-items:center;gap:16px;">
+        <a href="/" class="nav-back">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+          Back to home
+        </a>
+        <div class="lang-switch">
+          <span class="lang-btn lang-btn--active">EN</span>
+          <span class="lang-sep">|</span>
+          <a href="/pl/delete-account" class="lang-btn" onclick="localStorage.setItem('volcast-lang','pl')">PL</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <section class="legal-hero">
+    <div class="container">
+      <h1>Delete Your Account</h1>
+      <p class="effective">Request permanent deletion of your Volcast account and all associated data</p>
+    </div>
+  </section>
+
+  <div class="legal-content">
+    <div class="container">
+
+      <div class="highlight-box">
+        <strong>Your data, your choice.</strong> Volcast allows you to delete your account and all associated data at any time, either directly from the app or by contacting us via email.
+      </div>
+
+      <h2>Option 1: Delete from the App</h2>
+      <p>The fastest way to delete your account is directly within the Volcast app:</p>
+      <ol class="steps">
+        <li>Open the <strong>Volcast</strong> app on your device</li>
+        <li>Go to the <strong>Settings</strong> tab (gear icon)</li>
+        <li>Scroll down to the <strong>Account</strong> section</li>
+        <li>Tap <strong>Delete Account</strong></li>
+        <li>Confirm the deletion when prompted</li>
+      </ol>
+      <p>Your account and all data will be permanently deleted immediately.</p>
+
+      <h2>Option 2: Request Deletion via Email</h2>
+      <p>
+        If you no longer have access to the app or prefer to request deletion manually, send an email to:
+      </p>
+      <div class="highlight-box">
+        <strong>Email:</strong> <a href="mailto:hello@volcast.app?subject=Account%20Deletion%20Request">hello@volcast.app</a><br>
+        <strong>Subject:</strong> Account Deletion Request<br><br>
+        Please include the <strong>email address</strong> associated with your Volcast account so we can locate and delete your data. We will process your request within <strong>3 business days</strong> and send a confirmation email once completed.
+      </div>
+
+      <h2>What Data Is Deleted</h2>
+      <p>When you delete your account, <strong>all</strong> of the following data is permanently removed from our servers:</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Data Category</th>
+            <th>Details</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Account &amp; profile</td>
+            <td>Email, display name, language, preferences</td>
+          </tr>
+          <tr>
+            <td>PV system configuration</td>
+            <td>Panel strings, inverter settings, location</td>
+          </tr>
+          <tr>
+            <td>Production data</td>
+            <td>Manual production entries, calibration logs</td>
+          </tr>
+          <tr>
+            <td>Forecast data</td>
+            <td>Cached forecasts, forecast snapshots</td>
+          </tr>
+          <tr>
+            <td>Notification settings</td>
+            <td>Alert preferences, push tokens (all devices)</td>
+          </tr>
+          <tr>
+            <td>Appliance preferences</td>
+            <td>Smart scheduling device selections</td>
+          </tr>
+          <tr>
+            <td>Purchase data</td>
+            <td>RevenueCat subscriber record removed</td>
+          </tr>
+          <tr>
+            <td>Authentication</td>
+            <td>Auth user account permanently deleted</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="danger-box">
+        <strong>This action is irreversible.</strong> Once your account is deleted, your data cannot be recovered. If you purchased Volcast Premium, your purchase history is retained by Apple/Google as part of their transaction records, but your Volcast subscriber profile is removed.
+      </div>
+
+      <h2>Data Retained by Third Parties</h2>
+      <p>
+        While we delete all data from our own servers, certain third-party services may retain minimal records according to their own policies:
+      </p>
+      <ul>
+        <li><strong>Apple App Store / Google Play</strong> — purchase transaction records (managed by Apple/Google, not by Volcast)</li>
+        <li><strong>Crisp Chat</strong> — if you contacted support, your chat history may be retained under Crisp's data retention policy</li>
+      </ul>
+      <p>We do not control data held by these third parties. You may contact them directly to request deletion under their respective privacy policies.</p>
+
+      <h2>Questions?</h2>
+      <p>
+        If you have any questions about account deletion or your data:
+      </p>
+      <ul>
+        <li><strong>Email:</strong> <a href="mailto:hello@volcast.app">hello@volcast.app</a></li>
+        <li><strong>Privacy Policy:</strong> <a href="/privacy">volcast.app/privacy</a></li>
+      </ul>
+
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-brand">
+        <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M18 18 L40 62 L62 18" stroke="#00FF9D" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="40" cy="12" r="4" fill="#00FF9D"/>
+        </svg>
+        <span><strong>Volcast</strong> — Solar forecasting app</span>
+      </div>
+      <ul class="footer-links">
+        <li><a href="mailto:hello@volcast.app">hello@volcast.app</a></li>
+        <li><a href="/privacy">Privacy Policy</a></li>
+        <li><a href="/terms">Terms of Service</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 40);
+    }, { passive: true });
+  </script>
+</body>
+</html>
