@@ -360,7 +360,7 @@
             'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
             'Prefer': 'return=minimal',
           },
-          body: JSON.stringify({ email, source: 'landing_pl' }),
+          body: JSON.stringify({ email, source: 'landing' }),
         });
 
         if (res.ok || res.status === 201) {
