@@ -142,10 +142,15 @@
       transform: translateY(32px);
       transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
                   transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+      animation: revealFallback 0s 2s forwards;
     }
     .reveal.visible {
       opacity: 1;
       transform: translateY(0);
+      animation: none;
+    }
+    @keyframes revealFallback {
+      to { opacity: 1; transform: translateY(0); }
     }
 
     /* ================================================================
@@ -1039,6 +1044,9 @@
       .section { padding: 80px 0; }
       .nav-links { display: none; }
       .nav-toggle { display: block; }
+      .lang-trigger span { display: none; }
+      .lang-trigger { padding: 6px 8px; }
+      .lang-chevron { display: none; }
       .nav-links.open {
         display: flex;
         flex-direction: column;
@@ -1637,7 +1645,7 @@ curl -H <span class="code-str">"X-API-Key: vk_your_api_key"</span> \
         }
       }).catch(function() {
         btn.disabled = false;
-        btn.textContent = 'M'informer';
+        btn.textContent = 'M\'informer';
         input.style.borderColor = 'var(--error)';
         input.placeholder = 'Une erreur est survenue — réessayez';
         input.value = '';

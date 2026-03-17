@@ -142,10 +142,15 @@
       transform: translateY(32px);
       transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
                   transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+      animation: revealFallback 0s 2s forwards;
     }
     .reveal.visible {
       opacity: 1;
       transform: translateY(0);
+      animation: none;
+    }
+    @keyframes revealFallback {
+      to { opacity: 1; transform: translateY(0); }
     }
 
     /* ================================================================
@@ -1039,6 +1044,9 @@
       .section { padding: 80px 0; }
       .nav-links { display: none; }
       .nav-toggle { display: block; }
+      .lang-trigger span { display: none; }
+      .lang-trigger { padding: 6px 8px; }
+      .lang-chevron { display: none; }
       .nav-links.open {
         display: flex;
         flex-direction: column;
@@ -1630,7 +1638,7 @@ curl -H <span class="code-str">"X-API-Key: vk_your_api_key"</span> \
           e.target.style.display = 'none';
           document.querySelector('.ios-note').style.display = 'none';
           var msg = document.getElementById('iosSuccess');
-          msg.textContent = 'You're already on the list! We'll be in touch.';
+          msg.textContent = 'You\'re already on the list! We\'ll be in touch.';
           msg.style.display = 'block';
         } else {
           throw new Error('HTTP ' + res.status);

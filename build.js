@@ -69,7 +69,13 @@ for (const locale of LOCALES) {
   // Inject language switcher options
   html = html.replace('{{LANG_SWITCHER_OPTIONS}}', langSwitcherOptions(locale));
 
-  // Replace all {{t.xxx.yyy}} with translation values
+  // Replace {{tj.xxx.yyy}} — JS-safe (escapes single quotes for use in JS strings)
+  html = html.replace(/\{\{tj\.([a-zA-Z0-9_.]+)\}\}/g, (_match, key) => {
+    const val = resolve(t, key) ?? resolve(translations['en'], key) ?? `[${key}]`;
+    return String(val).replace(/\\/g, '\\\\').replace(/'/g, "\\'");
+  });
+
+  // Replace all {{t.xxx.yyy}} with translation values (HTML context)
   html = html.replace(/\{\{t\.([a-zA-Z0-9_.]+)\}\}/g, (_match, key) => {
     const val = resolve(t, key);
     if (val === null) {
