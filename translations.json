@@ -1,0 +1,1574 @@
+{
+  "en": {
+    "meta": {
+      "title": "Volcast — Solar Forecasting App",
+      "description": "Predict your solar production with an advanced physical engine. No inverter login required. Satellite data + physics = precision.",
+      "ogTitle": "Volcast — Solar Forecasting App",
+      "ogDescription": "Predict your solar production with physics. No inverter login, no API keys. Just your panel parameters and satellite weather data."
+    },
+    "nav": {
+      "features": "Features",
+      "howItWorks": "How it works",
+      "homeAssistant": "Home Assistant",
+      "faq": "FAQ",
+      "getApp": "Get the App",
+      "changeLanguage": "Change language"
+    },
+    "hero": {
+      "title": "Predict solar production<br>with <em>physics</em>",
+      "desc": "Advanced Physical Engine. No inverter cloud login. No API keys. Enter your panel parameters — azimuth, tilt, peak power — and get precision forecasts powered by satellite data and physics.",
+      "cta": "Get on Google Play",
+      "note": "Available on Android. iOS coming soon.",
+      "comingSoon": "Coming soon",
+      "googlePlay": {
+        "small": "Get it on"
+      }
+    },
+    "features": {
+      "label": "Features",
+      "title": "Advanced Physical Engine",
+      "desc": "No inverter cloud login or API keys required. Just enter your system parameters and let physics do the work.",
+      "engine": {
+        "title": "Physics-Based Forecasting",
+        "desc": "Hourly and daily PV production forecasts using a full irradiance model, spectral corrections, and real satellite weather data. No hardware connection needed."
+      },
+      "calibration": {
+        "title": "Auto-Calibration",
+        "desc": "Log your actual production and the Kalman filter learns your system over time. The more data points, the more precise the predictions become."
+      },
+      "notifications": {
+        "title": "Smart Notifications",
+        "desc": "Get alerted when tomorrow's forecast changes significantly or when it's the best time to run heavy appliances. Never miss a sunny window."
+      },
+      "widgets": {
+        "title": "Home Screen Widgets",
+        "desc": "Glanceable widgets for Android and iOS showing today's forecast, tomorrow's outlook, and a multi-day overview — without opening the app."
+      }
+    },
+    "howItWorks": {
+      "label": "How it works",
+      "title": "Up and running in minutes",
+      "desc": "No inverter login. No cloud API. Just describe your panels and start forecasting.",
+      "step1": {
+        "title": "Enter your panel parameters",
+        "desc": "Azimuth, tilt angle, peak power, multi-string setup, bifacial factor, and horizon shading profile. That's all we need."
+      },
+      "step2": {
+        "title": "Get your forecast",
+        "desc": "Volcast combines satellite weather data with the physical model of your system to predict hourly and daily production."
+      },
+      "step3": {
+        "title": "Calibrate & optimize",
+        "desc": "Log actual production and the model auto-calibrates. Set up notifications and widgets to stay ahead."
+      }
+    },
+    "screenshots": {
+      "label": "Preview",
+      "title": "Designed for clarity",
+      "desc": "A dark, focused interface that puts your energy data front and center.",
+      "widgetsLabel": "Widgets",
+      "forecastLabel": "Forecast",
+      "notificationsLabel": "Notifications",
+      "widgetsAlt": "Volcast home screen widgets showing today and tomorrow forecast with multi-day chart",
+      "forecastAlt": "Volcast 7-day solar forecast with hourly power breakdown and peak production data",
+      "notificationsAlt": "Volcast forecast change notification and panel configuration"
+    },
+    "ha": {
+      "badge": "Home Assistant Integration",
+      "title": "Push your forecast to Home Assistant",
+      "desc": "Volcast exposes a REST API that delivers your solar forecast in a format Home Assistant understands natively. Add it as a sensor, visualize it on the Energy Dashboard, and build automations around your production schedule.",
+      "note": "Generate your API key in the Volcast app (Premium). No hardware access, no cloud polling — the data comes directly from the Volcast engine.",
+      "curlTitle": "Fetch your forecast",
+      "curlComment": "Single API call returns daily + hourly + 5-min data",
+      "yamlTitle": "Home Assistant sensor",
+      "jsonTitle": "API response",
+      "hourlyComment": "24 hourly entries per day",
+      "detailedComment": "288 five-minute entries per day"
+    },
+    "trust": {
+      "noTracking": "Zero Tracking",
+      "noTrackingDesc": "No analytics, no telemetry, no behavioral profiling. Your usage data stays on your device.",
+      "noAds": "No Ads",
+      "noAdsDesc": "No banners, no interstitials, no sponsored content. Ever. One-time purchase, no subscriptions.",
+      "noCloud": "No Cloud Hardware Access",
+      "noCloudDesc": "Volcast never connects to your inverter or any hardware. All forecasts are computed from satellite weather data and your panel parameters."
+    },
+    "download": {
+      "label": "Get Volcast",
+      "title": "Start forecasting today",
+      "desc": "Available now on Android. Join the iOS waitlist to be notified on launch day.",
+      "iosDivider": "or",
+      "iosComingSoon": "Coming Soon to App Store",
+      "iosDesc": "Join the iOS waitlist and be the first to know when Volcast launches on iPhone.",
+      "iosPlaceholder": "your@email.com",
+      "iosCta": "Notify Me",
+      "iosJoining": "Joining...",
+      "iosNote": "No spam. We only email once — on launch day.",
+      "iosSuccess": "✓ You're on the iOS waitlist! We'll notify you on launch day.",
+      "iosAlreadyOnList": "You're already on the list! We'll be in touch.",
+      "iosError": "Something went wrong — try again"
+    },
+    "faq": {
+      "label": "FAQ",
+      "title": "Common questions",
+      "q1": "How accurate are the solar forecasts?",
+      "a1": "Volcast uses a full physical irradiance model combined with satellite weather data and your specific system parameters. After calibration with real production data, accuracy typically reaches 85–95% on clear and partly cloudy days. Heavy cloud cover is harder to predict for any system, but Volcast still outperforms generic weather apps.",
+      "q2": "Do I need a smart inverter or specific hardware?",
+      "a2": "No. Volcast works with any solar installation — no inverter cloud login, no API keys, no hardware connection. You just enter your panel parameters: azimuth, tilt, peak power, and optionally multi-string setup, bifacial factor, and horizon shading profile.",
+      "q3": "Is Volcast free?",
+      "a3": "Volcast offers a free tier with 2-day forecasts. Premium unlocks the full 7-day forecast, auto-calibration, REST API for Home Assistant, production history, and more — as a one-time purchase, no subscription.",
+      "q4": "Which platforms are supported?",
+      "a4": "Volcast is available now on Android (Google Play). iOS is coming soon — join the waitlist above to be notified. Home screen widgets work on both Android (Glance) and iOS (WidgetKit).",
+      "q5": "How does auto-calibration work?",
+      "a5": "You log your actual daily production (just one number). After 5+ data points, the Kalman filter compares your real output against the physical model to fine-tune parameters specific to your installation — accounting for shading, panel degradation, and local factors.",
+      "q6": "How does the Home Assistant integration work?",
+      "a6": "Volcast provides a REST API endpoint. You add it as a sensor in your configuration.yaml with your API key (generated in the app, Premium feature). Home Assistant polls the endpoint hourly and gets daily forecasts, hourly breakdowns, and 5-minute detailed data for today and tomorrow."
+    },
+    "footer": {
+      "tagline": "Solar forecasting app",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service"
+    }
+  },
+  "pl": {
+    "meta": {
+      "title": "Volcast — Prognozowanie produkcji z fotowoltaiki",
+      "description": "Przewiduj uzyski ze słońca dzięki zaawansowanemu silnikowi fizycznemu.",
+      "ogTitle": "Volcast — Prognozowanie produkcji z fotowoltaiki",
+      "ogDescription": "Przewiduj produkcję ze słońca w oparciu o fizykę. Bez logowania do falownika, bez kluczy API."
+    },
+    "nav": {
+      "features": "Funkcje",
+      "howItWorks": "Jak to działa",
+      "homeAssistant": "Home Assistant",
+      "faq": "FAQ",
+      "getApp": "Pobierz aplikację",
+      "changeLanguage": "Zmień język"
+    },
+    "hero": {
+      "title": "Przewiduj uzyski ze słońca<br>dzięki <em>fizyce</em>",
+      "desc": "Zaawansowany silnik fizyczny.",
+      "cta": "Pobierz z Google Play",
+      "note": "Dostępne na Androida. Wkrótce na iOS.",
+      "comingSoon": "Już wkrótce",
+      "googlePlay": {
+        "small": "Pobierz z"
+      }
+    },
+    "features": {
+      "label": "Możliwości",
+      "title": "Zaawansowany Silnik Fizyczny",
+      "desc": "Bez logowania do chmury falownika i bez kluczy API.",
+      "engine": {
+        "title": "Prognozowanie Oparte na Fizyce",
+        "desc": "Cogodzinne i codzienne prognozy produkcji PV przy użyciu pełnego modelu irradiancji, korekt spektralnych i danych satelitarnych."
+      },
+      "calibration": {
+        "title": "Autokalibracja",
+        "desc": "Rejestruj rzeczywistą produkcję, a filtr Kalman nauczy się Twojej instalacji z biegiem czasu."
+      },
+      "notifications": {
+        "title": "Inteligentne Powiadomienia",
+        "desc": "Otrzymuj alerty, gdy prognoza na jutro ulegnie znaczącej zmianie lub gdy warto uruchomić energochłonne urządzenia."
+      },
+      "widgets": {
+        "title": "Widgety na Ekran Blokady",
+        "desc": "Przejrzyste widgety na Android (Glance) i iOS (WidgetKit) pokazujące prognozy bez otwierania aplikacji."
+      }
+    },
+    "howItWorks": {
+      "label": "Jak to działa",
+      "title": "Gotowość do pracy w kilka minut",
+      "desc": "Bez logowania do falownika. Bez chmury API.",
+      "step1": {
+        "title": "Wprowadź parametry paneli",
+        "desc": "Azymut, kąt nachylenia, moc szczytowa, konfiguracja wielostringowa, współczynnik bifacial i profil zacienienia."
+      },
+      "step2": {
+        "title": "Odbierz prognozę",
+        "desc": "Volcast łączy dane satelitarne z modelem fizycznym Twojego systemu, aby przewidzieć produkcję godzinową i dzienną."
+      },
+      "step3": {
+        "title": "Kalibruj i optymalizuj",
+        "desc": "Zapisuj faktyczną produkcję, a model samoczynnie się skalibruje."
+      }
+    },
+    "screenshots": {
+      "label": "Podgląd",
+      "title": "Zaprojektowany dla przejrzystości",
+      "desc": "Ciemny, skupiony na danych interfejs, który stawia informacje o Twojej energii na pierwszym planie.",
+      "widgetsLabel": "Widgety",
+      "forecastLabel": "Prognoza",
+      "notificationsLabel": "Powiadomienia",
+      "widgetsAlt": "Widgety Volcast pokazujące prognozę na dziś i jutro z wykresem wielodniowym",
+      "forecastAlt": "7-dniowa prognoza Volcast z godzinowym rozbiciem mocy i danymi o szczytach produkcji",
+      "notificationsAlt": "Powiadomienie o zmianie prognozy Volcast oraz konfiguracja paneli"
+    },
+    "ha": {
+      "badge": "Integracja Home Assistant",
+      "title": "Prześlij prognozę do Home Assistant",
+      "desc": "Volcast udostępnia REST API, które dostarcza prognozę w formacie natywnie rozumianym przez Home Assistant.",
+      "note": "Wygeneruj swój klucz API w aplikacji Volcast (Premium).",
+      "curlTitle": "Pobierz prognozę",
+      "curlComment": "Jedno zapytanie API zwraca dane dzienne, godzinowe oraz 5-minutowe",
+      "yamlTitle": "Sensor Home Assistant",
+      "jsonTitle": "Odpowiedź API",
+      "hourlyComment": "24 wpisy godzinowe na dobę",
+      "detailedComment": "288 wpisów 5-minutowych na dobę"
+    },
+    "trust": {
+      "noTracking": "Zero Śledzenia",
+      "noTrackingDesc": "Żadnej analityki, żadnej telemetrii, żadnego profilowania zachowań.",
+      "noAds": "Bez Reklam",
+      "noAdsDesc": "Żadnych bannerów ani treści sponsorowanych. Nigdy.",
+      "noCloud": "Bez dostępu do urządzeń w chmurze",
+      "noCloudDesc": "Volcast nigdy nie łączy się z Twoim falownikiem ani żadnym sprzętem."
+    },
+    "download": {
+      "label": "Pobierz Volcast",
+      "title": "Zacznij prognozować już dziś",
+      "desc": "Dostępne już teraz na Androida.",
+      "iosDivider": "lub",
+      "iosComingSoon": "Wkrótce w App Store",
+      "iosDesc": "Dołącz do listy oczekujących na iOS i dowiedz się jako pierwszy o premierze na iPhone.",
+      "iosPlaceholder": "your@email.com",
+      "iosCta": "Powiadom mnie",
+      "iosJoining": "Zapisywanie...",
+      "iosNote": "Zero spamu. Wyślemy tylko jedną wiadomość — w dniu premiery.",
+      "iosSuccess": "✓ Jesteś na liście oczekujących! Dam znać w dniu premiery.",
+      "iosAlreadyOnList": "Jesteś już na liście! Będziemy w kontakcie.",
+      "iosError": "Coś poszło nie tak — spróbuj ponownie"
+    },
+    "faq": {
+      "label": "FAQ",
+      "title": "Często zadawane pytania",
+      "q1": "Jak dokładne są prognozy?",
+      "a1": "Volcast korzysta z pełnego modelu fizycznego irradiancji i danych satelitarnych. Po kalibracji dokładność zazwyczaj osiąga 85–95% w słoneczne dni.",
+      "q2": "Czy potrzebuję inteligentnego falownika?",
+      "a2": "Nie. Volcast działa z każdą instalacją — bez logowania, bez API i bez połączenia ze sprzętem.",
+      "q3": "Czy Volcast jest darmowy?",
+      "a3": "Volcast oferuje darmowy poziom (2 dni prognozy). Premium to jednorazowy zakup odblokowujący 7 dni, autokalibrację i REST API.",
+      "q4": "Jakie platformy są obsługiwane?",
+      "a4": "Obecnie Android (Google Play). iOS (App Store) nadchodzi — zapisz się na listę. Widgety działają przez Glance i WidgetKit.",
+      "q5": "Jak działa autokalibracja?",
+      "a5": "Wprowadzasz faktyczną produkcję, a filtr Kalman porównuje ją z modelem fizycznym, aby dopasować parametry do Twojej lokalizacji.",
+      "q6": "Jak działa integracja z Home Assistant?",
+      "a6": "Volcast udostępnia endpoint REST API. Dodajesz go jako sensor w configuration.yaml, używając klucza Premium wygenerowanego w aplikacji."
+    },
+    "footer": {
+      "tagline": "Aplikacja do prognozowania fotowoltaiki",
+      "privacy": "Polityka Prywatności",
+      "terms": "Regulamin Usługi"
+    }
+  },
+  "de": {
+    "meta": {
+      "title": "Volcast — Solar-Prognose App",
+      "description": "Prognostizieren Sie Ihre Solarproduktion mit einer fortschrittlichen physikalischen Engine.",
+      "ogTitle": "Volcast — Solar-Prognose App",
+      "ogDescription": "Prognostizieren Sie Ihre Solarproduktion mit Physik. Kein Wechselrichter-Login, keine API-Keys."
+    },
+    "nav": {
+      "features": "Funktionen",
+      "howItWorks": "Funktionsweise",
+      "homeAssistant": "Home Assistant",
+      "faq": "FAQ",
+      "getApp": "App laden",
+      "changeLanguage": "Sprache ändern"
+    },
+    "hero": {
+      "title": "Solarertrag prognostizieren<br>mit <em>Physik</em>",
+      "desc": "Fortschrittliche Physikalische Engine.",
+      "cta": "Jetzt bei Google Play",
+      "note": "Verfügbar für Android. iOS folgt in Kürze.",
+      "comingSoon": "Demnächst verfügbar",
+      "googlePlay": {
+        "small": "Laden bei"
+      }
+    },
+    "features": {
+      "label": "Funktionen",
+      "title": "Fortschrittliche Physikalische Engine",
+      "desc": "Kein Cloud-Login für Wechselrichter oder API-Keys erforderlich.",
+      "engine": {
+        "title": "Physikbasierte Prognose",
+        "desc": "Stündliche und tägliche PV-Ertragsprognosen unter Verwendung eines vollständigen Einstrahlungsmodells und Satellitenwetterdaten."
+      },
+      "calibration": {
+        "title": "Auto-Kalibrierung",
+        "desc": "Erfassen Sie Ihre reale Produktion und der Kalman Filter lernt Ihr System mit der Zeit kennen."
+      },
+      "notifications": {
+        "title": "Smarte Benachrichtigungen",
+        "desc": "Erhalten Sie Warnungen, wenn sich die Prognose für morgen deutlich ändert oder wann die beste Zeit für Großgeräte ist."
+      },
+      "widgets": {
+        "title": "Home-Screen Widgets",
+        "desc": "Übersichtliche Widgets für Android (Glance) und iOS (WidgetKit), die Ihre Prognose zeigen, ohne die App zu öffnen."
+      }
+    },
+    "howItWorks": {
+      "label": "Funktionsweise",
+      "title": "In wenigen Minuten einsatzbereit",
+      "desc": "Kein Wechselrichter-Login. Keine Cloud-API.",
+      "step1": {
+        "title": "Anlagenparameter eingeben",
+        "desc": "Azimut, Neigungswinkel, Spitzenleistung, Multi-String-Setup, bifazialer Faktor und Verschattungsprofil."
+      },
+      "step2": {
+        "title": "Prognose erhalten",
+        "desc": "Volcast kombiniert Satellitenwetterdaten mit dem physikalischen Modell Ihrer Anlage für präzise Prognosen."
+      },
+      "step3": {
+        "title": "Kalibrieren & Optimieren",
+        "desc": "Protokollieren Sie die reale Produktion und das Modell kalibriert sich automatisch."
+      }
+    },
+    "screenshots": {
+      "label": "Vorschau",
+      "title": "Auf Klarheit ausgelegt",
+      "desc": "Eine dunkle, fokussierte Benutzeroberfläche, die Ihre Energiedaten in den Mittelpunkt stellt.",
+      "widgetsLabel": "Widgets",
+      "forecastLabel": "Prognose",
+      "notificationsLabel": "Benachrichtigungen",
+      "widgetsAlt": "Volcast Home-Screen Widgets mit Prognose für heute und morgen",
+      "forecastAlt": "Volcast 7-Tage Solarprognose mit stündlicher Aufschlüsselung",
+      "notificationsAlt": "Volcast Benachrichtigung über Prognoseänderung"
+    },
+    "ha": {
+      "badge": "Home Assistant Integration",
+      "title": "Prognose an Home Assistant senden",
+      "desc": "Volcast bietet eine REST API, die Ihre Solarprognose in einem für Home Assistant nativen Format liefert.",
+      "note": "Generieren Sie Ihren API-Key in der Volcast App (Premium).",
+      "curlTitle": "Prognose abrufen",
+      "curlComment": "Ein einziger API-Aufruf liefert tägliche, stündliche und 5-Minuten-Daten",
+      "yamlTitle": "Home Assistant Sensor",
+      "jsonTitle": "API Antwort",
+      "hourlyComment": "24 Einträge pro Tag",
+      "detailedComment": "288 Einträge (5-Minuten-Takt) pro Tag"
+    },
+    "trust": {
+      "noTracking": "Kein Tracking",
+      "noTrackingDesc": "Keine Analysen, keine Telemetrie, kein Verhaltensprofiling.",
+      "noAds": "Werbefrei",
+      "noAdsDesc": "Keine Banner, keine Pop-ups, keine gesponserten Inhalte. Jemals.",
+      "noCloud": "Kein Hardware-Cloud-Zugriff",
+      "noCloudDesc": "Volcast verbindet sich nie mit Ihrem Wechselrichter oder anderer Hardware."
+    },
+    "download": {
+      "label": "Volcast holen",
+      "title": "Heute mit dem Prognostizieren beginnen",
+      "desc": "Jetzt für Android verfügbar.",
+      "iosDivider": "oder",
+      "iosComingSoon": "Demnächst im App Store",
+      "iosDesc": "Setzen Sie sich auf die iOS-Warteliste für den Launch auf dem iPhone.",
+      "iosPlaceholder": "your@email.com",
+      "iosCta": "Benachrichtigen",
+      "iosJoining": "Anmeldung...",
+      "iosNote": "Kein Spam. Wir mailen nur einmal — am Launch-Tag.",
+      "iosSuccess": "✓ Sie sind auf der iOS-Warteliste! Wir melden uns zum Launch.",
+      "iosAlreadyOnList": "Sie stehen bereits auf der Liste!",
+      "iosError": "Fehler — bitte erneut versuchen"
+    },
+    "faq": {
+      "label": "FAQ",
+      "title": "Häufige Fragen",
+      "q1": "Wie genau sind die Solarprognosen?",
+      "a1": "Volcast nutzt ein physikalisches Modell und Satellitendaten. Nach der Kalibrierung liegt die Genauigkeit meist bei 85–95%.",
+      "q2": "Brauche ich einen Smart-Wechselrichter?",
+      "a2": "Nein. Volcast funktioniert mit jeder Anlage — ohne Login, ohne API-Keys, ohne Hardware-Verbindung.",
+      "q3": "Ist Volcast kostenlos?",
+      "a3": "Es gibt eine kostenlose Version (2-Tage-Prognose). Premium ist ein Einmalkauf für 7 Tage, Auto-Kalibrierung und REST API.",
+      "q4": "Welche Plattformen werden unterstützt?",
+      "a4": "Aktuell Android (Google Play). iOS (App Store) folgt bald. Widgets nutzen Glance und WidgetKit.",
+      "q5": "Wie funktioniert die Auto-Kalibrierung?",
+      "a5": "Sie loggen die reale Produktion und der Kalman Filter passt das Modell an lokale Gegebenheiten und Verschattung an.",
+      "q6": "Wie funktioniert die Home Assistant Integration?",
+      "a6": "Über einen REST API Endpunkt. Sie binden diesen als Sensor in Ihre configuration.yaml ein."
+    },
+    "footer": {
+      "tagline": "Solar-Prognose App",
+      "privacy": "Datenschutz",
+      "terms": "AGB"
+    }
+  },
+  "nl": {
+    "meta": {
+      "title": "Volcast — Solar Forecasting App",
+      "description": "Voorspel uw zonne-energieproductie met een geavanceerde fysische engine.",
+      "ogTitle": "Volcast — Solar Forecasting App",
+      "ogDescription": "Voorspel zonne-opbrengst met fysica. Geen omvormer-login, geen API-keys."
+    },
+    "nav": {
+      "features": "Functies",
+      "howItWorks": "Hoe het werkt",
+      "homeAssistant": "Home Assistant",
+      "faq": "FAQ",
+      "getApp": "Download de App",
+      "changeLanguage": "Taal wijzigen"
+    },
+    "hero": {
+      "title": "Voorspel zonne-opbrengst<br>met <em>fysica</em>",
+      "desc": "Geavanceerde Fysische Engine.",
+      "cta": "Download op Google Play",
+      "note": "Beschikbaar op Android. iOS volgt binnenkort.",
+      "comingSoon": "Binnenkort beschikbaar",
+      "googlePlay": {
+        "small": "Download op"
+      }
+    },
+    "features": {
+      "label": "Functies",
+      "title": "Geavanceerde Fysische Engine",
+      "desc": "Geen omvormer cloud login of API-keys vereist.",
+      "engine": {
+        "title": "Voorspelling op basis van Fysica",
+        "desc": "Uurlijkse en dagelijkse PV-opbrengstvoorspellingen met een volledig instralingsmodel en satellietweergegevens."
+      },
+      "calibration": {
+        "title": "Auto-Kalibratie",
+        "desc": "Log uw werkelijke productie en het Kalman filter leert uw systeem in de loop van de tijd kennen."
+      },
+      "notifications": {
+        "title": "Slimme Meldingen",
+        "desc": "Ontvang meldingen wanneer de voorspelling voor morgen aanzienlijk verandert of wanneer het de beste tijd is voor zware apparaten."
+      },
+      "widgets": {
+        "title": "Startscherm Widgets",
+        "desc": "Overzichtelijke widgets voor Android (Glance) en iOS (WidgetKit) die uw voorspelling tonen zonder de app te openen."
+      }
+    },
+    "howItWorks": {
+      "label": "Hoe het werkt",
+      "title": "Binnen enkele minuten klaar",
+      "desc": "Geen omvormer-login. Geen cloud API.",
+      "step1": {
+        "title": "Voer paneelparameters in",
+        "desc": "Azimut, hellingshoek, piekvermogen, multi-string setup, bifacial-factor en horizon-schaduwprofiel."
+      },
+      "step2": {
+        "title": "Ontvang uw voorspelling",
+        "desc": "Volcast combineert satellietweergegevens met het fysische model van uw systeem voor nauwkeurige voorspellingen."
+      },
+      "step3": {
+        "title": "Kalibreren & Optimaliseren",
+        "desc": "Log de werkelijke productie en het model kalibreert zichzelf automatisch."
+      }
+    },
+    "screenshots": {
+      "label": "Preview",
+      "title": "Ontworpen voor helderheid",
+      "desc": "Een donkere, gefocuste interface die uw energiegegevens centraal stelt.",
+      "widgetsLabel": "Widgets",
+      "forecastLabel": "Voorspelling",
+      "notificationsLabel": "Meldingen",
+      "widgetsAlt": "Volcast startscherm widgets met voorspelling voor vandaag en morgen",
+      "forecastAlt": "Volcast 7-daagse zonnevoorspelling met uurlijkse uitsplitsing",
+      "notificationsAlt": "Volcast melding van gewijzigde voorspelling"
+    },
+    "ha": {
+      "badge": "Home Assistant Integratie",
+      "title": "Stuur uw voorspelling naar Home Assistant",
+      "desc": "Volcast biedt een REST API die uw zonnevoorspelling levert in een formaat dat Home Assistant standaard begrijpt.",
+      "note": "Genereer uw API-key in de Volcast app (Premium).",
+      "curlTitle": "Voorspelling ophalen",
+      "curlComment": "Eén API-call retourneert dagelijkse, uurlijkse en 5-minuten data",
+      "yamlTitle": "Home Assistant sensor",
+      "jsonTitle": "API response",
+      "hourlyComment": "24 uurlijkse vermeldingen per dag",
+      "detailedComment": "288 vijf-minuten vermeldingen per dag"
+    },
+    "trust": {
+      "noTracking": "Geen Tracking",
+      "noTrackingDesc": "Geen analytics, geen telemetrie, geen gedragsprofiel.",
+      "noAds": "Geen Advertenties",
+      "noAdsDesc": "Geen banners, geen pop-ups, geen gesponsorde content. Nooit.",
+      "noCloud": "Geen Cloud Hardware Toegang",
+      "noCloudDesc": "Volcast maakt nooit verbinding met uw omvormer of andere hardware."
+    },
+    "download": {
+      "label": "Download Volcast",
+      "title": "Begin vandaag met voorspellen",
+      "desc": "Nu beschikbaar op Android.",
+      "iosDivider": "of",
+      "iosComingSoon": "Binnenkort in de App Store",
+      "iosDesc": "Schrijf je in voor de iOS wachtlijst en hoor het als eerste wanneer Volcast lanceert op iPhone.",
+      "iosPlaceholder": "your@email.com",
+      "iosCta": "Breng mij op de hoogte",
+      "iosJoining": "Aanmelden...",
+      "iosNote": "Geen spam. We mailen slechts één keer — op de dag van lancering.",
+      "iosSuccess": "✓ Je staat op de iOS wachtlijst! We laten het je weten.",
+      "iosAlreadyOnList": "Je staat al op de lijst!",
+      "iosError": "Er ging iets mis — probeer het opnieuw"
+    },
+    "faq": {
+      "label": "FAQ",
+      "title": "Veelgestelde vragen",
+      "q1": "Hoe nauwkeurig zijn de voorspellingen?",
+      "a1": "Volcast gebruikt een fysisch model en satellietgegevens. Na kalibratie is de nauwkeurigheid meestal 85–95% op zonnige dagen.",
+      "q2": "Heb ik een slimme omvormer nodig?",
+      "a2": "Nee. Volcast werkt met elke installatie — zonder login, API-keys of hardware-verbinding.",
+      "q3": "Is Volcast gratis?",
+      "a3": "Volcast heeft een gratis versie (2 dagen voorspelling). Premium is een eenmalige aankoop voor 7 dagen, auto-kalibratie en REST API.",
+      "q4": "Welke platformen worden ondersteund?",
+      "a4": "Nu op Android (Google Play). iOS (App Store) volgt. Widgets werken via Glance en WidgetKit.",
+      "q5": "Hoe werkt auto-kalibratie?",
+      "a5": "U logt de productie en het Kalman filter vergelijkt dit met het model om parameters voor schaduw en degradatie te verfijnen.",
+      "q6": "Hoe werkt de Home Assistant integratie?",
+      "a6": "Via een REST API endpoint. U voegt dit toe als sensor in uw configuration.yaml met uw Premium API-key."
+    },
+    "footer": {
+      "tagline": "Zonne-energie voorspelling app",
+      "privacy": "Privacybeleid",
+      "terms": "Gebruiksvoorwaarden"
+    }
+  },
+  "es": {
+    "meta": {
+      "title": "Volcast — App de predicción solar",
+      "description": "Predice tu producción solar con un motor físico avanzado.",
+      "ogTitle": "Volcast — App de predicción solar",
+      "ogDescription": "Predice tu producción solar con física. Sin login de inversor, sin llaves API."
+    },
+    "nav": {
+      "features": "Funciones",
+      "howItWorks": "Cómo funciona",
+      "homeAssistant": "Home Assistant",
+      "faq": "FAQ",
+      "getApp": "Descargar App",
+      "changeLanguage": "Cambiar idioma"
+    },
+    "hero": {
+      "title": "Predice tu producción solar<br>con <em>física</em>",
+      "desc": "Motor Físico Avanzado.",
+      "cta": "Consíguelo en Google Play",
+      "note": "Disponible en Android. iOS próximamente.",
+      "comingSoon": "Próximamente",
+      "googlePlay": {
+        "small": "Descargar en"
+      }
+    },
+    "features": {
+      "label": "Funciones",
+      "title": "Motor Físico Avanzado",
+      "desc": "No requiere login en la nube del inversor ni llaves API.",
+      "engine": {
+        "title": "Predicción basada en física",
+        "desc": "Pronósticos de producción fotovoltaica horarios y diarios utilizando un modelo de irradiancia completo y datos satelitales."
+      },
+      "calibration": {
+        "title": "Autocalibración",
+        "desc": "Registra tu producción real y el filtro Kalman aprenderá de tu sistema con el tiempo."
+      },
+      "notifications": {
+        "title": "Notificaciones Inteligentes",
+        "desc": "Recibe alertas cuando el pronóstico cambie significativamente o cuando sea el mejor momento para usar electrodomésticos pesados."
+      },
+      "widgets": {
+        "title": "Widgets para la pantalla de inicio",
+        "desc": "Widgets claros para Android (Glance) e iOS (WidgetKit) que muestran tu pronóstico sin abrir la app."
+      }
+    },
+    "howItWorks": {
+      "label": "Cómo funciona",
+      "title": "Listo en minutos",
+      "desc": "Sin login de inversor. Sin API en la nube.",
+      "step1": {
+        "title": "Introduce los parámetros de tus paneles",
+        "desc": "Azimut, ángulo de inclinación, potencia pico, configuración multi-string, factor bifacial y perfil de sombras."
+      },
+      "step2": {
+        "title": "Obtén tu pronóstico",
+        "desc": "Volcast combina datos meteorológicos satelitales con el modelo físico de tu sistema para predecir la producción."
+      },
+      "step3": {
+        "title": "Calibrar y optimizar",
+        "desc": "Registra la producción real y el modelo se autocalibrará solo."
+      }
+    },
+    "screenshots": {
+      "label": "Vista previa",
+      "title": "Diseñado para la claridad",
+      "desc": "Una interfaz oscura y enfocada que pone tus datos energéticos en primer plano.",
+      "widgetsLabel": "Widgets",
+      "forecastLabel": "Pronóstico",
+      "notificationsLabel": "Notificaciones",
+      "widgetsAlt": "Widgets de Volcast mostrando el pronóstico para hoy y mañana",
+      "forecastAlt": "Pronóstico solar de 7 días con desglose horario",
+      "notificationsAlt": "Notificación de cambio de pronóstico en Volcast"
+    },
+    "ha": {
+      "badge": "Integración con Home Assistant",
+      "title": "Envía tu pronóstico a Home Assistant",
+      "desc": "Volcast ofrece una REST API que entrega tu pronóstico solar en un formato que Home Assistant entiende nativamente.",
+      "note": "Genera tu llave API en la app Volcast (Premium).",
+      "curlTitle": "Obtener pronóstico",
+      "curlComment": "Una sola llamada a la API devuelve datos diarios, horarios y cada 5 min",
+      "yamlTitle": "Sensor para Home Assistant",
+      "jsonTitle": "Respuesta API",
+      "hourlyComment": "24 entradas horarias por día",
+      "detailedComment": "288 entradas de 5 minutos por día"
+    },
+    "trust": {
+      "noTracking": "Rastreo Cero",
+      "noTrackingDesc": "Sin analíticas, sin telemetría, sin perfiles de comportamiento.",
+      "noAds": "Sin Anuncios",
+      "noAdsDesc": "Sin banners ni contenido patrocinado. Nunca.",
+      "noCloud": "Sin acceso al hardware en la nube",
+      "noCloudDesc": "Volcast nunca se conecta a tu inversor ni a ningún hardware."
+    },
+    "download": {
+      "label": "Obtén Volcast",
+      "title": "Empieza a predecir hoy",
+      "desc": "Disponible ahora en Android.",
+      "iosDivider": "o",
+      "iosComingSoon": "Próximamente en App Store",
+      "iosDesc": "Únete a la lista de espera para iOS y sé el primero en saber cuándo lanzamos en iPhone.",
+      "iosPlaceholder": "your@email.com",
+      "iosCta": "Notificarme",
+      "iosJoining": "Uniéndote...",
+      "iosNote": "Sin spam. Solo enviamos un email el día del lanzamiento.",
+      "iosSuccess": "✓ ¡Estás en la lista! Te avisaremos el día del lanzamiento.",
+      "iosAlreadyOnList": "¡Ya estás en la lista!",
+      "iosError": "Algo salió mal — inténtalo de nuevo"
+    },
+    "faq": {
+      "label": "FAQ",
+      "title": "Preguntas frecuentes",
+      "q1": "¿Qué tan precisos son los pronósticos?",
+      "a1": "Volcast usa un modelo físico y datos satelitales. Tras la calibración, la precisión suele alcanzar el 85–95% en días despejados.",
+      "q2": "¿Necesito un inversor inteligente?",
+      "a2": "No. Volcast funciona con cualquier instalación solar — sin login, sin API y sin conexión física.",
+      "q3": "¿Es gratis Volcast?",
+      "a3": "Ofrece un nivel gratuito (2 días de pronóstico). Premium es un pago único para 7 días, autocalibración y REST API.",
+      "q4": "¿Qué plataformas son compatibles?",
+      "a4": "Actualmente Android (Google Play). iOS (App Store) próximamente. Widgets vía Glance y WidgetKit.",
+      "q5": "¿Cómo funciona la autocalibración?",
+      "a5": "Registras la producción diaria y el filtro Kalman ajusta el modelo según sombras y degradación local.",
+      "q6": "¿Cómo funciona la integración con Home Assistant?",
+      "a6": "Mediante un endpoint REST API. Lo añades como sensor en tu configuration.yaml usando tu llave Premium."
+    },
+    "footer": {
+      "tagline": "App de predicción solar",
+      "privacy": "Política de Privacidad",
+      "terms": "Términos del Servicio"
+    }
+  },
+  "fr": {
+    "meta": {
+      "title": "Volcast — App de prévision solaire",
+      "description": "Prédisez votre production solaire avec un moteur physique avancé.",
+      "ogTitle": "Volcast — App de prévision solaire",
+      "ogDescription": "Prédisez votre production solaire par la physique. Pas de login onduleur, pas de clés API."
+    },
+    "nav": {
+      "features": "Fonctionnalités",
+      "howItWorks": "Comment ça marche",
+      "homeAssistant": "Home Assistant",
+      "faq": "FAQ",
+      "getApp": "Télécharger l'App",
+      "changeLanguage": "Changer de langue"
+    },
+    "hero": {
+      "title": "Prédisez votre production solaire<br>par la <em>physique</em>",
+      "desc": "Moteur Physique Avancé.",
+      "cta": "Disponible sur Google Play",
+      "note": "Disponible sur Android. iOS bientôt disponible.",
+      "comingSoon": "Bientôt disponible",
+      "googlePlay": {
+        "small": "Disponible sur"
+      }
+    },
+    "features": {
+      "label": "Fonctionnalités",
+      "title": "Moteur Physique Avancé",
+      "desc": "Aucun login cloud onduleur ni clé API requis.",
+      "engine": {
+        "title": "Prévisions basées sur la physique",
+        "desc": "Prévisions de production PV horaires et quotidiennes utilisant un modèle d'irradiance complet et des données satellites."
+      },
+      "calibration": {
+        "title": "Auto-Calibration",
+        "desc": "Enregistrez votre production réelle et le filtre Kalman apprendra de votre système avec le temps."
+      },
+      "notifications": {
+        "title": "Notifications Intelligentes",
+        "desc": "Soyez alerté lorsque les prévisions changent ou quand c'est le moment idéal pour lancer vos gros appareils."
+      },
+      "widgets": {
+        "title": "Widgets d'écran d'accueil",
+        "desc": "Widgets clairs pour Android (Glance) et iOS (WidgetKit) affichant vos prévisions sans ouvrir l'app."
+      }
+    },
+    "howItWorks": {
+      "label": "Comment ça marche",
+      "title": "Prêt en quelques minutes",
+      "desc": "Pas de login onduleur. Pas d'API cloud.",
+      "step1": {
+        "title": "Entrez les paramètres de vos panneaux",
+        "desc": "Azimut, inclinaison, puissance crête, configuration multi-string, facteur bifacial et profil d'ombrage."
+      },
+      "step2": {
+        "title": "Obtenez votre prévision",
+        "desc": "Volcast combine les données météo satellites avec le modèle physique de votre système pour prédire la production."
+      },
+      "step3": {
+        "title": "Calibrer et optimiser",
+        "desc": "Enregistrez la production réelle et le modèle s'auto-calibre."
+      }
+    },
+    "screenshots": {
+      "label": "Aperçu",
+      "title": "Conçu pour la clarté",
+      "desc": "Une interface sombre et épurée qui met vos données énergétiques en avant.",
+      "widgetsLabel": "Widgets",
+      "forecastLabel": "Prévisions",
+      "notificationsLabel": "Notifications",
+      "widgetsAlt": "Widgets Volcast montrant les prévisions pour aujourd'hui et demain",
+      "forecastAlt": "Prévisions solaires sur 7 jours avec détail horaire",
+      "notificationsAlt": "Notification Volcast de changement de prévision"
+    },
+    "ha": {
+      "badge": "Intégration Home Assistant",
+      "title": "Envoyez vos prévisions vers Home Assistant",
+      "desc": "Volcast propose une REST API qui livre vos prévisions dans un format nativement compris par Home Assistant.",
+      "note": "Générez votre clé API dans l'app Volcast (Premium).",
+      "curlTitle": "Récupérer les prévisions",
+      "curlComment": "Un seul appel API retourne les données quotidiennes, horaires et par 5 min",
+      "yamlTitle": "Capteur Home Assistant",
+      "jsonTitle": "Réponse API",
+      "hourlyComment": "24 entrées horaires par jour",
+      "detailedComment": "288 entrées de 5 minutes par jour"
+    },
+    "trust": {
+      "noTracking": "Zéro Traçage",
+      "noTrackingDesc": "Pas d'analytique, pas de télémétrie, pas de profilage.",
+      "noAds": "Sans Publicité",
+      "noAdsDesc": "Pas de bannières ni de contenu sponsorisé. Jamais.",
+      "noCloud": "Pas d'accès hardware cloud",
+      "noCloudDesc": "Volcast ne se connecte jamais à votre onduleur ni à aucun matériel."
+    },
+    "download": {
+      "label": "Obtenez Volcast",
+      "title": "Commencez à prévoir dès aujourd'hui",
+      "desc": "Maintenant disponible sur Android.",
+      "iosDivider": "ou",
+      "iosComingSoon": "Bientôt sur l'App Store",
+      "iosDesc": "Rejoignez la liste d'attente iOS pour être informé du lancement sur iPhone.",
+      "iosPlaceholder": "your@email.com",
+      "iosCta": "M'informer",
+      "iosJoining": "Inscription...",
+      "iosNote": "Pas de spam. Un seul email envoyé le jour du lancement.",
+      "iosSuccess": "✓ Vous êtes sur la liste d'attente ! On vous prévient au lancement.",
+      "iosAlreadyOnList": "Vous êtes déjà sur la liste !",
+      "iosError": "Une erreur est survenue — réessayez"
+    },
+    "faq": {
+      "label": "FAQ",
+      "title": "Questions fréquentes",
+      "q1": "Quelle est la précision des prévisions ?",
+      "a1": "Volcast utilise un modèle physique et des données satellites. Après calibration, la précision atteint 85–95% par temps clair.",
+      "q2": "Ai-je besoin d'un onduleur intelligent ?",
+      "a2": "Non. Volcast fonctionne avec toute installation — sans login, sans API et sans connexion physique.",
+      "q3": "Est-ce que Volcast est gratuit ?",
+      "a3": "Volcast propose un niveau gratuit (2 jours de prévisions). Premium est un achat unique pour 7 jours, auto-calibration et REST API.",
+      "q4": "Quelles plateformes sont supportées ?",
+      "a4": "Android (Google Play) actuellement. iOS (App Store) arrive — inscrivez-vous à la liste. Widgets via Glance et WidgetKit.",
+      "q5": "Comment fonctionne l'auto-calibration ?",
+      "a5": "Vous saisissez votre production réelle et le filtre Kalman ajuste le modèle selon l'ombrage et l'usure des panneaux.",
+      "q6": "Comment fonctionne l'intégration Home Assistant ?",
+      "a6": "Via un endpoint REST API. Vous l'ajoutez comme capteur dans configuration.yaml avec votre clé Premium."
+    },
+    "footer": {
+      "tagline": "App de prévision solaire",
+      "privacy": "Politique de Confidentialité",
+      "terms": "Conditions d'Utilisation"
+    }
+  },
+  "uk": {
+    "meta": {
+      "title": "Volcast — додаток для прогнозування сонячної генерації",
+      "description": "Прогнозуйте генерацію сонячної енергії за допомогою вдосконаленого фізичного рушія.",
+      "ogTitle": "Volcast — додаток для прогнозування сонячної генерації",
+      "ogDescription": "Прогнозуйте генерацію за допомогою фізики. Без входу в інвертор, без API-ключів."
+    },
+    "nav": {
+      "features": "Функції",
+      "howItWorks": "Як це працює",
+      "homeAssistant": "Home Assistant",
+      "faq": "FAQ",
+      "getApp": "Завантажити",
+      "changeLanguage": "Змінити мову"
+    },
+    "hero": {
+      "title": "Прогнозуйте сонячну генерацію<br>за допомогою <em>фізики</em>",
+      "desc": "Вдосконалений фізичний рушій.",
+      "cta": "Завантажити з Google Play",
+      "note": "Доступно на Android. iOS незабаром.",
+      "comingSoon": "Незабаром",
+      "googlePlay": {
+        "small": "Завантажити з"
+      }
+    },
+    "features": {
+      "label": "Функції",
+      "title": "Вдосконалений фізичний рушій",
+      "desc": "Не потрібно входити в хмару інвертора або використовувати API-ключі.",
+      "engine": {
+        "title": "Прогнозування на основі фізики",
+        "desc": "Погодинні та щоденні прогнози генерації фотоелектричних систем з використанням повної моделі випромінювання та супутникових даних."
+      },
+      "calibration": {
+        "title": "Автокалібрування",
+        "desc": "Реєструйте фактичну генерацію, і фільтр Kalman з часом вивчить вашу систему."
+      },
+      "notifications": {
+        "title": "Розумні сповіщення",
+        "desc": "Отримуйте сповіщення, коли прогноз на завтра суттєво змінюється або коли найкращий час для ввімкнення потужних приладів."
+      },
+      "widgets": {
+        "title": "Віджети для головного екрана",
+        "desc": "Зручні віджети для Android (Glance) та iOS (WidgetKit), що показують прогноз без відкриття додатка."
+      }
+    },
+    "howItWorks": {
+      "label": "Як це працює",
+      "title": "Готовність до роботи за лічені хвилини",
+      "desc": "Без входу в інвертор. Без хмарних API.",
+      "step1": {
+        "title": "Введіть параметри панелей",
+        "desc": "Азимут, кут нахилу, пікова потужність, конфігурація стрінгів, двосторонній фактор та профіль затінення."
+      },
+      "step2": {
+        "title": "Отримайте прогноз",
+        "desc": "Volcast поєднує супутникові дані з фізичною моделлю вашої системи для прогнозування генерації."
+      },
+      "step3": {
+        "title": "Калібруйте та оптимізуйте",
+        "desc": "Записуйте фактичну генерацію, і модель автоматично відкалібрується."
+      }
+    },
+    "screenshots": {
+      "label": "Попередній перегляд",
+      "title": "Створено для ясності",
+      "desc": "Темний інтерфейс, орієнтований на дані, що виводить інформацію про енергію на перший план.",
+      "widgetsLabel": "Віджети",
+      "forecastLabel": "Прогноз",
+      "notificationsLabel": "Сповіщення",
+      "widgetsAlt": "Віджети Volcast з прогнозом на сьогодні та завтра",
+      "forecastAlt": "7-денний прогноз Volcast з погодинним розбиттям",
+      "notificationsAlt": "Сповіщення про зміну прогнозу Volcast"
+    },
+    "ha": {
+      "badge": "Інтеграція з Home Assistant",
+      "title": "Передавайте прогноз у Home Assistant",
+      "desc": "Volcast надає REST API, що передає прогноз у форматі, який Home Assistant розуміє нативно.",
+      "note": "Згенеруйте свій API-ключ у додатку Volcast (Premium).",
+      "curlTitle": "Отримати прогноз",
+      "curlComment": "Один виклик API повертає денні, годинні та 5-хвилинні дані",
+      "yamlTitle": "Сенсор Home Assistant",
+      "jsonTitle": "Відповідь API",
+      "hourlyComment": "24 годинні записи на добу",
+      "detailedComment": "288 п'ятихвилинних записів на добу"
+    },
+    "trust": {
+      "noTracking": "Нульове відстеження",
+      "noTrackingDesc": "Жодної аналітики, телеметрії чи профілювання.",
+      "noAds": "Без реклами",
+      "noAdsDesc": "Жодних банерів чи спонсорського контенту. Ніколи.",
+      "noCloud": "Без хмарного доступу до обладнання",
+      "noCloudDesc": "Volcast ніколи не підключається до вашого інвертора чи обладнання."
+    },
+    "download": {
+      "label": "Отримати Volcast",
+      "title": "Почніть прогнозувати вже сьогодні",
+      "desc": "Вже доступно на Android.",
+      "iosDivider": "або",
+      "iosComingSoon": "Незабаром в App Store",
+      "iosDesc": "Приєднуйтесь до списку очікування iOS, щоб дізнатися про запуск на iPhone першими.",
+      "iosPlaceholder": "your@email.com",
+      "iosCta": "Сповістити мене",
+      "iosJoining": "Приєднання...",
+      "iosNote": "Без спаму. Ми надішлемо лише один лист у день запуску.",
+      "iosSuccess": "✓ Ви в списку очікування! Ми повідомимо вас у день запуску.",
+      "iosAlreadyOnList": "Ви вже у списку!",
+      "iosError": "Щось пішло не так — спробуйте ще раз"
+    },
+    "faq": {
+      "label": "FAQ",
+      "title": "Часті запитання",
+      "q1": "Наскільки точні прогнози?",
+      "a1": "Volcast використовує фізичну модель та супутникові дані. Після калібрування точність зазвичай становить 85–95% у ясні дні.",
+      "q2": "Чи потрібен мені розумний інвертор?",
+      "a2": "Ні. Volcast працює з будь-якою системою — без входу, без API та без фізичного підключення.",
+      "q3": "Чи Volcast безкоштовний?",
+      "a3": "Є безкоштовний рівень (прогноз на 2 дні). Premium — це одноразова покупка для 7 днів, автокалібрування та REST API.",
+      "q4": "Які платформи підтримуються?",
+      "a4": "Наразі Android (Google Play). iOS (App Store) незабаром. Віджети працюють через Glance та WidgetKit.",
+      "q5": "Як працює автокалібрування?",
+      "a5": "Ви вводите фактичну генерацію, і фільтр Kalman коригує модель відповідно до затінення та деградації панелей.",
+      "q6": "Як працює інтеграція з Home Assistant?",
+      "a6": "Через REST API. Ви додаєте його як сенсор у configuration.yaml, використовуючи ваш ключ Premium."
+    },
+    "footer": {
+      "tagline": "Додаток для прогнозування сонця",
+      "privacy": "Політика конфіденційності",
+      "terms": "Умови використання"
+    }
+  },
+  "pt": {
+    "meta": {
+      "title": "Volcast — App de Previsão Solar",
+      "description": "Preveja a sua produção solar com um motor físico avançado.",
+      "ogTitle": "Volcast — App de Previsão Solar",
+      "ogDescription": "Preveja a sua produção solar com física. Sem login no inversor, sem chaves API."
+    },
+    "nav": {
+      "features": "Funcionalidades",
+      "howItWorks": "Como funciona",
+      "homeAssistant": "Home Assistant",
+      "faq": "FAQ",
+      "getApp": "Obter a App",
+      "changeLanguage": "Alterar idioma"
+    },
+    "hero": {
+      "title": "Preveja a produção solar<br>com <em>física</em>",
+      "desc": "Motor Físico Avançado.",
+      "cta": "Disponível no Google Play",
+      "note": "Disponível para Android. iOS em breve.",
+      "comingSoon": "Em breve",
+      "googlePlay": {
+        "small": "Obter no"
+      }
+    },
+    "features": {
+      "label": "Funcionalidades",
+      "title": "Motor Físico Avançado",
+      "desc": "Não requer login na nuvem do inversor nem chaves API.",
+      "engine": {
+        "title": "Previsão Baseada em Física",
+        "desc": "Previsões de produção fotovoltaica horárias e diárias usando um modelo de irradiância completo e dados satélite."
+      },
+      "calibration": {
+        "title": "Auto-Calibração",
+        "desc": "Registe a produção real e o filtro Kalman aprenderá com o seu sistema ao longo do tempo."
+      },
+      "notifications": {
+        "title": "Notificações Inteligentes",
+        "desc": "Receba alertas quando a previsão mudar significativamente ou quando for a melhor altura para ligar aparelhos pesados."
+      },
+      "widgets": {
+        "title": "Widgets de Ecrã Principal",
+        "desc": "Widgets claros para Android (Glance) e iOS (WidgetKit) que mostram a previsão sem abrir a app."
+      }
+    },
+    "howItWorks": {
+      "label": "Como funciona",
+      "title": "Pronto em minutos",
+      "desc": "Sem login no inversor. Sem API na nuvem.",
+      "step1": {
+        "title": "Introduza os parâmetros dos painéis",
+        "desc": "Azimute, inclinação, potência pico, configuração multi-string, fator bifacial e perfil de sombras."
+      },
+      "step2": {
+        "title": "Obtenha a previsão",
+        "desc": "Volcast combina dados satélite com o modelo físico do seu sistema para prever a produção."
+      },
+      "step3": {
+        "title": "Calibrar e otimizar",
+        "desc": "Registe a produção real e o modelo auto-calibra-se."
+      }
+    },
+    "screenshots": {
+      "label": "Pré-visualização",
+      "title": "Desenhado para a clareza",
+      "desc": "Uma interface escura e focada que coloca os seus dados de energia em destaque.",
+      "widgetsLabel": "Widgets",
+      "forecastLabel": "Previsão",
+      "notificationsLabel": "Notificações",
+      "widgetsAlt": "Widgets Volcast mostrando a previsão para hoje e amanhã",
+      "forecastAlt": "Previsão solar de 7 dias com detalhe horário",
+      "notificationsAlt": "Notificação de alteração de previsão no Volcast"
+    },
+    "ha": {
+      "badge": "Integração Home Assistant",
+      "title": "Envie a previsão para o Home Assistant",
+      "desc": "Volcast oferece uma REST API que fornece a previsão solar num formato que o Home Assistant entende nativamente.",
+      "note": "Gere a sua chave API na app Volcast (Premium).",
+      "curlTitle": "Obter previsão",
+      "curlComment": "Uma única chamada API retorna dados diários, horários e de 5 min",
+      "yamlTitle": "Sensor Home Assistant",
+      "jsonTitle": "Resposta API",
+      "hourlyComment": "24 entradas horárias por dia",
+      "detailedComment": "288 entradas de 5 minutos por dia"
+    },
+    "trust": {
+      "noTracking": "Zero Rastreio",
+      "noTrackingDesc": "Sem analítica, sem telemetria, sem perfis de comportamento.",
+      "noAds": "Sem Anúncios",
+      "noAdsDesc": "Sem banners nem conteúdo patrocinado. Nunca.",
+      "noCloud": "Sem acesso a hardware na nuvem",
+      "noCloudDesc": "Volcast nunca se liga ao seu inversor nem a qualquer hardware."
+    },
+    "download": {
+      "label": "Obter Volcast",
+      "title": "Comece a prever hoje",
+      "desc": "Disponível agora para Android.",
+      "iosDivider": "ou",
+      "iosComingSoon": "Brevemente na App Store",
+      "iosDesc": "Adira à lista de espera iOS e seja o primeiro a saber quando lançarmos para iPhone.",
+      "iosPlaceholder": "your@email.com",
+      "iosCta": "Notificar-me",
+      "iosJoining": "A aderir...",
+      "iosNote": "Sem spam. Apenas enviamos um email no dia do lançamento.",
+      "iosSuccess": "✓ Está na lista de espera! Avisamos no dia do lançamento.",
+      "iosAlreadyOnList": "Já está na lista!",
+      "iosError": "Algo correu mal — tente novamente"
+    },
+    "faq": {
+      "label": "FAQ",
+      "title": "Perguntas frequentes",
+      "q1": "Qual a precisão das previsões?",
+      "a1": "Volcast usa um modelo físico e dados satélite. Após calibração, a precisão atinge 85–95% em dias limpos.",
+      "q2": "Preciso de um inversor inteligente?",
+      "a2": "Não. Volcast funciona com qualquer instalação — sem login, sem API e sem ligação física ao hardware.",
+      "q3": "O Volcast é gratuito?",
+      "a3": "Oferece um nível gratuito (2 dias de previsão). Premium é uma compra única para 7 dias, auto-calibração e REST API.",
+      "q4": "Que plataformas são suportadas?",
+      "a4": "Android (Google Play) atualmente. iOS (App Store) em breve. Widgets via Glance e WidgetKit.",
+      "q5": "Como funciona a auto-calibração?",
+      "a5": "Insere a produção real e o filtro Kalman ajusta o modelo conforme as sombras e degradação dos painéis.",
+      "q6": "Como funciona a integração Home Assistant?",
+      "a6": "Através de um endpoint REST API. Adiciona como sensor no seu configuration.yaml usando a sua chave Premium."
+    },
+    "footer": {
+      "tagline": "App de previsão solar",
+      "privacy": "Política de Privacidade",
+      "terms": "Termos de Serviço"
+    }
+  },
+  "pt-br": {
+    "meta": {
+      "title": "Volcast — App de Previsão Solar",
+      "description": "Preveja sua produção solar com um motor físico avançado.",
+      "ogTitle": "Volcast — App de Previsão Solar",
+      "ogDescription": "Preveja sua produção solar com física. Sem login no inversor, sem chaves API."
+    },
+    "nav": {
+      "features": "Funcionalidades",
+      "howItWorks": "Como funciona",
+      "homeAssistant": "Home Assistant",
+      "faq": "FAQ",
+      "getApp": "Baixar o App",
+      "changeLanguage": "Alterar idioma"
+    },
+    "hero": {
+      "title": "Preveja a produção solar<br>com <em>física</em>",
+      "desc": "Motor Físico Avançado.",
+      "cta": "Baixe no Google Play",
+      "note": "Disponível para Android. iOS em breve.",
+      "comingSoon": "Em breve",
+      "googlePlay": {
+        "small": "Baixe no"
+      }
+    },
+    "features": {
+      "label": "Funcionalidades",
+      "title": "Motor Físico Avançado",
+      "desc": "Não requer login na nuvem do inversor nem chaves API.",
+      "engine": {
+        "title": "Previsão Baseada em Física",
+        "desc": "Previsões de produção fotovoltaica horárias e diárias usando um modelo de irradiância completo e dados satelitais reais."
+      },
+      "calibration": {
+        "title": "Auto-calibração",
+        "desc": "Registre sua produção real e o filtro Kalman aprenderá com seu sistema ao longo do tempo."
+      },
+      "notifications": {
+        "title": "Notificações Inteligentes",
+        "desc": "Receba alertas quando a previsão mudar ou quando for o melhor momento para ligar aparelhos pesados."
+      },
+      "widgets": {
+        "title": "Widgets de Tela Inicial",
+        "desc": "Widgets práticos para Android (Glance) e iOS (WidgetKit) que mostram sua previsão sem abrir o app."
+      }
+    },
+    "howItWorks": {
+      "label": "Como funciona",
+      "title": "Pronto em minutos",
+      "desc": "Sem login no inversor. Sem API na nuvem.",
+      "step1": {
+        "title": "Insira os parâmetros dos painéis",
+        "desc": "Azimute, inclinação, potência de pico, configuração multi-string, fator bifacial e perfil de sombras."
+      },
+      "step2": {
+        "title": "Obtenha sua previsão",
+        "desc": "Volcast combina dados satelitais com o modelo físico do seu sistema para prever a produção."
+      },
+      "step3": {
+        "title": "Calibrar e otimizar",
+        "desc": "Registre a produção real e o modelo se auto-calibra sozinho."
+      }
+    },
+    "screenshots": {
+      "label": "Prévia",
+      "title": "Projetado para clareza",
+      "desc": "Uma interface escura e focada que coloca seus dados de energia em destaque.",
+      "widgetsLabel": "Widgets",
+      "forecastLabel": "Previsão",
+      "notificationsLabel": "Notificações",
+      "widgetsAlt": "Widgets Volcast mostrando a previsão para hoje e amanhã",
+      "forecastAlt": "Previsão solar de 7 dias com detalhamento horário",
+      "notificationsAlt": "Notificação de mudança de previsão no Volcast"
+    },
+    "ha": {
+      "badge": "Integração Home Assistant",
+      "title": "Envie sua previsão para o Home Assistant",
+      "desc": "Volcast oferece uma REST API que entrega sua previsão solar em um formato que o Home Assistant entende nativamente.",
+      "note": "Gere sua chave API no app Volcast (Premium).",
+      "curlTitle": "Buscar previsão",
+      "curlComment": "Uma única chamada API retorna dados diários, horários e de 5 min",
+      "yamlTitle": "Sensor Home Assistant",
+      "jsonTitle": "Resposta API",
+      "hourlyComment": "24 entradas horárias por dia",
+      "detailedComment": "288 entradas de 5 minutos por dia"
+    },
+    "trust": {
+      "noTracking": "Rastreamento Zero",
+      "noTrackingDesc": "Sem analítica, sem telemetria, sem perfis de comportamento.",
+      "noAds": "Sem Anúncios",
+      "noAdsDesc": "Sem banners nem conteúdo patrocinado. Nunca.",
+      "noCloud": "Sem acesso a hardware na nuvem",
+      "noCloudDesc": "Volcast nunca se conecta ao seu inversor ou qualquer hardware."
+    },
+    "download": {
+      "label": "Baixe o Volcast",
+      "title": "Comece a prever hoje",
+      "desc": "Disponível agora para Android.",
+      "iosDivider": "ou",
+      "iosComingSoon": "Em breve na App Store",
+      "iosDesc": "Entre na lista de espera do iOS e seja o primeiro a saber quando lançarmos para iPhone.",
+      "iosPlaceholder": "your@email.com",
+      "iosCta": "Notificar-me",
+      "iosJoining": "Entrando...",
+      "iosNote": "Sem spam. Apenas um email no dia do lançamento.",
+      "iosSuccess": "✓ Você está na lista! Avisaremos no dia do lançamento.",
+      "iosAlreadyOnList": "Você já está na lista!",
+      "iosError": "Algo deu errado — tente novamente"
+    },
+    "faq": {
+      "label": "FAQ",
+      "title": "Perguntas frequentes",
+      "q1": "Qual a precisão das previsões?",
+      "a1": "O Volcast usa um modelo físico e dados satelitais. Após calibração, a precisão costuma atingir 85–95% em dias ensolarados.",
+      "q2": "Preciso de um inversor inteligente?",
+      "a2": "Não. O Volcast funciona com qualquer instalação — sem login, sem API e sem conexão física com o hardware.",
+      "q3": "O Volcast é gratuito?",
+      "a3": "Oferece um nível gratuito (2 dias de previsão). Premium é uma compra única para 7 dias, auto-calibração e REST API.",
+      "q4": "Quais plataformas são suportadas?",
+      "a4": "Android (Google Play) no momento. iOS (App Store) em breve. Widgets via Glance e WidgetKit.",
+      "q5": "Como funciona a auto-calibração?",
+      "a5": "Você informa a produção real e o filtro Kalman ajusta o modelo conforme sombras e degradação local.",
+      "q6": "Como funciona a integração Home Assistant?",
+      "a6": "Através de um endpoint REST API. Você o adiciona como sensor no seu configuration.yaml usando sua chave Premium."
+    },
+    "footer": {
+      "tagline": "App de previsão solar",
+      "privacy": "Política de Privacidade",
+      "terms": "Termos de Uso"
+    }
+  },
+  "ro": {
+    "meta": {
+      "title": "Volcast — Aplicație de prognoză solară",
+      "description": "Preziceți producția solară cu un motor fizic avansat.",
+      "ogTitle": "Volcast — Aplicație de prognoză solară",
+      "ogDescription": "Preziceți producția solară prin fizică. Fără login invertor, fără chei API."
+    },
+    "nav": {
+      "features": "Funcții",
+      "howItWorks": "Cum funcționează",
+      "homeAssistant": "Home Assistant",
+      "faq": "FAQ",
+      "getApp": "Descarcă App",
+      "changeLanguage": "Schimbă limba"
+    },
+    "hero": {
+      "title": "Prezice producția solară<br>prin <em>fizică</em>",
+      "desc": "Motor Fizic Avansat.",
+      "cta": "Descarcă din Google Play",
+      "note": "Disponibil pe Android. iOS în curând.",
+      "comingSoon": "În curând",
+      "googlePlay": {
+        "small": "Descarcă de pe"
+      }
+    },
+    "features": {
+      "label": "Funcții",
+      "title": "Motor Fizic Avansat",
+      "desc": "Nu necesită login în cloud-ul invertorului sau chei API.",
+      "engine": {
+        "title": "Prognoză bazată pe fizică",
+        "desc": "Prognoze PV orare și zilnice folosind un model de iradiere complet și date meteo prin satelit."
+      },
+      "calibration": {
+        "title": "Auto-Calibrare",
+        "desc": "Înregistrați producția reală, iar filtrul Kalman va învăța sistemul dumneavoastră în timp."
+      },
+      "notifications": {
+        "title": "Notificări Inteligente",
+        "desc": "Primiți alerte când prognoza se schimbă semnificativ sau când este momentul optim pentru aparate electrocasnice mari."
+      },
+      "widgets": {
+        "title": "Widget-uri ecran de pornire",
+        "desc": "Widget-uri clare pentru Android (Glance) și iOS (WidgetKit) care arată prognoza fără a deschide aplicația."
+      }
+    },
+    "howItWorks": {
+      "label": "Cum funcționează",
+      "title": "Gata în câteva minute",
+      "desc": "Fără login invertor. Fără API cloud.",
+      "step1": {
+        "title": "Introduceți parametrii panourilor",
+        "desc": "Azimut, unghi înclinare, putere maximă, configurație multi-string, factor bifacial și profil umbrire."
+      },
+      "step2": {
+        "title": "Obțineți prognoza",
+        "desc": "Volcast combină datele satelit cu modelul fizic al sistemului pentru a prezice producția."
+      },
+      "step3": {
+        "title": "Calibrați și optimizați",
+        "desc": "Înregistrați producția reală și modelul se auto-calibrează."
+      }
+    },
+    "screenshots": {
+      "label": "Previzualizare",
+      "title": "Proiectat pentru claritate",
+      "desc": "O interfață întunecată care pune datele dumneavoastră energetice pe primul loc.",
+      "widgetsLabel": "Widget-uri",
+      "forecastLabel": "Prognoză",
+      "notificationsLabel": "Notificări",
+      "widgetsAlt": "Widget-uri Volcast cu prognoza pentru azi și mâine",
+      "forecastAlt": "Prognoză solară pe 7 zile cu defalcare orară",
+      "notificationsAlt": "Notificare schimbare prognoză Volcast"
+    },
+    "ha": {
+      "badge": "Integrare Home Assistant",
+      "title": "Trimiteți prognoza în Home Assistant",
+      "desc": "Volcast oferă un REST API care livrează prognoza într-un format înțeles nativ de Home Assistant.",
+      "note": "Generați cheia API în aplicația Volcast (Premium).",
+      "curlTitle": "Preluare prognoză",
+      "curlComment": "Un singur apel API returnează date zilnice, orare și la 5 min",
+      "yamlTitle": "Senzor Home Assistant",
+      "jsonTitle": "Răspuns API",
+      "hourlyComment": "24 intrări orare pe zi",
+      "detailedComment": "288 intrări de 5 minute pe zi"
+    },
+    "trust": {
+      "noTracking": "Zero Urmărire",
+      "noTrackingDesc": "Fără analitice, fără telemetrie, fără profilare.",
+      "noAds": "Fără Reclame",
+      "noAdsDesc": "Fără bannere sau conținut sponsorizat. Niciodată.",
+      "noCloud": "Fără acces hardware cloud",
+      "noCloudDesc": "Volcast nu se conectează niciodată la invertor sau la alt hardware."
+    },
+    "download": {
+      "label": "Obține Volcast",
+      "title": "Începeți prognoza azi",
+      "desc": "Disponibil acum pe Android.",
+      "iosDivider": "sau",
+      "iosComingSoon": "În curând în App Store",
+      "iosDesc": "Înscrieți-vă pe lista de așteptare iOS pentru a afla primii când lansăm pe iPhone.",
+      "iosPlaceholder": "your@email.com",
+      "iosCta": "Anunță-mă",
+      "iosJoining": "Înscriere...",
+      "iosNote": "Fără spam. Trimitem un singur email în ziua lansării.",
+      "iosSuccess": "✓ Sunteți pe listă! Vă vom anunța la lansare.",
+      "iosAlreadyOnList": "Sunteți deja pe listă!",
+      "iosError": "Ceva nu a mers bine — reîncercați"
+    },
+    "faq": {
+      "label": "FAQ",
+      "title": "Întrebări frecvente",
+      "q1": "Cât de precise sunt prognozele?",
+      "a1": "Volcast folosește un model fizic și date satelit. După calibrare, precizia ajunge la 85–95% în zilele senine.",
+      "q2": "Am nevoie de un invertor inteligent?",
+      "a2": "Nu. Volcast funcționează cu orice instalație — fără login, fără API și fără conexiune fizică.",
+      "q3": "Volcast este gratuit?",
+      "a3": "Oferă un nivel gratuit (2 zile prognoză). Premium este o achiziție unică pentru 7 zile, auto-calibrare și REST API.",
+      "q4": "Ce platforme sunt suportate?",
+      "a4": "Android (Google Play) acum. iOS (App Store) urmează. Widget-urile folosesc Glance și WidgetKit.",
+      "q5": "Cum funcționează auto-calibrarea?",
+      "a5": "Introduceți producția reală, iar filtrul Kalman ajustează modelul conform umbririi și degradării locale.",
+      "q6": "Cum funcționează integrarea Home Assistant?",
+      "a6": "Prin un endpoint REST API. Îl adăugați ca senzor în configuration.yaml cu cheia Premium."
+    },
+    "footer": {
+      "tagline": "Aplicație de prognoză solară",
+      "privacy": "Politica de Confidențialitate",
+      "terms": "Termeni de Utilizare"
+    }
+  },
+  "cs": {
+    "meta": {
+      "title": "Volcast — Předpověď výroby fotovoltaiky",
+      "description": "Předpovídejte svou solární produkci pomocí pokročilého fyzikálního modelu.",
+      "ogTitle": "Volcast — Předpověď výroby fotovoltaiky",
+      "ogDescription": "Předpovídejte výrobu elektřiny pomocí fyziky. Bez přihlášení ke střídači, bez API klíčů."
+    },
+    "nav": {
+      "features": "Funkce",
+      "howItWorks": "Jak to funguje",
+      "homeAssistant": "Home Assistant",
+      "faq": "FAQ",
+      "getApp": "Stáhnout aplikaci",
+      "changeLanguage": "Změnit jazyk"
+    },
+    "hero": {
+      "title": "Předpovídejte solární výrobu<br>pomocí <em>fyziky</em>",
+      "desc": "Pokročilý fyzikální model.",
+      "cta": "Stáhnout na Google Play",
+      "note": "Dostupné pro Android. iOS již brzy.",
+      "comingSoon": "Již brzy",
+      "googlePlay": {
+        "small": "Stáhnout na"
+      }
+    },
+    "features": {
+      "label": "Funkce",
+      "title": "Pokročilý fyzikální model",
+      "desc": "Není vyžadováno přihlášení ke cloudu střídače ani API klíče.",
+      "engine": {
+        "title": "Předpověď založená na fyzice",
+        "desc": "Hodinové a denní předpovědi výroby FVE s využitím modelu ozáření a satelitních meteorologických dat."
+      },
+      "calibration": {
+        "title": "Autokalibrace",
+        "desc": "Zaznamenávejte skutečnou výrobu a Kalmanův filtr se časem naučí specifika vašeho systému."
+      },
+      "notifications": {
+        "title": "Chytrá upozornění",
+        "desc": "Dostávejte upozornění, když se předpověď výrazně změní nebo když je nejlepší čas pro zapnutí náročných spotřebičů."
+      },
+      "widgets": {
+        "title": "Widgety na domovskou obrazovku",
+        "desc": "Přehledné widgety pro Android (Glance) a iOS (WidgetKit) ukazující předpověď bez otevírání aplikace."
+      }
+    },
+    "howItWorks": {
+      "label": "Jak to funguje",
+      "title": "Hotovo za pár minut",
+      "desc": "Bez přihlášení ke střídači. Bez cloudového API.",
+      "step1": {
+        "title": "Zadejte parametry panelů",
+        "desc": "Azimut, úhel sklonu, špičkový výkon, konfigurace stringů, bifaciální faktor a profil zastínění."
+      },
+      "step2": {
+        "title": "Získejte předpověď",
+        "desc": "Volcast kombinuje satelitní data s fyzikálním modelem vašeho systému pro předpověď výroby."
+      },
+      "step3": {
+        "title": "Kalibrace a optimalizace",
+        "desc": "Zapisujte reálnou výrobu a model se sám zkalibruje."
+      }
+    },
+    "screenshots": {
+      "label": "Náhled",
+      "title": "Navrženo pro přehlednost",
+      "desc": "Tmavé, na data zaměřené rozhraní, které dává informace o vaší energii do popředí.",
+      "widgetsLabel": "Widgety",
+      "forecastLabel": "Předpověď",
+      "notificationsLabel": "Upozornění",
+      "widgetsAlt": "Widgety Volcast s předpovědí na dnes a zítra",
+      "forecastAlt": "7denní předpověď Volcast s hodinovým rozpisem",
+      "notificationsAlt": "Upozornění na změnu předpovědi Volcast"
+    },
+    "ha": {
+      "badge": "Integrace Home Assistant",
+      "title": "Pošlete předpověď do Home Assistant",
+      "desc": "Volcast nabízí REST API, které poskytuje předpověď ve formátu, kterému Home Assistant nativně rozumí.",
+      "note": "Vygenerujte si API klíč v aplikaci Volcast (Premium).",
+      "curlTitle": "Načíst předpověď",
+      "curlComment": "Jedno volání API vrátí denní, hodinová a 5minutová data",
+      "yamlTitle": "Senzor pro Home Assistant",
+      "jsonTitle": "API odpověď",
+      "hourlyComment": "24 hodinových záznamů denně",
+      "detailedComment": "288 pětiminutových záznamů denně"
+    },
+    "trust": {
+      "noTracking": "Žádné sledování",
+      "noTrackingDesc": "Žádná analytika, žádná telemetrie, žádné profilování.",
+      "noAds": "Bez reklam",
+      "noAdsDesc": "Žádné bannery ani sponzorovaný obsah. Nikdy.",
+      "noCloud": "Žádný cloudový přístup k hardwaru",
+      "noCloudDesc": "Volcast se nikdy nepřipojuje k vašemu střídači ani jinému hardwaru."
+    },
+    "download": {
+      "label": "Získat Volcast",
+      "title": "Začněte předpovídat ještě dnes",
+      "desc": "Nyní k dispozici pro Android.",
+      "iosDivider": "nebo",
+      "iosComingSoon": "Již brzy v App Store",
+      "iosDesc": "Přidejte se na čekací listinu pro iOS a dozvíte se o spuštění pro iPhone jako první.",
+      "iosPlaceholder": "your@email.com",
+      "iosCta": "Upozornit mě",
+      "iosJoining": "Přihlašování...",
+      "iosNote": "Žádný spam. Píšeme jen jednou — v den spuštění.",
+      "iosSuccess": "✓ Jste na seznamu! Ozveme se v den spuštění.",
+      "iosAlreadyOnList": "Na seznamu již jste!",
+      "iosError": "Něco se nepovedlo — zkuste to znovu"
+    },
+    "faq": {
+      "label": "FAQ",
+      "title": "Časté dotazy",
+      "q1": "Jak přesné jsou předpovědi?",
+      "a1": "Volcast využívá fyzikální model a satelitní data. Po kalibraci dosahuje přesnost obvykle 85–95 % v jasných dnech.",
+      "q2": "Potřebuji chytrý střídač?",
+      "a2": "Ne. Volcast funguje s jakoukoli instalací — bez přihlášení, bez API a bez fyzického připojení.",
+      "q3": "Je Volcast zdarma?",
+      "a3": "Volcast nabízí bezplatnou úroveň (2 dny předpovědi). Premium je jednorázový nákup pro 7 dní, autokalibraci a REST API.",
+      "q4": "Jaké platformy jsou podporovány?",
+      "a4": "Aktuálně Android (Google Play). iOS (App Store) se připravuje. Widgety využívají Glance a WidgetKit.",
+      "q5": "Jak funguje autokalibrace?",
+      "a5": "Zadáváte reálnou výrobu a Kalmanův filtr upravuje model podle zastínění a degradace panelů.",
+      "q6": "Jak funguje integrace s Home Assistant?",
+      "a6": "Přes REST API endpoint. Přidáte jej jako senzor do configuration.yaml pomocí vašeho Premium klíče."
+    },
+    "footer": {
+      "tagline": "Aplikace pro předpověď solární výroby",
+      "privacy": "Ochrana soukromí",
+      "terms": "Obchodní podmínky"
+    }
+  },
+  "sk": {
+    "meta": {
+      "title": "Volcast — Predpoveď výroby fotovoltiky",
+      "description": "Predpovedajte svoju solárnu produkciu pomocou pokročilého fyzikálneho modelu.",
+      "ogTitle": "Volcast — Predpoveď výroby fotovoltiky",
+      "ogDescription": "Predpovedajte výrobu elektriny pomocou fyziky. Bez prihlásenia k meniču, bez API kľúčov."
+    },
+    "nav": {
+      "features": "Funkcie",
+      "howItWorks": "Ako to funguje",
+      "homeAssistant": "Home Assistant",
+      "faq": "FAQ",
+      "getApp": "Stiahnuť aplikáciu",
+      "changeLanguage": "Zmeniť jazyk"
+    },
+    "hero": {
+      "title": "Predpovedajte solárnu výrobu<br>pomocou <em>fyziky</em>",
+      "desc": "Pokročilý fyzikálny model.",
+      "cta": "Stiahnuť na Google Play",
+      "note": "Dostupné pre Android. iOS už čoskoro.",
+      "comingSoon": "Už čoskoro",
+      "googlePlay": {
+        "small": "Stiahnuť na"
+      }
+    },
+    "features": {
+      "label": "Funkcie",
+      "title": "Pokročilý fyzikálny model",
+      "desc": "Nevyžaduje sa prihlásenie ku cloudu meniča ani API kľúče.",
+      "engine": {
+        "title": "Predpoveď založená na fyzike",
+        "desc": "Hodinové a denné predpovede výroby FVE s využitím modelu ožiarenia a satelitných meteorologických dát."
+      },
+      "calibration": {
+        "title": "Autokalibrácia",
+        "desc": "Zaznamenávajte skutočnú výrobu a Kalmanov filter sa časom naučí špecifiká vášho systému."
+      },
+      "notifications": {
+        "title": "Inteligentné upozornenia",
+        "desc": "Dostávajte upozornenia, keď sa predpoveď výrazne zmení alebo keď je najlepší čas na zapnutie náročných spotrebičov."
+      },
+      "widgets": {
+        "title": "Widgety na domovskú obrazovku",
+        "desc": "Prehľadné widgety pre Android (Glance) a iOS (WidgetKit) ukazujúce predpoveď bez otvorenia aplikácie."
+      }
+    },
+    "howItWorks": {
+      "label": "Ako to funguje",
+      "title": "Hotovo za pár minút",
+      "desc": "Bez prihlásenia k meniču. Bez cloudového API.",
+      "step1": {
+        "title": "Zadajte parametre panelov",
+        "desc": "Azimut, uhol sklonu, špičkový výkon, konfigurácia stringov, bifaciálny faktor a profil zatienenia."
+      },
+      "step2": {
+        "title": "Získajte predpoveď",
+        "desc": "Volcast kombinuje satelitné dáta s fyzikálnym modelom vášho systému na predpoveď výroby."
+      },
+      "step3": {
+        "title": "Kalibrácia a optimalizácia",
+        "desc": "Zapisujte reálnu výrobu a model sa sám skalibruje."
+      }
+    },
+    "screenshots": {
+      "label": "Náhľad",
+      "title": "Navrhnuté pre prehľadnosť",
+      "desc": "Tmavé rozhranie zamerané na dáta, ktoré stavia informácie o vašej energii do popredia.",
+      "widgetsLabel": "Widgety",
+      "forecastLabel": "Predpoveď",
+      "notificationsLabel": "Upozornenia",
+      "widgetsAlt": "Widgety Volcast s predpoveďou na dnes a zajtra",
+      "forecastAlt": "7-dňová predpoveď Volcast s hodinovým rozpisom",
+      "notificationsAlt": "Upozornenie na zmenu predpovede Volcast"
+    },
+    "ha": {
+      "badge": "Integrácia Home Assistant",
+      "title": "Pošlite predpoveď do Home Assistant",
+      "desc": "Volcast ponúka REST API, ktoré poskytuje predpoveď vo formáte, ktorému Home Assistant natívne rozumie.",
+      "note": "Vygenerujte si API kľúč v aplikácii Volcast (Premium).",
+      "curlTitle": "Načítať predpoveď",
+      "curlComment": "Jedno volanie API vráti denné, hodinové a 5-minútové dáta",
+      "yamlTitle": "Senzor pre Home Assistant",
+      "jsonTitle": "API odpoveď",
+      "hourlyComment": "24 hodinových záznamov denne",
+      "detailedComment": "288 päťminútových záznamov denne"
+    },
+    "trust": {
+      "noTracking": "Žiadne sledovanie",
+      "noTrackingDesc": "Žiadna analytika, žiadna telemetria, žiadne profilovanie.",
+      "noAds": "Bez reklám",
+      "noAdsDesc": "Žiadne bannery ani sponzorovaný obsah. Nikdy.",
+      "noCloud": "Žiadny cloudový prístup k hardvéru",
+      "noCloudDesc": "Volcast sa nikdy nepripája k vášmu meniču ani inému hardvéru."
+    },
+    "download": {
+      "label": "Získať Volcast",
+      "title": "Začnite predpovedať ešte dnes",
+      "desc": "Teraz k dispozícii pre Android.",
+      "iosDivider": "alebo",
+      "iosComingSoon": "Už čoskoro v App Store",
+      "iosDesc": "Pridajte sa na čakaciu listinu pre iOS a dozviete sa o spustení pre iPhone ako prví.",
+      "iosPlaceholder": "your@email.com",
+      "iosCta": "Upozorniť ma",
+      "iosJoining": "Prihlasovanie...",
+      "iosNote": "Žiadny spam. Píšeme len raz — v deň spustenia.",
+      "iosSuccess": "✓ Ste na zozname! Ozveme sa v deň spustenia.",
+      "iosAlreadyOnList": "Na zozname už ste!",
+      "iosError": "Niečo sa nepodarilo — skúste to znova"
+    },
+    "faq": {
+      "label": "FAQ",
+      "title": "Časté otázky",
+      "q1": "Ako presné sú predpovede?",
+      "a1": "Volcast využíva fyzikálny model a satelitné dáta. Po kalibrácii dosahuje presnosť zvyčajne 85–95 % v jasných dňoch.",
+      "q2": "Potrebujem inteligentný menič?",
+      "a2": "Nie. Volcast funguje s akoukoľvek inštaláciou — bez prihlásenia, bez API a bez fyzického pripojenia.",
+      "q3": "Je Volcast zadarmo?",
+      "a3": "Volcast ponúka bezplatnú úroveň (2 dni predpovede). Premium je jednorazový nákup pre 7 dní, autokalibráciu a REST API.",
+      "q4": "Aké platformy sú podporované?",
+      "a4": "Aktuálne Android (Google Play). iOS (App Store) sa pripravuje. Widgety využívajú Glance a WidgetKit.",
+      "q5": "Ako funguje autokalibrácia?",
+      "a5": "Zadávate reálnu výrobu a Kalmanov filter upravuje model podľa zatienenia a degradácie panelov.",
+      "q6": "Ako funguje integrácia s Home Assistant?",
+      "a6": "Cez REST API endpoint. Pridáte ho ako senzor do configuration.yaml pomocou vášho Premium kľúča."
+    },
+    "footer": {
+      "tagline": "Aplikácia na predpoveď solárnej výroby",
+      "privacy": "Ochrana súkromia",
+      "terms": "Obchodné podmienky"
+    }
+  }
+}
