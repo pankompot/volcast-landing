@@ -31,7 +31,7 @@
       // 1. Check localStorage preference
       var saved = localStorage.getItem('volcast-lang');
       if (saved && (LOCALE_MAP[saved] || saved === 'pt-br')) {
-        window.location.replace('/' + saved + '/');
+        window.location.replace('/' + saved + '/' + window.location.hash);
         return;
       }
 
@@ -43,7 +43,7 @@
         // pt-BR special case
         if (tag === 'pt-br' || tag.startsWith('pt-br')) {
           localStorage.setItem('volcast-lang', 'pt-br');
-          window.location.replace('/pt-br/');
+          window.location.replace('/pt-br/' + window.location.hash);
           return;
         }
 
@@ -51,14 +51,14 @@
         var primary = tag.split('-')[0];
         if (LOCALE_MAP[primary]) {
           localStorage.setItem('volcast-lang', primary);
-          window.location.replace('/' + primary + '/');
+          window.location.replace('/' + primary + '/' + window.location.hash);
           return;
         }
       }
 
       // 3. Default to English
       localStorage.setItem('volcast-lang', 'en');
-      window.location.replace('/en/');
+      window.location.replace('/en/' + window.location.hash);
     })();
   </script>
   <style>
