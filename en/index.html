@@ -1662,5 +1662,35 @@ curl -H <span class="code-str">"X-API-Key: vk_your_api_key"</span> \
       });
     });
   </script>
+
+  <!-- iOS notify confirmation toast -->
+  <script>
+    (function() {
+      if (window.location.hash !== '#ios-confirmed') return;
+
+      var toast = document.createElement('div');
+      toast.textContent = "Thanks! We'll notify you when Volcast is on the App Store.";
+      toast.style.cssText = 'position:fixed;bottom:32px;left:50%;transform:translateX(-50%) translateY(20px);' +
+        'background:#0F1218;color:#00FF9D;font-family:var(--font-body);font-size:15px;font-weight:500;' +
+        'padding:16px 28px;border-radius:12px;border:1px solid rgba(0,255,157,0.3);' +
+        'box-shadow:0 0 30px rgba(0,255,157,0.15);z-index:9999;opacity:0;' +
+        'transition:opacity 0.4s,transform 0.4s;max-width:90vw;text-align:center;';
+      document.body.appendChild(toast);
+
+      requestAnimationFrame(function() {
+        toast.style.opacity = '1';
+        toast.style.transform = 'translateX(-50%) translateY(0)';
+      });
+
+      setTimeout(function() {
+        toast.style.opacity = '0';
+        toast.style.transform = 'translateX(-50%) translateY(20px)';
+        setTimeout(function() { toast.remove(); }, 400);
+      }, 5000);
+
+      // Wyczysc hash z URL bez przeladowania
+      history.replaceState(null, '', window.location.pathname);
+    })();
+  </script>
 </body>
 </html>
