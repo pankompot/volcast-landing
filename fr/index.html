@@ -719,6 +719,133 @@
       gap: 20px;
       min-width: 0;
     }
+    .ha-tabs {
+      display: flex;
+      gap: 4px;
+      background: var(--surface);
+      border: 1px solid var(--surface-border);
+      border-radius: var(--radius-md);
+      padding: 4px;
+    }
+    .ha-tab {
+      flex: 1;
+      padding: 10px 16px;
+      border: none;
+      border-radius: calc(var(--radius-md) - 4px);
+      background: transparent;
+      color: var(--text-muted);
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .ha-tab:hover {
+      color: var(--text-secondary);
+    }
+    .ha-tab--active {
+      background: rgba(129, 140, 248, 0.1);
+      color: var(--secondary);
+    }
+    .ha-tab-content {
+      display: none;
+    }
+    .ha-tab-content--active {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .ha-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .ha-step {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 16px;
+      background: var(--surface);
+      border: 1px solid var(--surface-border);
+      border-radius: var(--radius-md);
+    }
+    .ha-step-num {
+      flex-shrink: 0;
+      width: 28px;
+      height: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: rgba(129, 140, 248, 0.15);
+      color: var(--secondary);
+      font-size: 13px;
+      font-weight: 700;
+    }
+    .ha-step-text {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .ha-step-text strong {
+      color: var(--text-primary);
+      font-size: 14px;
+    }
+    .ha-step-text span {
+      color: var(--text-muted);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+    .ha-github-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--surface-border);
+      border-radius: var(--radius-md);
+      color: var(--text-secondary);
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.2s;
+      align-self: flex-start;
+    }
+    .ha-github-link:hover {
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--text-primary);
+    }
+    .ha-github-link svg {
+      width: 18px;
+      height: 18px;
+    }
+    .ha-sensors {
+      padding: 16px;
+      background: var(--surface);
+      border: 1px solid var(--surface-border);
+      border-radius: var(--radius-md);
+    }
+    .ha-sensors-title {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 12px;
+    }
+    .ha-sensor-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .ha-sensor-chip {
+      padding: 4px 12px;
+      background: rgba(0, 255, 157, 0.08);
+      border: 1px solid rgba(0, 255, 157, 0.15);
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--primary);
+    }
     .code-block {
       background: var(--surface);
       border: 1px solid var(--surface-border);
@@ -1330,41 +1457,74 @@
             Intégration Home Assistant
           </div>
           <h2>Envoyez vos prévisions vers Home Assistant</h2>
-          <p>Volcast propose une REST API qui livre vos prévisions dans un format nativement compris par Home Assistant.</p>
-          <p style="font-size: 14px; color: var(--text-muted);">Générez votre clé API dans l'app Volcast (Premium).</p>
+          <p>Installez l'intégration officielle HACS pour la meilleure expérience — Energy Dashboard, capteur de puissance en temps réel, alertes de production maximale et mises à jour automatiques. Ou utilisez la REST API directement pour des configurations personnalisées.</p>
+          <p style="font-size: 14px; color: var(--text-muted);">Générez votre clé API dans l'app Volcast (Premium). Aucun accès au matériel, pas de polling cloud — les données proviennent directement du moteur Volcast.</p>
         </div>
         <div class="ha-code-blocks">
-          <div class="code-block">
-            <div class="code-block-header">
-              <span class="code-block-title">Récupérer les prévisions</span>
-              <span class="code-block-lang">bash</span>
+          <!-- Tab switcher -->
+          <div class="ha-tabs">
+            <button class="ha-tab ha-tab--active" data-tab="hacs">Intégration HACS</button>
+            <button class="ha-tab" data-tab="api">REST API</button>
+          </div>
+
+          <!-- HACS tab content -->
+          <div class="ha-tab-content ha-tab-content--active" data-tab-content="hacs">
+            <div class="ha-steps">
+              <div class="ha-step">
+                <div class="ha-step-num">1</div>
+                <div class="ha-step-text">
+                  <strong>Installer via HACS</strong>
+                  <span>Ajoutez le dépôt personnalisé dans HACS, puis cliquez sur Installer.</span>
+                </div>
+              </div>
+              <div class="ha-step">
+                <div class="ha-step-num">2</div>
+                <div class="ha-step-text">
+                  <strong>Ajouter l'intégration</strong>
+                  <span>Paramètres → Appareils & Services → Ajouter une intégration → rechercher "Volcast".</span>
+                </div>
+              </div>
+              <div class="ha-step">
+                <div class="ha-step-num">3</div>
+                <div class="ha-step-text">
+                  <strong>Saisir votre clé API</strong>
+                  <span>Collez votre clé vk_... — les capteurs apparaissent automatiquement.</span>
+                </div>
+              </div>
             </div>
-            <pre><span class="code-comment"># Un seul appel API retourne les données quotidiennes, horaires et par 5 min</span>
+            <a href="https://github.com/volter-labs/volcast-ha-integration" target="_blank" rel="noopener" class="ha-github-link">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+              Voir sur GitHub
+            </a>
+            <div class="ha-sensors">
+              <p class="ha-sensors-title">Capteurs inclus</p>
+              <div class="ha-sensor-list">
+                <span class="ha-sensor-chip">Énergie aujourd'hui (kWh)</span>
+                <span class="ha-sensor-chip">Énergie demain (kWh)</span>
+                <span class="ha-sensor-chip">Puissance actuelle (W)</span>
+                <span class="ha-sensor-chip">Production maximale</span>
+                <span class="ha-sensor-chip">Energy Dashboard</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- REST API tab content -->
+          <div class="ha-tab-content" data-tab-content="api">
+            <div class="code-block">
+              <div class="code-block-header">
+                <span class="code-block-title">Récupérer les prévisions</span>
+                <span class="code-block-lang">bash</span>
+              </div>
+              <pre><span class="code-comment"># Un seul appel API retourne les données quotidiennes, horaires et par 5 min</span>
 curl -H <span class="code-str">"X-API-Key: vk_your_api_key"</span> \
   <span class="code-str">"https://volcast.app/api/forecast"</span></pre>
-          </div>
-          <div class="code-block">
-            <div class="code-block-header">
-              <span class="code-block-title">Capteur Home Assistant</span>
-              <span class="code-block-lang">yaml</span>
             </div>
-            <pre><span class="code-comment"># configuration.yaml</span>
-<span class="code-key">sensor</span>:
-  - <span class="code-key">platform</span>: rest
-    <span class="code-key">name</span>: <span class="code-str">"Volcast Solar Forecast"</span>
-    <span class="code-key">resource</span>: <span class="code-str">"https://volcast.app/api/forecast?key=vk_..."</span>
-    <span class="code-key">value_template</span>: <span class="code-str">"{{ value_json.state }}"</span>
-    <span class="code-key">unit_of_measurement</span>: <span class="code-str">"kWh"</span>
-    <span class="code-key">scan_interval</span>: <span class="code-num">3600</span>
-    <span class="code-key">json_attributes</span>:
-      - <span class="code-str">attributes</span></pre>
-          </div>
-          <div class="code-block">
-            <div class="code-block-header">
-              <span class="code-block-title">Réponse API</span>
-              <span class="code-block-lang">json</span>
-            </div>
-            <pre>{
+            <div class="code-block">
+              <div class="code-block-header">
+                <span class="code-block-title">Réponse API</span>
+                <span class="code-block-lang">json</span>
+              </div>
+              <pre>{
   <span class="code-key">"state"</span>: <span class="code-num">12.4</span>,
   <span class="code-key">"unit_of_measurement"</span>: <span class="code-str">"kWh"</span>,
   <span class="code-key">"attributes"</span>: {
@@ -1377,6 +1537,7 @@ curl -H <span class="code-str">"X-API-Key: vk_your_api_key"</span> \
     <span class="code-key">"api_version"</span>: <span class="code-num">2</span>
   }
 }</pre>
+            </div>
           </div>
         </div>
       </div>
@@ -1511,7 +1672,7 @@ curl -H <span class="code-str">"X-API-Key: vk_your_api_key"</span> \
             Comment fonctionne l'intégration Home Assistant ?
             <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
           </button>
-          <div class="faq-answer"><div class="faq-answer-inner">Via un endpoint REST API. Vous l'ajoutez comme capteur dans configuration.yaml avec votre clé Premium.</div></div>
+          <div class="faq-answer"><div class="faq-answer-inner">Installez l'intégration officielle Volcast via HACS — en seulement 3 clics. Vous obtenez le support Energy Dashboard, des capteurs d'énergie pour aujourd'hui/demain, la puissance en temps réel et des alertes de production maximale. Saisissez simplement votre clé API (générée dans l'app, fonction Premium) et tous les capteurs apparaissent automatiquement. Une REST API est également disponible pour les intégrations personnalisées.</div></div>
         </div>
       </div>
     </div>
@@ -1543,6 +1704,17 @@ curl -H <span class="code-str">"X-API-Key: vk_your_api_key"</span> \
   <script>
     // Language preference — save on visit
     localStorage.setItem('volcast-lang', 'fr');
+
+    // HA section tab switcher
+    document.querySelectorAll('.ha-tab').forEach(function(tab) {
+      tab.addEventListener('click', function() {
+        var target = this.getAttribute('data-tab');
+        document.querySelectorAll('.ha-tab').forEach(function(t) { t.classList.remove('ha-tab--active'); });
+        document.querySelectorAll('.ha-tab-content').forEach(function(c) { c.classList.remove('ha-tab-content--active'); });
+        this.classList.add('ha-tab--active');
+        document.querySelector('[data-tab-content="' + target + '"]').classList.add('ha-tab-content--active');
+      });
+    });
 
     // Nav scroll effect
     var nav = document.getElementById('nav');
@@ -1661,6 +1833,35 @@ curl -H <span class="code-str">"X-API-Key: vk_your_api_key"</span> \
         input.value = '';
       });
     });
+  </script>
+
+  <!-- iOS notify confirmation toast (waitlist launch email → edge function redirect) -->
+  <script>
+    (function() {
+      if (window.location.hash !== '#ios-confirmed') return;
+
+      var toast = document.createElement('div');
+      toast.textContent = "Thanks! We'll notify you when Volcast is on the App Store.";
+      toast.style.cssText = 'position:fixed;bottom:32px;left:50%;transform:translateX(-50%) translateY(20px);' +
+        'background:#0F1218;color:#00FF9D;font-family:var(--font-body);font-size:15px;font-weight:500;' +
+        'padding:16px 28px;border-radius:12px;border:1px solid rgba(0,255,157,0.3);' +
+        'box-shadow:0 0 30px rgba(0,255,157,0.15);z-index:9999;opacity:0;' +
+        'transition:opacity 0.4s,transform 0.4s;max-width:90vw;text-align:center;';
+      document.body.appendChild(toast);
+
+      requestAnimationFrame(function() {
+        toast.style.opacity = '1';
+        toast.style.transform = 'translateX(-50%) translateY(0)';
+      });
+
+      setTimeout(function() {
+        toast.style.opacity = '0';
+        toast.style.transform = 'translateX(-50%) translateY(20px)';
+        setTimeout(function() { toast.remove(); }, 400);
+      }, 5000);
+
+      history.replaceState(null, '', window.location.pathname);
+    })();
   </script>
 </body>
 </html>
