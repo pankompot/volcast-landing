@@ -795,6 +795,16 @@
       font-size: 13px;
       line-height: 1.5;
     }
+    .ha-step-url {
+      font-family: 'SF Mono', 'Fira Code', 'Fira Mono', Menlo, Consolas, monospace;
+      font-size: 11.5px !important;
+      background: rgba(129, 140, 248, 0.08);
+      padding: 4px 8px;
+      border-radius: 6px;
+      word-break: break-all;
+      user-select: all;
+      color: var(--secondary) !important;
+    }
     .ha-github-link {
       display: inline-flex;
       align-items: center;
@@ -1473,22 +1483,37 @@
               <div class="ha-step">
                 <div class="ha-step-num">1</div>
                 <div class="ha-step-text">
-                  <strong>Installeren via HACS</strong>
-                  <span>Voeg de custom repository toe in HACS en klik op Installeren.</span>
+                  <strong>Open HACS</strong>
+                  <span>Open HACS in uw Home Assistant.</span>
                 </div>
               </div>
               <div class="ha-step">
                 <div class="ha-step-num">2</div>
                 <div class="ha-step-text">
-                  <strong>Integratie toevoegen</strong>
-                  <span>Instellingen → Apparaten & Services → Integratie toevoegen → zoek "Volcast".</span>
+                  <strong>Aangepaste repositories</strong>
+                  <span>Klik op het ⋮-menu (3 puntjes) → Aangepaste repositories.</span>
                 </div>
               </div>
               <div class="ha-step">
                 <div class="ha-step-num">3</div>
                 <div class="ha-step-text">
-                  <strong>Voer uw API-key in</strong>
-                  <span>Plak uw vk_...-key — sensoren verschijnen automatisch.</span>
+                  <strong>Repository toevoegen</strong>
+                  <span class="ha-step-url">https://github.com/volter-labs/volcast-ha-integration</span>
+                  <span>Voeg bovenstaande URL toe als Integratie.</span>
+                </div>
+              </div>
+              <div class="ha-step">
+                <div class="ha-step-num">4</div>
+                <div class="ha-step-text">
+                  <strong>Installeren & herstarten</strong>
+                  <span>Klik op Installeren en herstart Home Assistant.</span>
+                </div>
+              </div>
+              <div class="ha-step">
+                <div class="ha-step-num">5</div>
+                <div class="ha-step-text">
+                  <strong>Configureren</strong>
+                  <span>Instellingen → Apparaten & Services → Integratie toevoegen → zoek "Volcast" → voer uw vk_...-API-key in.</span>
                 </div>
               </div>
             </div>

@@ -795,6 +795,16 @@
       font-size: 13px;
       line-height: 1.5;
     }
+    .ha-step-url {
+      font-family: 'SF Mono', 'Fira Code', 'Fira Mono', Menlo, Consolas, monospace;
+      font-size: 11.5px !important;
+      background: rgba(129, 140, 248, 0.08);
+      padding: 4px 8px;
+      border-radius: 6px;
+      word-break: break-all;
+      user-select: all;
+      color: var(--secondary) !important;
+    }
     .ha-github-link {
       display: inline-flex;
       align-items: center;
@@ -1473,22 +1483,37 @@
               <div class="ha-step">
                 <div class="ha-step-num">1</div>
                 <div class="ha-step-text">
-                  <strong>Instalace přes HACS</strong>
-                  <span>Přidejte vlastní repozitář v HACS a klikněte na Instalovat.</span>
+                  <strong>Otevřít HACS</strong>
+                  <span>Otevřete HACS ve svém Home Assistant.</span>
                 </div>
               </div>
               <div class="ha-step">
                 <div class="ha-step-num">2</div>
                 <div class="ha-step-text">
-                  <strong>Přidat integraci</strong>
-                  <span>Nastavení → Zařízení a služby → Přidat integraci → hledat "Volcast".</span>
+                  <strong>Vlastní repozitáře</strong>
+                  <span>Klikněte na menu ⋮ (3 tečky) → Vlastní repozitáře.</span>
                 </div>
               </div>
               <div class="ha-step">
                 <div class="ha-step-num">3</div>
                 <div class="ha-step-text">
-                  <strong>Zadejte API klíč</strong>
-                  <span>Vložte svůj klíč vk_... — senzory se objeví automaticky.</span>
+                  <strong>Přidat repozitář</strong>
+                  <span class="ha-step-url">https://github.com/volter-labs/volcast-ha-integration</span>
+                  <span>Přidejte výše uvedenou URL jako Integraci.</span>
+                </div>
+              </div>
+              <div class="ha-step">
+                <div class="ha-step-num">4</div>
+                <div class="ha-step-text">
+                  <strong>Nainstalovat a restartovat</strong>
+                  <span>Klikněte na Instalovat a restartujte Home Assistant.</span>
+                </div>
+              </div>
+              <div class="ha-step">
+                <div class="ha-step-num">5</div>
+                <div class="ha-step-text">
+                  <strong>Nakonfigurovat</strong>
+                  <span>Nastavení → Zařízení a služby → Přidat integraci → hledat "Volcast" → zadejte svůj API klíč vk_...</span>
                 </div>
               </div>
             </div>

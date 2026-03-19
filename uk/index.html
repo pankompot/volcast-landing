@@ -795,6 +795,16 @@
       font-size: 13px;
       line-height: 1.5;
     }
+    .ha-step-url {
+      font-family: 'SF Mono', 'Fira Code', 'Fira Mono', Menlo, Consolas, monospace;
+      font-size: 11.5px !important;
+      background: rgba(129, 140, 248, 0.08);
+      padding: 4px 8px;
+      border-radius: 6px;
+      word-break: break-all;
+      user-select: all;
+      color: var(--secondary) !important;
+    }
     .ha-github-link {
       display: inline-flex;
       align-items: center;
@@ -1473,22 +1483,37 @@
               <div class="ha-step">
                 <div class="ha-step-num">1</div>
                 <div class="ha-step-text">
-                  <strong>Встановити через HACS</strong>
-                  <span>Додайте користувацький репозиторій у HACS, потім натисніть Встановити.</span>
+                  <strong>Відкрити HACS</strong>
+                  <span>Відкрийте HACS у вашому Home Assistant.</span>
                 </div>
               </div>
               <div class="ha-step">
                 <div class="ha-step-num">2</div>
                 <div class="ha-step-text">
-                  <strong>Додати інтеграцію</strong>
-                  <span>Налаштування → Пристрої та Сервіси → Додати інтеграцію → знайдіть "Volcast".</span>
+                  <strong>Користувацькі репозиторії</strong>
+                  <span>Натисніть меню ⋮ (3 крапки) → Користувацькі репозиторії.</span>
                 </div>
               </div>
               <div class="ha-step">
                 <div class="ha-step-num">3</div>
                 <div class="ha-step-text">
-                  <strong>Введіть API-ключ</strong>
-                  <span>Вставте свій ключ vk_... — сенсори з'являться автоматично.</span>
+                  <strong>Додати репозиторій</strong>
+                  <span class="ha-step-url">https://github.com/volter-labs/volcast-ha-integration</span>
+                  <span>Додайте URL вище як Інтеграцію.</span>
+                </div>
+              </div>
+              <div class="ha-step">
+                <div class="ha-step-num">4</div>
+                <div class="ha-step-text">
+                  <strong>Встановити та перезапустити</strong>
+                  <span>Натисніть Встановити, потім перезапустіть Home Assistant.</span>
+                </div>
+              </div>
+              <div class="ha-step">
+                <div class="ha-step-num">5</div>
+                <div class="ha-step-text">
+                  <strong>Налаштувати</strong>
+                  <span>Налаштування → Пристрої та Сервіси → Додати інтеграцію → знайдіть "Volcast" → введіть свій API-ключ vk_...</span>
                 </div>
               </div>
             </div>
