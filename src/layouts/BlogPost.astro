@@ -6,7 +6,6 @@ import PostMeta from '../components/PostMeta.astro';
 import TableOfContents from '../components/TableOfContents.astro';
 import SeriesNav from '../components/SeriesNav.astro';
 import CallToAction from '../components/CallToAction.astro';
-import TagList from '../components/TagList.astro';
 import { getCollection } from 'astro:content';
 
 interface Props {
@@ -114,7 +113,7 @@ const jsonLd = {
 
 <script>
   // Code block copy buttons
-  document.querySelectorAll('.prose pre').forEach(pre => {
+  document.querySelectorAll<HTMLPreElement>('.prose pre').forEach(pre => {
     const button = document.createElement('button');
     button.className = 'copy-button';
     button.textContent = 'Copy';

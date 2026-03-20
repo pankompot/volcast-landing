@@ -2,8 +2,7 @@
 export const prerender = false;
 
 const acceptLang = Astro.request.headers.get('accept-language') || '';
-const wantsPolish = acceptLang.toLowerCase().split(',').some(l => l.trim().startsWith('pl'));
-const targetLang = wantsPolish ? 'pl' : 'en';
+const lang = acceptLang.toLowerCase().split(',').some(l => l.trim().startsWith('pl')) ? 'pl' : 'en';
 
-return Astro.redirect(`/blog/${targetLang}/`, 302);
+return Astro.redirect(`/blog/${lang}/`, 302);
 ---
