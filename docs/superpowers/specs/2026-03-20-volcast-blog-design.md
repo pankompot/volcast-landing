@@ -61,7 +61,7 @@ volcast-landing/
 │   ├── translations.json
 │   ├── translations-en.txt
 │   ├── robots.txt                 # NEW
-│   └── sitemap-landing.xml        # NEW — manual sitemap for static pages
+│   └── sitemap-landing.xml        # NEW — manual sitemap for static pages (update when locales change)
 ├── src/
 │   ├── pages/
 │   │   ├── blog/
@@ -144,7 +144,7 @@ export const collections = { blog };
 During the build (in `getStaticPaths` or a shared utility), the following are validated:
 - **`lang` matches directory:** a post at `src/content/blog/en/post.md` must have `lang: en` in frontmatter. Mismatch throws a build error. This prevents silent routing bugs.
 - **`relatedPosts` resolve:** every slug in `relatedPosts` must correspond to an existing post in the same language. Missing slugs produce a build warning (not error, to allow work-in-progress references).
-- **`seriesOrder` uniqueness:** within the same `series` + `lang`, no two posts may share the same `seriesOrder` value.
+- **`seriesOrder` uniqueness:** within the same `series` + `lang`, no two posts may share the same `seriesOrder` value. Duplicates produce a build error (ambiguous series navigation).
 
 ### Frontmatter example
 
@@ -174,6 +174,7 @@ All blog pages are statically generated. The `[slug].astro` page uses this patte
 export async function getStaticPaths() {
   const posts = await getCollection('blog', ({ data }) => !data.draft);
   return posts.map(post => {
+    // post.id format: "en/panel-tilt" (path relative to collection root, no extension)
     const [lang, ...slugParts] = post.id.split('/');
     return {
       params: { lang, slug: slugParts.join('/') },
@@ -184,6 +185,7 @@ export async function getStaticPaths() {
 ```
 
 The same pattern applies to:
+- **Listing page** (`[lang]/index.astro`): `getStaticPaths` returns `['en', 'pl']`
 - **Tag pages:** enumerate all `(lang, tag)` pairs from all published posts
 - **Series pages:** enumerate all `(lang, series)` pairs from posts with a `series` field
 - **RSS feeds:** enumerate `['en', 'pl']` as lang values, filter posts by `lang` in each endpoint
@@ -483,7 +485,7 @@ The current repo has all files at the repository root. The migration to an Astro
 
 ### Migration order
 
-1. Initialize Astro project (`package.json`, `astro.config.mjs`, `tsconfig.json`)
+1. Initialize Astro project (`package.json`, `astro.config.mjs`, `tsconfig.json`). Add `.gitignore` with `node_modules/`, `.vercel/`, `_pagefind/`.
 2. Create `public/` directory and move all existing files into it
 3. Update `vercel.json` (add `"framework": "astro"`, remove `/api/forecast` rewrite)
 4. Create `src/` structure (pages, content, layouts, components, styles)
