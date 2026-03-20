@@ -1,20 +1,16 @@
 ---
 title: "Dlaczego Twoje panele produkują więcej wiosną niż latem"
-description: "Współczynnik temperaturowy wyjaśniony — dlaczego chłodne, słoneczne dni marca i kwietnia często biją gorące lipcowe i sierpniowe upały pod względem produkcji PV."
-date: 2026-03-31
-author: Michal
+description: "Współczynnik temperaturowy wyjaśniony — dlaczego chłodne, słoneczne dni marca i kwietnia często biją gorące upały."
+date: 2026-03-24
 tags: ["współczynnik-temperaturowy", "produkcja-sezonowa", "fizyka-pv", "początkujący"]
 series: "fundamentals"
 seriesOrder: 2
 lang: pl
+draft: false
 seo:
   ogTitle: "Dlaczego panele słoneczne produkują więcej wiosną niż latem — współczynnik temperaturowy"
-  ogDescription: "Gorące panele to mniej wydajne panele. Dowiedz się, dlaczego wiosna często bije lato w produkcji solarnej."
-  keywords: ["współczynnik temperaturowy paneli", "produkcja solarna wiosna vs lato", "wydajność paneli temperatura", "straty temperaturowe PV", "dlaczego panele mniej wydajne latem"]
-relatedPosts:
-  - "jak-panele-sloneczne-zamieniaja-swiatlo-w-prad"
-  - "swiatlo-bezposrednie-vs-rozproszone"
-  - "nachylenie-i-azymut"
+  keywords: ["współczynnik temperaturowy paneli", "produkcja solarna wiosna vs lato", "wydajność paneli temperatura", "straty temperaturowe PV"]
+relatedPosts: ["jak-panele-sloneczne-zamieniaja-swiatlo-w-prad", "swiatlo-bezposrednie-vs-rozproszone", "nachylenie-i-azymut"]
 ---
 
 Jeśli obserwujesz dane o produkcji swojej instalacji, mogłeś zauważyć coś nieintuicyjnego: niektóre z najlepszych dni produkcyjnych zdarzają się w kwietniu lub maju — nie w palącym upale lipca czy sierpnia.
@@ -87,8 +83,3 @@ To jedna z konkretnych przewag prognozowania opartego na fizyce: efekt temperatu
 
 Następnym razem, gdy wspaniały wiosenny dzień przebije duszne letnie popołudnie w produkcji, będziesz dokładnie wiedzieć, dlaczego.
 
-<!-- internal-link: Czytaj dalej: [Światło bezpośrednie a rozproszone — dlaczego pochmurne dni nadal generują prąd](/blog/swiatlo-bezposrednie-vs-rozproszone) -->
-
----
-
-*Volcast modeluje wpływ temperatury na Twoje konkretne panele dla trafnych prognoz produkcji — bez okresu uczenia. [Wypróbuj za darmo w Sklepie Play](https://play.google.com/store/apps/details?id=app.volcast).*

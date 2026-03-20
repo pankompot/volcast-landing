@@ -1,19 +1,16 @@
 ---
 title: "Trzy liczby, które definiują Twoją instalację PV (i dlaczego Volcast potrzebuje tylko ich)"
-description: "Nachylenie, azymut i moc znamionowa — te trzy parametry wystarczą prognozie opartej na fizyce do przewidywania produkcji solarnej. Oto dlaczego i co każdy z nich mówi modelowi."
-date: 2026-04-21
-author: Michal
+description: "Nachylenie, azymut i moc znamionowa — te trzy parametry wystarczą prognozie opartej na fizyce do przewidywania produkcji."
+date: 2026-03-24
 tags: ["konfiguracja", "parametry", "pierwsze-kroki", "podstawy-pv", "początkujący"]
 series: "fundamentals"
 seriesOrder: 5
 lang: pl
+draft: false
 seo:
   ogTitle: "Trzy liczby definiujące Twoją instalację solarną — i dlaczego to wystarczy"
-  ogDescription: "Nachylenie, azymut, moc znamionowa. Prognoza oparta na fizyce nie potrzebuje miesięcy historii — tylko te trzy parametry i Twoją lokalizację."
-  keywords: ["parametry instalacji PV", "konfiguracja systemu fotowoltaicznego", "dane do prognozy solarnej", "jakie informacje prognoza solarna", "konfiguracja Volcast"]
-relatedPosts:
-  - "nachylenie-i-azymut"
-  - "jak-panele-sloneczne-zamieniaja-swiatlo-w-prad"
+  keywords: ["parametry instalacji PV", "konfiguracja systemu fotowoltaicznego", "dane do prognozy solarnej", "konfiguracja Volcast"]
+relatedPosts: ["nachylenie-i-azymut", "jak-panele-sloneczne-zamieniaja-swiatlo-w-prad"]
 ---
 
 Większość narzędzi do prognozowania solarnego wymaga długiej listy danych wejściowych lub tygodni historii produkcji, zanim wygeneruje przydatną prognozę. Volcast pyta o trzy liczby plus Twoją lokalizację (którą telefon już zna). To wszystko.
@@ -86,8 +83,3 @@ Fizyka nie ma okresu uczenia. Mając trzy liczby i prognozę pogody, oblicza ocz
 
 Na tym polega siła modelowania fizyki zamiast dopasowywania danych.
 
-<!-- internal-link: Czytaj dalej: [Prognozowanie solarne oparte na fizyce vs ML — dlaczego podejście ma znaczenie](/blog/fizyka-vs-ml-prognozowanie-solarne) -->
-
----
-
-*Trzy liczby. Bez uczenia. Trafność od pierwszego dnia. [Wypróbuj Volcast za darmo w Sklepie Play](https://play.google.com/store/apps/details?id=app.volcast).*

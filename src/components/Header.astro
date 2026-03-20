@@ -10,12 +10,19 @@ interface Props {
 const { lang, translationUrl, activePage = 'blog' } = Astro.props;
 ---
 
-<header class="site-header">
+<header class="site-header" id="siteHeader">
   <div class="header-inner">
     <a href={`/${lang}/`} class="logo" aria-label="Volcast home">
-      <svg viewBox="0 0 80 80" fill="none" width="28" height="28">
+      <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" width="32" height="32">
         <path d="M18 18 L40 62 L62 18" stroke="#00FF9D" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+        <line x1="29" y1="26" x2="51" y2="26" stroke="#00FF9D" stroke-width="1.5" opacity="0.4"/>
+        <line x1="33" y1="36" x2="47" y2="36" stroke="#00FF9D" stroke-width="1.5" opacity="0.4"/>
         <circle cx="40" cy="12" r="4" fill="#00FF9D"/>
+        <g stroke="#00FF9D" stroke-width="1.5" stroke-linecap="round" opacity="0.5">
+          <line x1="40" y1="4" x2="40" y2="6"/>
+          <line x1="48" y1="12" x2="46" y2="12"/>
+          <line x1="32" y1="12" x2="34" y2="12"/>
+        </g>
       </svg>
       <span>Volcast</span>
     </a>
@@ -29,14 +36,31 @@ const { lang, translationUrl, activePage = 'blog' } = Astro.props;
   </div>
 </header>
 
+<script>
+  const header = document.getElementById('siteHeader');
+  if (header) {
+    const onScroll = () => {
+      header.classList.toggle('scrolled', window.scrollY > 20);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+</script>
+
 <style>
   .site-header {
     position: sticky;
     top: 0;
     z-index: 100;
-    background: var(--surface);
-    border-bottom: 1px solid var(--surface-border);
-    backdrop-filter: blur(12px);
+    background: transparent;
+    border-bottom: 1px solid transparent;
+    transition: background 0.3s, backdrop-filter 0.3s, border-color 0.3s;
+  }
+  .site-header.scrolled {
+    background: rgba(5, 7, 10, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom-color: var(--surface-border);
   }
   .header-inner {
     max-width: 1200px;
@@ -49,13 +73,14 @@ const { lang, translationUrl, activePage = 'blog' } = Astro.props;
   .logo {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    color: var(--text-primary);
+    gap: 0.75rem;
+    color: var(--primary);
     font-family: 'Syne', sans-serif;
     font-weight: 700;
-    font-size: 18px;
+    font-size: 20px;
+    letter-spacing: 2px;
   }
-  .logo:hover { color: var(--primary); }
+  .logo:hover { opacity: 0.8; }
   .nav-links {
     display: flex;
     gap: 1.5rem;

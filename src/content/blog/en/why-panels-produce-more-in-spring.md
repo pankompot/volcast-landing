@@ -1,20 +1,16 @@
 ---
 title: "Why Your Solar Panels Produce More in Spring Than Summer"
-description: "The temperature coefficient explained — why cooler sunny days in March and April often outperform the scorching heat of July and August for PV production."
-date: 2026-03-31
-author: Michal
+description: "The temperature coefficient explained — why cooler sunny days in March and April often outperform the scorching heat of July and August."
+date: 2026-03-24
 tags: ["temperature-coefficient", "seasonal-production", "pv-physics", "beginner"]
 series: "fundamentals"
 seriesOrder: 2
 lang: en
+draft: false
 seo:
   ogTitle: "Why Solar Panels Produce More in Spring Than Summer — Temperature Coefficient Explained"
-  ogDescription: "Hot panels are less efficient panels. Learn why spring often beats summer for solar production and how temperature shapes your PV output."
-  keywords: ["solar panel temperature coefficient", "spring vs summer solar production", "why solar panels less efficient hot weather", "PV temperature losses", "solar panel efficiency temperature"]
-relatedPosts:
-  - "how-solar-panels-convert-sunlight"
-  - "direct-vs-diffuse-sunlight"
-  - "tilt-and-azimuth-explained"
+  keywords: ["solar panel temperature coefficient", "spring vs summer solar production", "PV temperature losses", "solar panel efficiency temperature"]
+relatedPosts: ["how-solar-panels-convert-sunlight", "direct-vs-diffuse-sunlight", "tilt-and-azimuth-explained"]
 ---
 
 If you've been watching your solar production data, you might have noticed something counterintuitive: some of your best production days happen in April or May — not in the blazing heat of July or August.
@@ -87,8 +83,3 @@ This is one of the concrete advantages of physics-based forecasting: the tempera
 
 Next time you see a glorious spring day outperforming a sweltering summer afternoon, you'll know exactly why.
 
-<!-- internal-link: Read next: [Direct vs Diffuse Sunlight — Why Cloudy Days Still Generate Power](/blog/direct-vs-diffuse-sunlight) -->
-
----
-
-*Volcast models temperature effects on your specific panels for accurate production forecasts — no training period needed. [Try it free on the Play Store](https://play.google.com/store/apps/details?id=app.volcast).*

@@ -1,0 +1,71 @@
+name: Publish scheduled blog posts
+
+on:
+  schedule:
+    # Runs Monday and Thursday at 09:00 UTC (11:00 CEST)
+    - cron: '0 9 * * 1,4'
+  workflow_dispatch: # Manual trigger for testing
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Check schedule and publish posts
+        run: |
+          TODAY=$(date -u +%Y-%m-%d)
+          SCHEDULE="src/content/schedule.json"
+
+          if [ ! -f "$SCHEDULE" ]; then
+            echo "No schedule file found"
+            exit 0
+          fi
+
+          # Find files scheduled for today
+          FILES=$(jq -r --arg today "$TODAY" '.[] | select(.date == $today) | .files[]' "$SCHEDULE")
+
+          if [ -z "$FILES" ]; then
+            echo "No posts scheduled for $TODAY"
+            exit 0
+          fi
+
+          CHANGED=false
+
+          for FILE in $FILES; do
+            FILEPATH="src/content/blog/$FILE"
+            if [ -f "$FILEPATH" ]; then
+              # Replace draft: true with draft: false
+              if grep -q "^draft: true" "$FILEPATH"; then
+                sed -i 's/^draft: true/draft: false/' "$FILEPATH"
+                echo "Published: $FILE"
+                CHANGED=true
+              else
+                echo "Already published: $FILE"
+              fi
+            else
+              echo "File not found: $FILE"
+            fi
+          done
+
+          # Remove the processed entry from schedule
+          if [ "$CHANGED" = true ]; then
+            jq --arg today "$TODAY" '[.[] | select(.date != $today)]' "$SCHEDULE" > tmp.json
+            mv tmp.json "$SCHEDULE"
+          fi
+
+          echo "changed=$CHANGED" >> $GITHUB_OUTPUT
+        id: publish
+
+      - name: Commit and push
+        if: steps.publish.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "📝 Publish scheduled blog posts for $(date -u +%Y-%m-%d)"
+          git push

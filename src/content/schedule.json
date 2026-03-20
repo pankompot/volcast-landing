@@ -1,0 +1,16 @@
+[
+  {
+    "date": "2026-03-31",
+    "files": [
+      "en/direct-vs-diffuse-sunlight.md",
+      "pl/swiatlo-bezposrednie-vs-rozproszone.md"
+    ]
+  },
+  {
+    "date": "2026-04-03",
+    "files": [
+      "en/tilt-and-azimuth-explained.md",
+      "pl/nachylenie-i-azymut.md"
+    ]
+  }
+]

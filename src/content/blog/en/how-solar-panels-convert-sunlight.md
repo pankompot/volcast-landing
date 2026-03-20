@@ -1,20 +1,16 @@
 ---
 title: "How Solar Panels Actually Convert Sunlight to Electricity"
-description: "A clear, jargon-free explanation of the photovoltaic effect — from photons hitting silicon to usable AC power in your home. Understand the physics that powers your solar installation."
+description: "A clear, jargon-free explanation of the photovoltaic effect — from photons hitting silicon to usable AC power in your home."
 date: 2026-03-24
-author: Michal
 tags: ["solar-basics", "photovoltaic-effect", "pv-physics", "beginner"]
 series: "fundamentals"
 seriesOrder: 1
 lang: en
+draft: false
 seo:
   ogTitle: "How Solar Panels Convert Sunlight to Electricity — The Physics Explained Simply"
-  ogDescription: "Photons, electrons, and semiconductors — here's what actually happens when sunlight hits your solar panel."
-  keywords: ["how solar panels work", "photovoltaic effect explained", "solar cell physics", "solar energy conversion", "PV panel science"]
-relatedPosts:
-  - "why-panels-produce-more-in-spring"
-  - "direct-vs-diffuse-sunlight"
-  - "tilt-and-azimuth-explained"
+  keywords: ["how solar panels work", "photovoltaic effect explained", "solar cell physics", "solar energy conversion"]
+relatedPosts: ["why-panels-produce-more-in-spring", "direct-vs-diffuse-sunlight", "tilt-and-azimuth-explained"]
 ---
 
 Every second, about 430 quintillion joules of energy from the Sun reach Earth's surface. Your solar panels intercept a tiny sliver of that — and convert it into electricity without moving parts, combustion, or noise. But how?
@@ -81,8 +77,3 @@ The spectrum of incoming light changes with atmospheric conditions. The cell's e
 
 This is exactly what Volcast does. Instead of guessing future production from historical patterns, it simulates the physical chain — from atmospheric conditions through irradiance modeling to cell-level behavior — for your specific installation.
 
-<!-- internal-link: Read next: [Why Your Panels Produce More in Spring Than Summer](/blog/why-panels-produce-more-in-spring) -->
-
----
-
-*Volcast uses physics-based models to forecast your solar production — no historical data needed, works from day one. [Try it free on the Play Store](https://play.google.com/store/apps/details?id=app.volcast).*

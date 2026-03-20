@@ -1,19 +1,16 @@
 ---
 title: "The Three Numbers That Define Your PV Setup (And Why Volcast Only Needs Them)"
-description: "Tilt, azimuth, and rated power — these three parameters are all a physics-based forecast needs to predict your solar production. Here's why, and what each one tells the model."
-date: 2026-04-21
-author: Michal
+description: "Tilt, azimuth, and rated power — these three parameters are all a physics-based forecast needs to predict your solar production."
+date: 2026-03-24
 tags: ["setup", "parameters", "getting-started", "pv-basics", "beginner"]
 series: "fundamentals"
 seriesOrder: 5
 lang: en
+draft: false
 seo:
   ogTitle: "The Three Numbers That Define Your Solar Setup — And Why That's All You Need"
-  ogDescription: "Tilt, azimuth, rated power. A physics-based forecast doesn't need months of history — just these three parameters and your location."
-  keywords: ["solar panel setup parameters", "PV system configuration", "solar forecast inputs", "what information solar forecast needs", "Volcast setup guide"]
-relatedPosts:
-  - "tilt-and-azimuth-explained"
-  - "how-solar-panels-convert-sunlight"
+  keywords: ["solar panel setup parameters", "PV system configuration", "solar forecast inputs", "Volcast setup guide"]
+relatedPosts: ["tilt-and-azimuth-explained", "how-solar-panels-convert-sunlight"]
 ---
 
 Most solar forecast tools ask for a laundry list of inputs or require weeks of production history before they can generate a useful prediction. Volcast asks for three numbers, plus your location (which your phone already knows). That's it.
@@ -86,8 +83,3 @@ Physics doesn't have a learning period. Given three numbers and a weather foreca
 
 That's the power of modeling the physics instead of fitting the data.
 
-<!-- internal-link: Read next: [Physics-Based vs ML-Based Solar Forecasting — Why the Approach Matters](/blog/physics-vs-ml-solar-forecasting) -->
-
----
-
-*Three numbers. No training. Accurate from day one. [Try Volcast free on the Play Store](https://play.google.com/store/apps/details?id=app.volcast).*

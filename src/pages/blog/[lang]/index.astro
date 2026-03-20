@@ -53,7 +53,7 @@ const jsonLd = {
   <Header lang={lang} translationUrl={translationUrl} />
 
   <main class="listing-main">
-    <div class="listing-header">
+    <div class="listing-header reveal">
       <h1>{lang === 'pl' ? 'Blog' : 'Blog'}</h1>
       <p class="listing-subtitle">
         {lang === 'pl'
@@ -73,7 +73,7 @@ const jsonLd = {
     )}
 
     {heroPost && (
-      <a href={`/blog/${lang}/${heroPost.id.split('/').pop()}/`} class="hero-card">
+      <a href={`/blog/${lang}/${heroPost.id.split('/').pop()}/`} class="hero-card reveal">
         <div class="hero-content">
           <span class="hero-badge">{lang === 'pl' ? 'Najnowszy' : 'Latest'}</span>
           <h2>{heroPost.data.title}</h2>
@@ -88,19 +88,33 @@ const jsonLd = {
     )}
 
     <div class={`post-grid ${gridPosts.length < 4 ? 'sparse' : ''}`}>
-      {gridPosts.map(post => (
-        <BlogCard
-          title={post.data.title}
-          description={post.data.description}
-          date={post.data.date}
-          tags={post.data.tags}
-          lang={lang}
-          slug={post.id.split('/').pop()!}
-          content={post.body || ''}
-        />
+      {gridPosts.map((post, i) => (
+        <div class="reveal" style={`transition-delay: ${i * 0.05}s`}>
+          <BlogCard
+            title={post.data.title}
+            description={post.data.description}
+            date={post.data.date}
+            tags={post.data.tags}
+            lang={lang}
+            slug={post.id.split('/').pop()!}
+            content={post.body || ''}
+          />
+        </div>
       ))}
     </div>
   </main>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
 
   <Footer lang={lang} />
 </BaseLayout>
@@ -110,6 +124,8 @@ const jsonLd = {
     max-width: 1200px;
     margin: 0 auto;
     padding: 2rem 1.5rem;
+    position: relative;
+    background-image: radial-gradient(ellipse at 30% 0%, rgba(0, 255, 157, 0.06) 0%, transparent 50%);
   }
 
   .listing-header {
@@ -154,7 +170,7 @@ const jsonLd = {
     display: block;
     background: var(--surface);
     border: 1px solid var(--surface-border);
-    border-radius: 16px;
+    border-radius: var(--radius-xl);
     padding: 2.5rem;
     margin-bottom: 2rem;
     position: relative;
@@ -211,7 +227,7 @@ const jsonLd = {
     grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
     padding: 2rem 0;
-    background-image: radial-gradient(ellipse at 50% 0%, var(--primary-glow) 0%, transparent 50%);
+    background-image: radial-gradient(ellipse at 50% 0%, var(--primary-glow-strong) 0%, transparent 50%);
   }
 
   .post-grid.sparse {

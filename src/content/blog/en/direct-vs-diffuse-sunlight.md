@@ -1,20 +1,16 @@
 ---
 title: "Direct vs Diffuse Sunlight — Why Cloudy Days Still Generate Power"
-description: "Not all solar radiation is the same. Understanding the three components of sunlight that reach your panels explains why overcast days still produce electricity — and why forecasting must account for each."
-date: 2026-04-07
-author: Michal
+description: "Not all solar radiation is the same. Understanding the three components of sunlight explains why overcast days still produce electricity."
+date: 2026-03-31
 tags: ["irradiance", "diffuse-radiation", "direct-beam", "pv-physics", "beginner"]
 series: "fundamentals"
 seriesOrder: 3
 lang: en
+draft: true
 seo:
   ogTitle: "Direct vs Diffuse Sunlight — Why Solar Panels Work on Cloudy Days"
-  ogDescription: "Your panels receive three types of sunlight: direct, diffuse, and reflected. Learn why each matters for PV production and forecasting."
-  keywords: ["direct vs diffuse solar radiation", "why solar panels work cloudy days", "diffuse irradiance", "GHI DNI DHI explained", "solar radiation components"]
-relatedPosts:
-  - "how-solar-panels-convert-sunlight"
-  - "why-panels-produce-more-in-spring"
-  - "tilt-and-azimuth-explained"
+  keywords: ["direct vs diffuse solar radiation", "why solar panels work cloudy days", "diffuse irradiance", "GHI DNI DHI explained"]
+relatedPosts: ["how-solar-panels-convert-sunlight", "why-panels-produce-more-in-spring", "tilt-and-azimuth-explained"]
 ---
 
 One of the most common questions from new PV owners: "Do my panels produce anything when it's cloudy?" The answer is yes — sometimes surprisingly much. To understand why, you need to know that sunlight reaching your roof isn't a single thing. It's three things.
@@ -89,8 +85,3 @@ Volcast handles this by modeling each component separately. The weather forecast
 
 It's more complex than a simple lookup table, but it's how the physics actually works — and it's why the forecast stays accurate whether your day is sunny, overcast, or chaotically mixed.
 
-<!-- internal-link: Read next: [What Tilt and Azimuth Actually Do to Your Annual Yield](/blog/tilt-and-azimuth-explained) -->
-
----
-
-*Volcast decomposes solar radiation into its physical components for your specific panel orientation. [Try it free on the Play Store](https://play.google.com/store/apps/details?id=app.volcast).*

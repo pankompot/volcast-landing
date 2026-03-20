@@ -1,20 +1,16 @@
 ---
 title: "What Tilt and Azimuth Actually Do to Your Annual Yield"
-description: "Two angles define how much energy your solar panels capture. Learn why they matter, what happens when they're not 'optimal,' and why real-world results are more forgiving than you'd think."
-date: 2026-04-14
-author: Michal
+description: "Two angles define how much energy your solar panels capture. Learn why they matter and why real-world results are more forgiving than you'd think."
+date: 2026-04-03
 tags: ["tilt", "azimuth", "panel-orientation", "pv-physics", "beginner"]
 series: "fundamentals"
 seriesOrder: 4
 lang: en
+draft: true
 seo:
   ogTitle: "Solar Panel Tilt and Azimuth Explained — How Orientation Affects Your Yield"
-  ogDescription: "Two angles define your solar production. Learn what tilt and azimuth do, why 'optimal' isn't always what you'd expect, and when deviations barely matter."
-  keywords: ["solar panel tilt angle", "azimuth angle solar panels", "optimal solar panel orientation", "panel tilt vs production", "south facing solar panels"]
-relatedPosts:
-  - "how-solar-panels-convert-sunlight"
-  - "why-panels-produce-more-in-spring"
-  - "direct-vs-diffuse-sunlight"
+  keywords: ["solar panel tilt angle", "azimuth angle solar panels", "optimal solar panel orientation", "panel tilt vs production"]
+relatedPosts: ["how-solar-panels-convert-sunlight", "why-panels-produce-more-in-spring", "direct-vs-diffuse-sunlight"]
 ---
 
 When you set up a solar production forecast — whether in Volcast or anywhere else — you're asked for two numbers describing your panel orientation: tilt and azimuth. These two angles, combined with your location, determine the geometric relationship between your panels and the sun throughout the year.
@@ -73,8 +69,3 @@ Volcast uses your tilt and azimuth to calculate the **transposition** — how th
 
 Combined with your location (which determines the sun's path), these two angles and your panel's rated power are the three numbers Volcast needs to generate a physics-based forecast. No historical data. No training period. Just geometry, atmospheric physics, and your setup.
 
-<!-- internal-link: Read next: [The Three Numbers That Define Your PV Setup (And Why Volcast Only Needs Them)](/blog/three-numbers-pv-setup) -->
-
----
-
-*Tell Volcast your tilt, azimuth, and power rating — it handles the physics. [Try it free on the Play Store](https://play.google.com/store/apps/details?id=app.volcast).*

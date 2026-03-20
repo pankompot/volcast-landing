@@ -1,20 +1,16 @@
 ---
 title: "Nachylenie i azymut — co naprawdę robią z Twoim rocznym uzyskiem"
-description: "Dwa kąty definiują, ile energii zbierają Twoje panele. Dowiedz się, dlaczego mają znaczenie, co się dzieje gdy nie są 'optymalne' i dlaczego rzeczywistość jest bardziej wyrozumiała niż myślisz."
-date: 2026-04-14
-author: Michal
+description: "Dwa kąty definiują, ile energii zbierają Twoje panele. Dlaczego mają znaczenie i dlaczego rzeczywistość jest bardziej wyrozumiała niż myślisz."
+date: 2026-04-03
 tags: ["nachylenie", "azymut", "orientacja-paneli", "fizyka-pv", "początkujący"]
 series: "fundamentals"
 seriesOrder: 4
 lang: pl
+draft: true
 seo:
   ogTitle: "Nachylenie i azymut paneli słonecznych — jak orientacja wpływa na uzysk"
-  ogDescription: "Dwa kąty definiują Twoją produkcję solarną. Dowiedz się, co robią nachylenie i azymut i kiedy odchylenia prawie nie mają znaczenia."
-  keywords: ["kąt nachylenia paneli słonecznych", "azymut paneli", "optymalna orientacja paneli", "nachylenie a produkcja", "panele na południe"]
-relatedPosts:
-  - "jak-panele-sloneczne-zamieniaja-swiatlo-w-prad"
-  - "dlaczego-panele-produkuja-wiecej-wiosna"
-  - "swiatlo-bezposrednie-vs-rozproszone"
+  keywords: ["kąt nachylenia paneli słonecznych", "azymut paneli", "optymalna orientacja paneli", "nachylenie a produkcja"]
+relatedPosts: ["jak-panele-sloneczne-zamieniaja-swiatlo-w-prad", "dlaczego-panele-produkuja-wiecej-wiosna", "swiatlo-bezposrednie-vs-rozproszone"]
 ---
 
 Gdy konfigurujesz prognozę produkcji solarnej — w Volcast czy gdziekolwiek indziej — jesteś proszony o dwie liczby opisujące orientację panelu: nachylenie i azymut. Te dwa kąty, w połączeniu z lokalizacją, określają geometryczną relację między panelami a Słońcem przez cały rok.
@@ -73,8 +69,3 @@ Volcast używa Twojego nachylenia i azymutu do obliczenia **transpozycji** — j
 
 W połączeniu z lokalizacją (która określa tor Słońca), te dwa kąty i moc znamionowa panelu to trzy liczby, których Volcast potrzebuje. Bez danych historycznych. Bez okresu uczenia. Geometria, fizyka atmosfery i Twoja instalacja.
 
-<!-- internal-link: Czytaj dalej: [Trzy liczby, które definiują Twoją instalację PV](/blog/trzy-liczby-instalacji-pv) -->
-
----
-
-*Podaj Volcastowi nachylenie, azymut i moc — resztę załatwia fizyka. [Wypróbuj za darmo w Sklepie Play](https://play.google.com/store/apps/details?id=app.volcast).*

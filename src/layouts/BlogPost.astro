@@ -146,12 +146,16 @@ const jsonLd = {
   .post-article {
     background: var(--article-bg);
     border: 1px solid var(--surface-border);
-    border-radius: 12px;
+    border-radius: var(--radius-lg);
     padding: 2.5rem;
   }
 
   .post-header {
     margin-bottom: 2rem;
+    position: relative;
+    background-image: radial-gradient(ellipse at 20% 0%, rgba(0, 255, 157, 0.05) 0%, transparent 60%);
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    padding-top: 0.5rem;
   }
 
   .post-header h1 {
@@ -164,6 +168,7 @@ const jsonLd = {
 
   .toc-sidebar {
     display: block;
+    align-self: stretch;
   }
 
   .related-posts {

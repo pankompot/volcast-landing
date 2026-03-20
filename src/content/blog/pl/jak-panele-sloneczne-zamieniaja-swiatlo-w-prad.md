@@ -1,20 +1,16 @@
 ---
 title: "Jak panele słoneczne zamieniają światło słoneczne w prąd elektryczny"
-description: "Zrozumiałe wyjaśnienie efektu fotowoltaicznego — od fotonów uderzających w krzem po użyteczny prąd AC w Twoim domu. Poznaj fizykę, która napędza Twoją instalację PV."
+description: "Zrozumiałe wyjaśnienie efektu fotowoltaicznego — od fotonów uderzających w krzem po użyteczny prąd AC w Twoim domu."
 date: 2026-03-24
-author: Michal
 tags: ["podstawy-pv", "efekt-fotowoltaiczny", "fizyka-pv", "początkujący"]
 series: "fundamentals"
 seriesOrder: 1
 lang: pl
+draft: false
 seo:
   ogTitle: "Jak panele słoneczne zamieniają światło w prąd — fizyka wyjaśniona prosto"
-  ogDescription: "Fotony, elektrony i półprzewodniki — oto co naprawdę dzieje się, gdy światło słoneczne trafia na Twój panel."
-  keywords: ["jak działają panele słoneczne", "efekt fotowoltaiczny", "fizyka ogniw słonecznych", "konwersja energii słonecznej", "nauka o panelach PV"]
-relatedPosts:
-  - "dlaczego-panele-produkuja-wiecej-wiosna"
-  - "swiatlo-bezposrednie-vs-rozproszone"
-  - "nachylenie-i-azymut"
+  keywords: ["jak działają panele słoneczne", "efekt fotowoltaiczny", "fizyka ogniw słonecznych", "konwersja energii słonecznej"]
+relatedPosts: ["dlaczego-panele-produkuja-wiecej-wiosna", "swiatlo-bezposrednie-vs-rozproszone", "nachylenie-i-azymut"]
 ---
 
 Co sekundę na powierzchnię Ziemi dociera około 430 trylionów dżuli energii ze Słońca. Twoje panele słoneczne przechwytują malutki ułamek tej energii — i zamieniają ją w prąd elektryczny bez ruchomych części, spalania czy hałasu. Ale jak?
@@ -81,8 +77,3 @@ Widmo docierającego światła zmienia się wraz z warunkami atmosferycznymi. Sp
 
 Dokładnie to robi Volcast. Zamiast zgadywać przyszłą produkcję na podstawie historycznych wzorców, symuluje fizyczny łańcuch — od warunków atmosferycznych przez modelowanie nasłonecznienia po zachowanie na poziomie ogniwa — dla Twojej konkretnej instalacji.
 
-<!-- internal-link: Czytaj dalej: [Dlaczego Twoje panele produkują więcej wiosną niż latem](/blog/dlaczego-panele-produkuja-wiecej-wiosna) -->
-
----
-
-*Volcast wykorzystuje modele fizyczne do prognozowania Twojej produkcji solarnej — bez danych historycznych, działa od pierwszego dnia. [Wypróbuj za darmo w Sklepie Play](https://play.google.com/store/apps/details?id=app.volcast).*

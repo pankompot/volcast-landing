@@ -1,20 +1,16 @@
 ---
 title: "Światło bezpośrednie a rozproszone — dlaczego pochmurne dni nadal generują prąd"
-description: "Nie całe promieniowanie słoneczne jest takie samo. Zrozumienie trzech składników światła docierającego do paneli wyjaśnia, dlaczego zachmurzone dni wciąż produkują prąd — i dlaczego prognozowanie musi uwzględniać każdy z nich."
-date: 2026-04-07
-author: Michal
+description: "Nie całe promieniowanie słoneczne jest takie samo. Trzy składniki światła wyjaśniają, dlaczego zachmurzone dni wciąż produkują prąd."
+date: 2026-03-31
 tags: ["nasłonecznienie", "promieniowanie-rozproszone", "promieniowanie-bezpośrednie", "fizyka-pv", "początkujący"]
 series: "fundamentals"
 seriesOrder: 3
 lang: pl
+draft: true
 seo:
   ogTitle: "Światło bezpośrednie vs rozproszone — dlaczego panele działają w pochmurne dni"
-  ogDescription: "Twoje panele otrzymują trzy rodzaje światła: bezpośrednie, rozproszone i odbite. Dowiedz się, dlaczego każdy ma znaczenie."
-  keywords: ["promieniowanie bezpośrednie vs rozproszone", "dlaczego panele działają w pochmurny dzień", "nasłonecznienie rozproszone", "GHI DNI DHI", "składniki promieniowania słonecznego"]
-relatedPosts:
-  - "jak-panele-sloneczne-zamieniaja-swiatlo-w-prad"
-  - "dlaczego-panele-produkuja-wiecej-wiosna"
-  - "nachylenie-i-azymut"
+  keywords: ["promieniowanie bezpośrednie vs rozproszone", "dlaczego panele działają w pochmurny dzień", "nasłonecznienie rozproszone", "GHI DNI DHI"]
+relatedPosts: ["jak-panele-sloneczne-zamieniaja-swiatlo-w-prad", "dlaczego-panele-produkuja-wiecej-wiosna", "nachylenie-i-azymut"]
 ---
 
 Jedno z najczęstszych pytań nowych właścicieli instalacji PV: „Czy moje panele produkują cokolwiek, gdy jest pochmurno?" Odpowiedź brzmi: tak — czasem zaskakująco dużo. Żeby zrozumieć dlaczego, musisz wiedzieć, że światło słoneczne docierające na Twój dach to nie jedna rzecz. To trzy rzeczy.
@@ -89,8 +85,3 @@ Volcast radzi sobie z tym, modelując każdy składnik oddzielnie. Prognoza pogo
 
 To bardziej złożone niż prosta tabela, ale tak właśnie działa fizyka — i dlatego prognoza pozostaje trafna niezależnie od tego, czy dzień jest słoneczny, pochmurny, czy chaotycznie mieszany.
 
-<!-- internal-link: Czytaj dalej: [Nachylenie i azymut — co naprawdę robią z Twoim rocznym uzyskiem](/blog/nachylenie-i-azymut) -->
-
----
-
-*Volcast rozkłada promieniowanie na składniki fizyczne dla Twojej konkretnej orientacji paneli. [Wypróbuj za darmo w Sklepie Play](https://play.google.com/store/apps/details?id=app.volcast).*
