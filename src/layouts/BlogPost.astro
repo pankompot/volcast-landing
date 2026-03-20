@@ -1,0 +1,207 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import PostMeta from '../components/PostMeta.astro';
+import TableOfContents from '../components/TableOfContents.astro';
+import SeriesNav from '../components/SeriesNav.astro';
+import CallToAction from '../components/CallToAction.astro';
+import TagList from '../components/TagList.astro';
+import { getCollection } from 'astro:content';
+
+interface Props {
+  post: any;
+  headings: { depth: number; slug: string; text: string }[];
+}
+
+const { post, headings } = Astro.props;
+const { data } = post;
+const lang = data.lang as 'en' | 'pl';
+
+// Build translation URL: check if same slug exists in other language
+const otherLang = lang === 'en' ? 'pl' : 'en';
+const slug = post.id.split('/').pop()!;
+const allPosts = await getCollection('blog', ({ data: d }) => !d.draft);
+const translation = allPosts.find(p =>
+  p.data.lang === otherLang && p.id.split('/').pop() === slug
+);
+const translationUrl = translation ? `/blog/${otherLang}/${slug}/` : undefined;
+
+// Build related posts data
+let relatedPostsData: { title: string; slug: string; lang: string }[] = [];
+if (data.relatedPosts) {
+  relatedPostsData = allPosts
+    .filter(p => p.data.lang === lang && data.relatedPosts!.includes(p.id.split('/').pop()!))
+    .map(p => ({ title: p.data.title, slug: p.id.split('/').pop()!, lang: p.data.lang }));
+}
+
+// JSON-LD BlogPosting
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: data.title,
+  description: data.description,
+  datePublished: data.date.toISOString(),
+  ...(data.updated && { dateModified: data.updated.toISOString() }),
+  author: { '@type': 'Person', name: data.author },
+  publisher: { '@type': 'Organization', name: 'Volter Labs' },
+  inLanguage: lang,
+  mainEntityOfPage: {
+    '@type': 'WebPage',
+    '@id': new URL(`/blog/${lang}/${slug}/`, Astro.site).href,
+  },
+};
+---
+
+<BaseLayout
+  title={data.title}
+  description={data.description}
+  lang={lang}
+  canonicalUrl={new URL(`/blog/${lang}/${slug}/`, Astro.site).href}
+  ogImage={data.ogImage}
+  ogTitle={data.seo?.ogTitle}
+  ogDescription={data.seo?.ogDescription}
+  keywords={data.seo?.keywords}
+  translationUrl={translationUrl}
+>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+  <Header lang={lang} translationUrl={translationUrl} />
+
+  <div class="post-layout">
+    <article class="post-article" data-pagefind-body data-pagefind-meta={`lang:${lang}`}>
+      <header class="post-header">
+        <h1>{data.title}</h1>
+        <PostMeta
+          date={data.date}
+          updated={data.updated}
+          tags={data.tags}
+          lang={lang}
+          content={post.body || ''}
+          series={data.series}
+        />
+      </header>
+
+      <div class="prose">
+        <slot />
+      </div>
+
+      {data.series && data.seriesOrder !== undefined && (
+        <SeriesNav series={data.series} seriesOrder={data.seriesOrder} lang={lang} />
+      )}
+
+      {relatedPostsData.length > 0 && (
+        <aside class="related-posts">
+          <h3>{lang === 'pl' ? 'Powiązane artykuły' : 'Related posts'}</h3>
+          <ul>
+            {relatedPostsData.map(rp => (
+              <li><a href={`/blog/${rp.lang}/${rp.slug}/`}>{rp.title}</a></li>
+            ))}
+          </ul>
+        </aside>
+      )}
+
+      <CallToAction lang={lang} />
+    </article>
+
+    <aside class="toc-sidebar">
+      <TableOfContents headings={headings} />
+    </aside>
+  </div>
+
+  <Footer lang={lang} />
+</BaseLayout>
+
+<script>
+  // Code block copy buttons
+  document.querySelectorAll('.prose pre').forEach(pre => {
+    const button = document.createElement('button');
+    button.className = 'copy-button';
+    button.textContent = 'Copy';
+    button.addEventListener('click', async () => {
+      const code = pre.querySelector('code')?.textContent || pre.textContent || '';
+      await navigator.clipboard.writeText(code);
+      button.textContent = 'Copied!';
+      button.classList.add('copied');
+      setTimeout(() => {
+        button.textContent = 'Copy';
+        button.classList.remove('copied');
+      }, 2000);
+    });
+    pre.style.position = 'relative';
+    pre.appendChild(button);
+  });
+</script>
+
+<style>
+  .post-layout {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 240px;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .post-article {
+    background: var(--article-bg);
+    border: 1px solid var(--surface-border);
+    border-radius: 12px;
+    padding: 2.5rem;
+  }
+
+  .post-header {
+    margin-bottom: 2rem;
+  }
+
+  .post-header h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: 36px;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+  }
+
+  .toc-sidebar {
+    display: block;
+  }
+
+  .related-posts {
+    border-top: 1px solid var(--divider);
+    padding-top: 2rem;
+    margin-top: 3rem;
+  }
+
+  .related-posts h3 {
+    font-size: 18px;
+    margin-bottom: 0.75rem;
+  }
+
+  .related-posts ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .related-posts li {
+    margin-bottom: 0.5rem;
+  }
+
+  .related-posts a {
+    color: var(--link-prose);
+    font-size: 15px;
+  }
+
+  .related-posts a:hover {
+    color: var(--link-hover);
+  }
+
+  @media (max-width: 1024px) {
+    .post-layout {
+      grid-template-columns: 1fr;
+    }
+    .toc-sidebar { display: none; }
+    .post-article { padding: 1.5rem; }
+    .post-header h1 { font-size: 28px; }
+  }
+</style>

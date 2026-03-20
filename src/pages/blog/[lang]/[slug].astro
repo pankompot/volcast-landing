@@ -1,0 +1,59 @@
+---
+import { getCollection, render } from 'astro:content';
+import BlogPost from '../../../layouts/BlogPost.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', ({ data }) => !data.draft);
+
+  // Build-time validations
+  const postsByLangSeries = new Map<string, number[]>();
+  for (const post of posts) {
+    // Validate lang matches directory (post.id format: "en/slug" with glob() loader)
+    const dirLang = post.id.split('/')[0];
+    if (post.data.lang !== dirLang) {
+      throw new Error(`Post ${post.id}: lang "${post.data.lang}" doesn't match directory "${dirLang}"`);
+    }
+    // Collect seriesOrder values
+    if (post.data.series) {
+      const key = `${post.data.lang}:${post.data.series}`;
+      const orders = postsByLangSeries.get(key) || [];
+      if (orders.includes(post.data.seriesOrder!)) {
+        throw new Error(`Duplicate seriesOrder ${post.data.seriesOrder} in series "${post.data.series}" (${post.data.lang})`);
+      }
+      orders.push(post.data.seriesOrder!);
+      postsByLangSeries.set(key, orders);
+    }
+    // Warn about unresolved relatedPosts
+    if (post.data.relatedPosts) {
+      const allSlugs = posts
+        .filter(p => p.data.lang === post.data.lang)
+        .map(p => {
+          const slashIdx = p.id.indexOf('/');
+          return slashIdx >= 0 ? p.id.slice(slashIdx + 1) : p.id;
+        });
+      for (const related of post.data.relatedPosts) {
+        if (!allSlugs.includes(related)) {
+          console.warn(`[WARN] Post ${post.id}: relatedPosts slug "${related}" not found`);
+        }
+      }
+    }
+  }
+
+  function getSlug(postId: string) {
+    const slashIdx = postId.indexOf('/');
+    return slashIdx >= 0 ? postId.slice(slashIdx + 1) : postId;
+  }
+
+  return posts.map(post => ({
+    params: { lang: post.data.lang, slug: getSlug(post.id) },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content, headings } = await render(post);
+---
+
+<BlogPost post={post} headings={headings}>
+  <Content />
+</BlogPost>
