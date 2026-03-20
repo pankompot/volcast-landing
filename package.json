@@ -1,0 +1,20 @@
+{
+  "name": "volcast-landing",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro check && astro build && npx pagefind --site .vercel/output/static --glob \"blog/**/*.html\"",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.9.8",
+    "@astrojs/rss": "^4.0.17",
+    "@astrojs/sitemap": "^3.7.1",
+    "@astrojs/vercel": "^10.0.2",
+    "astro": "^6.0.7"
+  },
+  "devDependencies": {
+    "pagefind": "^1.4.0",
+    "typescript": "^5.9.3"
+  }
+}

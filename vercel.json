@@ -1,9 +1,4 @@
 {
-  "cleanUrls": true,
-  "rewrites": [
-    {
-      "source": "/api/forecast",
-      "destination": "https://jzihchpmkhawegqcfbeo.supabase.co/functions/v1/get-forecast-api"
-    }
-  ]
+  "framework": "astro",
+  "cleanUrls": true
 }
