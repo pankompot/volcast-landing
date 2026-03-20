@@ -96,7 +96,10 @@ volcast-landing/
 │   │   ├── SeriesNav.astro              # Prev/next within a series
 │   │   ├── TagList.astro                # Tag display + links
 │   │   ├── LanguageSwitcher.astro       # EN/PL toggle
-│   │   └── SearchWidget.astro           # Pagefind search UI
+│   │   ├── SearchWidget.astro           # Pagefind search UI
+│   │   └── CallToAction.astro           # Post-article CTA (language-aware)
+│   ├── data/
+│   │   └── series.ts                    # Series slug → display name mapping
 │   └── styles/
 │       └── global.css                   # Midnight Emerald tokens + blog prose styles
 ```
@@ -200,6 +203,20 @@ Translations link by filename convention. `en/panel-tilt.md` corresponds to `pl/
 
 Posts with the same `series` value are grouped. `seriesOrder` determines sequence (required when `series` is set — enforced by schema). SeriesNav queries the collection for matching `series` + `lang`, sorted by `seriesOrder`, and renders prev/next links.
 
+**Series metadata** — a static mapping provides display names per language:
+
+```ts
+// src/data/series.ts
+export const SERIES: Record<string, Record<string, { title: string; description: string }>> = {
+  fundamentals: {
+    en: { title: "Solar Physics Fundamentals", description: "The science behind solar energy production" },
+    pl: { title: "Podstawy Fizyki Solarnej", description: "Nauka stojąca za produkcją energii słonecznej" },
+  },
+};
+```
+
+This is used by the series listing page (`/blog/en/series/fundamentals`) for the page title and description, and by `SeriesNav` for the series badge label.
+
 ### Drafts
 
 Posts with `draft: true` are excluded from production builds (filtered in all `getStaticPaths` and `getCollection` calls) but visible in `astro dev`.
@@ -261,7 +278,7 @@ The article content sits on `--article-bg` (#0F1218) — a subtle lift from the 
 
 - Background: `--code-bg` (#0A0E14) — darker than article surface, creating an inset feel
 - Thin left border in `--primary-dim`
-- Copy button top-right
+- Copy button top-right — implemented as a small inline `<script>` in `BlogPost.astro` (Astro's bundled `<script>` tag, not raw inline) that attaches click handlers to code block wrappers. No React needed.
 - Syntax theme: Tokyo Night (proven readability, good token differentiation on dark backgrounds)
 - Inline code: `--surface` background with `--surface-border` outline, slightly smaller font size
 
@@ -275,8 +292,8 @@ The article content sits on `--article-bg` (#0F1218) — a subtle lift from the 
 
 - SearchWidget (Pagefind) at top
 - Tag filter pills below search (clickable links to `/blog/{lang}/tag/{tag}`)
-- **Featured hero card:** latest post rendered full-width. Larger title (Syne 24px), full description, date, tags, reading time. `--surface` background with subtle top-border glow in `--primary-dim`. Creates an editorial entry point.
-- **Post grid:** remaining posts in 2 columns (desktop) / 1 column (mobile). Each BlogCard has `--surface` background with `--surface-border`. Title (Syne 600), description (2-3 lines truncated), date, tags, reading time. Hover: border glow transition toward `--primary-dim`.
+- **Featured hero card:** latest post rendered full-width. Larger title (Syne 24px), full description, date, tags, reading time. `--surface` background with subtle top-border glow in `--primary-dim`. Creates an editorial entry point. **Shown only when 7+ posts exist in the current language.** With fewer posts (<7), all posts render in the grid uniformly — avoids a sparse layout at launch (5 posts per language).
+- **Post grid:** remaining posts (or all posts if <7) in 2 columns (desktop) / 1 column (mobile). Each BlogCard has `--surface` background with `--surface-border`. Title (Syne 600), description (2-3 lines truncated), date, tags, reading time. Hover: border glow transition toward `--primary-dim`.
 - **Atmospheric background:** faint radial gradient behind card grid — `--primary-glow` emanating from center-top. Reinforces "energy" theme without being heavy.
 
 ### Header (shared navigation)
@@ -294,6 +311,12 @@ The article content sits on `--article-bg` (#0F1218) — a subtle lift from the 
 - "A Volter Labs product" (future link to volterlabs.com)
 - Store badges (Play Store / App Store)
 
+### Component implementation notes
+
+**ReadingTime.astro** — receives raw Markdown content string and `lang` prop. Calculates word count and divides by 200 wpm (EN) or 180 wpm (PL, slightly slower due to longer words). Returns formatted string: "5 min read" (EN) / "5 min czytania" (PL).
+
+**CallToAction.astro** — rendered in `BlogPost.astro` below the article content, above the footer. Soft Volcast CTA with Play Store / App Store links. Language-aware text (EN/PL). This is a layout component, NOT embedded in individual Markdown files — existing CTA lines at the bottom of `.md` files should be removed once this component exists.
+
 ---
 
 ## 6. SEO
@@ -304,7 +327,7 @@ The article content sits on `--article-bg` (#0F1218) — a subtle lift from the 
 - Its own blog sitemap(s) for Astro-rendered blog pages
 - `public/sitemap-landing.xml` via the `customSitemaps` config option — manually maintained, lists all static HTML pages (`/en/`, `/pl/`, `/de/`, ..., `/privacy`, `/terms`)
 
-There is no manual `public/sitemap-index.xml` — `@astrojs/sitemap` is the single source of truth for the sitemap index. This avoids file collisions between Astro-generated and manual sitemaps.
+There is no manual `public/sitemap-index.xml` — `@astrojs/sitemap` is the single source of truth for the sitemap index. This avoids file collisions between Astro-generated and manual sitemaps. (`customSitemaps` is a documented API in `@astrojs/sitemap` v3.x — verified against official docs.)
 
 ### robots.txt (`public/robots.txt`)
 
@@ -322,7 +345,7 @@ Per-language feeds (not a combined feed — avoids mixing languages in readers):
 - `/blog/en/rss.xml` — English posts only, `<language>en</language>`
 - `/blog/pl/rss.xml` — Polish posts only, `<language>pl</language>`
 - Both generated from a single `src/pages/blog/[lang]/rss.xml.ts` endpoint using `Astro.params.lang` to filter posts. `getStaticPaths` returns `['en', 'pl']`.
-- Autodiscovery `<link>` in BaseLayout points to the feed matching the current page's language
+- Autodiscovery `<link rel="alternate" type="application/rss+xml">` in BaseLayout points to `/blog/{lang}/rss.xml`. BaseLayout receives `lang` as a prop (from `Astro.params.lang` or the post's `data.lang`) to emit the correct feed URL
 - Generated by `@astrojs/rss`
 - Draft posts (`draft: true`) are filtered out of feeds
 
@@ -352,7 +375,7 @@ Per-language feeds (not a combined feed — avoids mixing languages in readers):
 ### Pagefind (client-side)
 
 - Indexes built HTML after `astro build` via post-build script
-- Scoped to blog content: `data-pagefind-body` on article wrapper, `data-pagefind-ignore` on nav/footer
+- Scoped to blog content: `data-pagefind-body` on the `<article>` tag that wraps rendered Markdown content in `BlogPost.astro` (NOT on the outer layout container). Header, footer, SeriesNav, related posts, and TableOfContents are outside the `<article>` tag or marked with `data-pagefind-ignore` to avoid duplicating heading text in search results
 - Build command includes glob filter: `--glob "blog/**/*.html"` (belt-and-suspenders with `data-pagefind-body`)
 - Language-aware: `data-pagefind-meta="lang:en|pl"` on article wrapper
 - SearchWidget defaults to showing results in current page's language first, other-language results below
@@ -518,14 +541,35 @@ Deferred to Phase 2 (see Section 6). Static default OG image for launch.
 
 ---
 
-## 12. Initial content plan
+## 12. Launch content
 
-From the volterlabs.com spec, adapted for volcast.app blog:
+10 blog posts are already written (5 EN + 5 PL), forming the foundational series:
 
-1. "How Panel Tilt Angle Affects Forecast Accuracy" — technical, with charts (series: fundamentals)
-2. "Why We Don't Need Your Inverter Password" — privacy-first architecture explained
-3. "Kalman Filter: How Volcast Learns Your Installation" — the ML calibration story (series: fundamentals)
-4. "Net-billing 2.0 in Practice: How Much Does Autoconsumption Really Save?" — PL market focus
-5. "Dynamic Tariffs in Poland: Pstryk and TGE Energy Prices Explained" — educational, drives Volter interest
+**Series: "Solar Physics Fundamentals" / "Podstawy Fizyki Solarnej" (slug: `fundamentals`)**
 
-Posts 1, 3 form the "fundamentals" series. Posts 4, 5 are Polish-market content (publish in PL first, translate to EN later).
+| # | English | Polish |
+|---|---------|--------|
+| 1 | How Solar Panels Convert Sunlight to Electricity | Jak panele zamieniają światło w prąd |
+| 2 | Why Panels Produce More in Spring Than Summer | Dlaczego panele produkują więcej wiosną |
+| 3 | Direct vs Diffuse Sunlight | Światło bezpośrednie vs rozproszone |
+| 4 | Tilt and Azimuth Explained | Nachylenie i azymut |
+| 5 | The Three Numbers That Define Your PV Setup | Trzy liczby instalacji PV |
+
+### Frontmatter alignment
+
+The existing posts use a different frontmatter format. During migration, align as follows:
+
+| Post field | Schema field | Action |
+|---|---|---|
+| `pubDate` | `date` | Rename |
+| `language` | `lang` | Rename |
+| `series: "Solar Physics Fundamentals"` | `series: "fundamentals"` | Use slug-style identifier |
+| `author: "Michal @ VolterLabs"` | `author: Michal` | Simplify |
+| `seo.*` | `seo.*` | No change needed |
+| `relatedPosts` | `relatedPosts` | Verify slugs match filename stems |
+
+### Future series (not yet written)
+
+- Forecasting Deep Dives (Kalman filter, satellite data, accuracy analysis)
+- Geographic series (net-billing PL, dynamic tariffs)
+- Practical guides (privacy architecture, HA integration)
