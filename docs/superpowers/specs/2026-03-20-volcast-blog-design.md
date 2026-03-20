@@ -22,7 +22,7 @@ This spec adds an R&D blog to drive SEO, build technical authority, and explain 
 Astro handles blog routes only. Existing HTML files move to `public/` and are served verbatim by Vercel. No changes to existing landing pages.
 
 - **Framework:** Astro 5.x
-- **Output mode:** `hybrid` — static by default, SSR opt-in for language redirect and API proxy
+- **Output mode:** `static` (Astro 5 default) — pages are prerendered at build time. SSR opt-in via `export const prerender = false` on individual pages (language redirect, API proxy)
 - **Hosting:** Vercel (existing)
 - **Content format:** Markdown (`.md`) — no MDX, no React components in content
 - **Languages:** English + Polish (bilingual from launch)
@@ -31,7 +31,7 @@ Astro handles blog routes only. Existing HTML files move to `public/` and are se
 
 - Zero risk to existing landing pages — they remain untouched in `public/`
 - Astro's content collections provide typed schemas, build-time validation, and static generation
-- `output: 'hybrid'` enables SSR for the `/blog/` language redirect and `/api/forecast` proxy without making everything server-rendered
+- Astro 5's static output mode with per-route `prerender = false` enables SSR for the `/blog/` language redirect and `/api/forecast` proxy without making everything server-rendered
 - Aligns with the volterlabs.com tech stack (Astro planned there too) — blog components/content could migrate later
 
 ---
@@ -40,7 +40,7 @@ Astro handles blog routes only. Existing HTML files move to `public/` and are se
 
 ```
 volcast-landing/
-├── astro.config.mjs              # output: 'hybrid', Vercel adapter, sitemap
+├── astro.config.mjs              # static output, Vercel adapter, sitemap
 ├── package.json
 ├── tsconfig.json
 ├── vercel.json                    # framework: 'astro', cleanUrls: true
@@ -61,23 +61,19 @@ volcast-landing/
 │   ├── translations.json
 │   ├── translations-en.txt
 │   ├── robots.txt                 # NEW
-│   ├── sitemap-landing.xml        # NEW — manual sitemap for static pages
-│   └── sitemap-index.xml          # NEW — references blog + landing sitemaps
+│   └── sitemap-landing.xml        # NEW — manual sitemap for static pages
 ├── src/
 │   ├── pages/
 │   │   ├── blog/
 │   │   │   ├── index.astro              # SSR: Accept-Language → redirect to /blog/en/ or /blog/pl/
-│   │   │   ├── [lang]/
-│   │   │   │   ├── index.astro          # Blog listing page
-│   │   │   │   ├── [slug].astro         # Individual post page
-│   │   │   │   ├── tag/
-│   │   │   │   │   └── [tag].astro      # Posts filtered by tag
-│   │   │   │   └── series/
-│   │   │   │       └── [series].astro   # Posts filtered by series
-│   │   │   ├── en/
-│   │   │   │   └── rss.xml.ts           # English RSS feed
-│   │   │   └── pl/
-│   │   │       └── rss.xml.ts           # Polish RSS feed
+│   │   │   └── [lang]/
+│   │   │       ├── index.astro          # Blog listing page
+│   │   │       ├── [slug].astro         # Individual post page
+│   │   │       ├── rss.xml.ts           # Per-language RSS feed
+│   │   │       ├── tag/
+│   │   │       │   └── [tag].astro      # Posts filtered by tag
+│   │   │       └── series/
+│   │   │           └── [series].astro   # Posts filtered by series
 │   │   └── api/
 │   │       └── forecast.ts              # Supabase proxy (migrated from vercel.json rewrite)
 │   ├── content/
@@ -124,8 +120,8 @@ const blog = defineCollection({
     author: z.string().default('Michal'),
     tags: z.array(z.string()),
     series: z.string().optional(),
-    seriesOrder: z.number().optional(),
-    lang: z.enum(['en', 'pl']),
+    seriesOrder: z.number().optional(),       // Required when series is set (enforced by refine below)
+    lang: z.enum(['en', 'pl']),               // Must match parent directory (en/ or pl/); validated at build time
     draft: z.boolean().default(false),
     ogImage: z.string().optional(),
     seo: z.object({
@@ -133,12 +129,22 @@ const blog = defineCollection({
       ogDescription: z.string().optional(),
       keywords: z.array(z.string()).optional(),
     }).optional(),
-    relatedPosts: z.array(z.string()).optional(),
-  }),
+    relatedPosts: z.array(z.string()).optional(), // Same-language slugs; validated at build time
+  }).refine(
+    (data) => !data.series || data.seriesOrder !== undefined,
+    { message: 'seriesOrder is required when series is set' }
+  ),
 });
 
 export const collections = { blog };
 ```
+
+### Build-time validations
+
+During the build (in `getStaticPaths` or a shared utility), the following are validated:
+- **`lang` matches directory:** a post at `src/content/blog/en/post.md` must have `lang: en` in frontmatter. Mismatch throws a build error. This prevents silent routing bugs.
+- **`relatedPosts` resolve:** every slug in `relatedPosts` must correspond to an existing post in the same language. Missing slugs produce a build warning (not error, to allow work-in-progress references).
+- **`seriesOrder` uniqueness:** within the same `series` + `lang`, no two posts may share the same `seriesOrder` value.
 
 ### Frontmatter example
 
@@ -160,17 +166,41 @@ relatedPosts: ["kalman-filter", "why-no-inverter-password"]
 ---
 ```
 
+### Route generation (`getStaticPaths`)
+
+All blog pages are statically generated. The `[slug].astro` page uses this pattern:
+
+```ts
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', ({ data }) => !data.draft);
+  return posts.map(post => {
+    const [lang, ...slugParts] = post.id.split('/');
+    return {
+      params: { lang, slug: slugParts.join('/') },
+      props: { post },
+    };
+  });
+}
+```
+
+The same pattern applies to:
+- **Tag pages:** enumerate all `(lang, tag)` pairs from all published posts
+- **Series pages:** enumerate all `(lang, series)` pairs from posts with a `series` field
+- **RSS feeds:** enumerate `['en', 'pl']` as lang values, filter posts by `lang` in each endpoint
+
 ### Translation linking
 
-Translations link by filename convention. `en/panel-tilt.md` corresponds to `pl/panel-tilt.md`. The LanguageSwitcher swaps the lang prefix in the URL and checks at build time whether the translation file exists. No frontmatter field needed.
+Translations link by filename convention. `en/panel-tilt.md` corresponds to `pl/panel-tilt.md`. The LanguageSwitcher swaps the lang prefix in the URL and checks at build time whether the file exists in the other language's collection. No frontmatter field needed.
+
+**Note for tag/series pages:** the LanguageSwitcher checks whether any posts in the target language share the same tag or series. If none exist, the switch link is hidden.
 
 ### Series
 
-Posts with the same `series` value are grouped. `seriesOrder` determines sequence. SeriesNav queries the collection for matching `series` + `lang`, sorted by `seriesOrder`, and renders prev/next links.
+Posts with the same `series` value are grouped. `seriesOrder` determines sequence (required when `series` is set — enforced by schema). SeriesNav queries the collection for matching `series` + `lang`, sorted by `seriesOrder`, and renders prev/next links.
 
 ### Drafts
 
-Posts with `draft: true` are excluded from production builds but visible in `astro dev`.
+Posts with `draft: true` are excluded from production builds (filtered in all `getStaticPaths` and `getCollection` calls) but visible in `astro dev`.
 
 ---
 
@@ -268,10 +298,11 @@ The article content sits on `--article-bg` (#0F1218) — a subtle lift from the 
 
 ### Sitemap strategy
 
-Two sitemaps unified by an index:
-- `@astrojs/sitemap` generates sitemap for Astro-rendered blog pages
-- `public/sitemap-landing.xml` — manually maintained, lists all static HTML pages (`/en/`, `/pl/`, `/de/`, ..., `/privacy`, `/terms`)
-- `public/sitemap-index.xml` — references both. Submitted to Google Search Console, referenced in `robots.txt`.
+`@astrojs/sitemap` generates `sitemap-index.xml` (auto-generated, not manual) which references:
+- Its own blog sitemap(s) for Astro-rendered blog pages
+- `public/sitemap-landing.xml` via the `customSitemaps` config option — manually maintained, lists all static HTML pages (`/en/`, `/pl/`, `/de/`, ..., `/privacy`, `/terms`)
+
+There is no manual `public/sitemap-index.xml` — `@astrojs/sitemap` is the single source of truth for the sitemap index. This avoids file collisions between Astro-generated and manual sitemaps.
 
 ### robots.txt (`public/robots.txt`)
 
@@ -281,13 +312,17 @@ Allow: /
 Sitemap: https://volcast.app/sitemap-index.xml
 ```
 
+**Note:** `@astrojs/sitemap` generates `sitemap-index.xml` in the build output. The manual `public/robots.txt` references it. No other integration generates a competing `robots.txt` since we don't use one.
+
 ### RSS feeds
 
 Per-language feeds (not a combined feed — avoids mixing languages in readers):
 - `/blog/en/rss.xml` — English posts only, `<language>en</language>`
 - `/blog/pl/rss.xml` — Polish posts only, `<language>pl</language>`
+- Both generated from a single `src/pages/blog/[lang]/rss.xml.ts` endpoint using `Astro.params.lang` to filter posts. `getStaticPaths` returns `['en', 'pl']`.
 - Autodiscovery `<link>` in BaseLayout points to the feed matching the current page's language
 - Generated by `@astrojs/rss`
+- Draft posts (`draft: true`) are filtered out of feeds
 
 ### Structured data (JSON-LD)
 
@@ -364,11 +399,22 @@ import vercel from '@astrojs/vercel';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  output: 'hybrid',
+  // Astro 5: 'static' is the default. SSR pages opt in via `export const prerender = false`.
   adapter: vercel(),
   site: 'https://volcast.app',
-  integrations: [sitemap()],
+  integrations: [
+    sitemap({
+      customSitemaps: [
+        'https://volcast.app/sitemap-landing.xml',
+      ],
+    }),
+  ],
 });
+```
+
+Pages that need SSR (`src/pages/blog/index.astro` and `src/pages/api/forecast.ts`) must export:
+```ts
+export const prerender = false;
 ```
 
 ### Vercel config
@@ -388,15 +434,17 @@ Explicit `framework` prevents Vercel from misidentifying the project as static d
 {
   "scripts": {
     "dev": "astro dev",
-    "build": "astro check && astro build && npx pagefind --site dist --glob \"blog/**/*.html\"",
+    "build": "astro check && astro build && npx pagefind --site .vercel/output/static --glob \"blog/**/*.html\"",
     "preview": "astro preview"
   }
 }
 ```
 
 1. `astro check` — catches type errors and schema mismatches before build
-2. `astro build` — generates static HTML for blog pages, SSR functions for redirect + API
-3. `npx pagefind` — indexes blog HTML, outputs search assets to `dist/pagefind/`
+2. `astro build` — generates static HTML to `.vercel/output/static/` (Vercel Build Output API format), SSR functions to `.vercel/output/functions/`
+3. `npx pagefind` — indexes blog HTML in `.vercel/output/static/`, outputs search assets (`_pagefind/` directory) into the same location so Vercel serves them as static assets
+
+**Important:** With the `@astrojs/vercel` adapter, `astro build` does NOT output to `dist/`. It produces the Vercel Build Output API structure under `.vercel/output/`. Pagefind must target `.vercel/output/static`, not `dist`.
 
 **Known limitation:** `astro preview` may not serve Pagefind assets correctly. Test search functionality on Vercel preview deployments.
 
@@ -409,7 +457,66 @@ Explicit `framework` prevents Vercel from misidentifying the project as static d
 
 ---
 
-## 10. Initial content plan
+## 10. Migration steps
+
+The current repo has all files at the repository root. The migration to an Astro project requires relocating them.
+
+### File relocation plan
+
+**Move to `public/`** (served as static assets by Astro):
+- `index.html` (root language redirect)
+- `en/`, `pl/`, `de/`, `nl/`, `es/`, `fr/`, `uk/`, `pt/`, `pt-br/`, `ro/`, `cs/`, `sk/` (all locale directories)
+- `privacy.html`, `terms.html`, `delete-account.html`, `redirect.html`
+- `auth/`
+- `img/`
+
+**Move to `public/` (reference only, not part of build)**:
+- `build.js`, `template.html`, `translations.json`, `translations-en.txt` — the landing page generator. These are kept for reference; their output (the locale `index.html` files) is already committed. If locale pages need regeneration, run `build.js` manually and commit the results into `public/`.
+
+**Stay at root** (Astro project files):
+- `vercel.json` (updated with `"framework": "astro"`)
+- New: `astro.config.mjs`, `package.json`, `tsconfig.json`
+- New: `src/` directory (all Astro source)
+
+**Removed from `vercel.json`**:
+- The `/api/forecast` rewrite — replaced by `src/pages/api/forecast.ts`
+
+### Migration order
+
+1. Initialize Astro project (`package.json`, `astro.config.mjs`, `tsconfig.json`)
+2. Create `public/` directory and move all existing files into it
+3. Update `vercel.json` (add `"framework": "astro"`, remove `/api/forecast` rewrite)
+4. Create `src/` structure (pages, content, layouts, components, styles)
+5. Deploy to Vercel preview and verify: all existing landing pages still load, language redirect works, `/api/forecast` still functions
+6. Only after verification: merge to `main`
+
+---
+
+## 11. Scope boundaries & deferred items
+
+### Pagination
+
+Out of scope for Phase 1. A single listing page is sufficient for < 20 posts. When post count exceeds ~15-20, add Astro's built-in pagination (`paginate()` in `getStaticPaths`). The current listing page structure (hero card + grid) is compatible with adding pagination later without architectural changes.
+
+### Language fallback
+
+Blog content exists only in EN and PL. The `/blog/` SSR redirect handles `Accept-Language` headers: Polish-speaking users get `/blog/pl/`, all others (including DE, NL, etc.) fall back to `/blog/en/`. This is documented in the redirect page's code.
+
+### 404 handling
+
+Requests to non-existent blog routes (e.g., `/blog/fr/some-post`) naturally fall through to Vercel's default 404 page since `getStaticPaths` only generates `en` and `pl` routes. A custom 404 page for blog routes (suggesting EN/PL versions) is a Phase 2 enhancement.
+
+### Landing page hreflang
+
+The existing static landing pages already have hreflang tags in their HTML. These are not modified by this project. Consistency verification is a future task.
+
+### OG image generation
+
+Deferred to Phase 2 (see Section 6). Static default OG image for launch.
+
+---
+
+## 12. Initial content plan
 
 From the volterlabs.com spec, adapted for volcast.app blog:
 
