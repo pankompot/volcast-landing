@@ -1,0 +1,33 @@
+---
+interface Props {
+  lang: 'en' | 'pl';
+  translationUrl?: string;
+}
+
+const { lang, translationUrl } = Astro.props;
+const otherLang = lang === 'en' ? 'pl' : 'en';
+---
+
+<nav class="lang-switcher" aria-label="Language">
+  <span class={lang === 'en' ? 'active' : ''}>
+    {lang === 'en' ? 'EN' : <a href={translationUrl || `/blog/en/`}>EN</a>}
+  </span>
+  <span class="separator">|</span>
+  <span class={lang === 'pl' ? 'active' : ''}>
+    {lang === 'pl' ? 'PL' : <a href={translationUrl || `/blog/pl/`}>PL</a>}
+  </span>
+</nav>
+
+<style>
+  .lang-switcher {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .separator { color: var(--text-muted); }
+  .active { color: var(--primary); font-weight: 600; }
+  a { color: var(--text-muted); }
+  a:hover { color: var(--text-primary); }
+</style>

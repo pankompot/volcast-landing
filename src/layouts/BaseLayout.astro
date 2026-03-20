@@ -1,0 +1,94 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  lang: 'en' | 'pl';
+  canonicalUrl?: string;
+  ogImage?: string;
+  ogTitle?: string;
+  ogDescription?: string;
+  keywords?: string[];
+  translationUrl?: string;
+}
+
+const {
+  title,
+  description,
+  lang,
+  canonicalUrl = Astro.url.href,
+  ogImage = '/img/og-default.png',
+  ogTitle,
+  ogDescription,
+  keywords,
+  translationUrl,
+} = Astro.props;
+
+const otherLang = lang === 'en' ? 'pl' : 'en';
+const siteTitle = `${title} — Volcast Blog`;
+const displayOgTitle = ogTitle || title;
+const displayOgDescription = ogDescription || description;
+---
+
+<!DOCTYPE html>
+<html lang={lang}>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#05070A" />
+  <title>{siteTitle}</title>
+  <meta name="description" content={description.substring(0, 155)} />
+  {keywords && keywords.length > 0 && (
+    <meta name="keywords" content={keywords.join(', ')} />
+  )}
+
+  <!-- Canonical & hreflang -->
+  <link rel="canonical" href={canonicalUrl} />
+  <link rel="alternate" hreflang={lang} href={canonicalUrl} />
+  {translationUrl && (
+    <link rel="alternate" hreflang={otherLang} href={translationUrl} />
+  )}
+  {!translationUrl && (
+    <link rel="alternate" hreflang="x-default" href={canonicalUrl} />
+  )}
+
+  <!-- Open Graph -->
+  <meta property="og:title" content={displayOgTitle} />
+  <meta property="og:description" content={displayOgDescription} />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={canonicalUrl} />
+  <meta property="og:image" content={new URL(ogImage, Astro.site).href} />
+  <meta property="og:locale" content={lang === 'pl' ? 'pl_PL' : 'en_US'} />
+
+  <!-- RSS autodiscovery -->
+  <link
+    rel="alternate"
+    type="application/rss+xml"
+    title={`Volcast Blog (${lang.toUpperCase()})`}
+    href={`/blog/${lang}/rss.xml`}
+  />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg viewBox='0 0 80 80' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M18 18 L40 62 L62 18' stroke='%2300FF9D' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='40' cy='12' r='4' fill='%2300FF9D'/%3E%3C/svg%3E" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Syne:wght@600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet" />
+
+  <!-- JSON-LD Organization -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'Volter Labs',
+    url: 'https://volcast.app',
+    logo: new URL('/img/og-default.png', Astro.site).href,
+  })} />
+
+  <slot name="head" />
+</head>
+<body>
+  <slot />
+</body>
+</html>
