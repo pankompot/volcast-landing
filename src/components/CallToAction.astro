@@ -1,0 +1,80 @@
+---
+interface Props {
+  lang: 'en' | 'pl';
+}
+
+const { lang } = Astro.props;
+
+const text = {
+  en: {
+    heading: 'Try Volcast',
+    body: 'Get accurate solar production forecasts powered by physics. No inverter login required.',
+    cta: 'Download Free',
+  },
+  pl: {
+    heading: 'Wypr\u00F3buj Volcast',
+    body: 'Dok\u0142adne prognozy produkcji solarnej oparte na fizyce. Bez logowania do falownika.',
+    cta: 'Pobierz za darmo',
+  },
+};
+
+const t = text[lang];
+---
+
+<aside class="cta-section">
+  <div class="cta-inner">
+    <h3>{t.heading}</h3>
+    <p>{t.body}</p>
+    <div class="cta-buttons">
+      <a href="https://play.google.com/store/apps/details?id=com.volcast.app" class="cta-button" target="_blank" rel="noopener">
+        Google Play
+      </a>
+      <span class="cta-button secondary disabled">
+        App Store ({lang === 'pl' ? 'wkr\u00F3tce' : 'coming soon'})
+      </span>
+    </div>
+  </div>
+</aside>
+
+<style>
+  .cta-section {
+    margin-top: 3rem;
+    padding: 2rem;
+    background: var(--primary-glow);
+    border: 1px solid var(--surface-border);
+    border-radius: 12px;
+    text-align: center;
+  }
+  .cta-inner { max-width: 480px; margin: 0 auto; }
+  h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 22px;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+  }
+  p {
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    font-size: 15px;
+  }
+  .cta-buttons { display: flex; gap: 0.75rem; justify-content: center; }
+  .cta-button {
+    display: inline-block;
+    padding: 0.6rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    background: var(--primary);
+    color: var(--canvas);
+    transition: opacity 0.2s ease;
+  }
+  .cta-button:hover { opacity: 0.9; color: var(--canvas); }
+  .cta-button.secondary {
+    background: transparent;
+    border: 1px solid var(--primary);
+    color: var(--primary);
+  }
+  .cta-button.secondary:hover { background: var(--primary-glow); }
+  .cta-button.disabled { opacity: 0.5; cursor: default; }
+  .cta-button.disabled:hover { background: transparent; }
+</style>

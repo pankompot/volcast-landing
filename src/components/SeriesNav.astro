@@ -1,0 +1,80 @@
+---
+import { getCollection } from 'astro:content';
+import { SERIES } from '../data/series';
+
+interface Props {
+  series: string;
+  seriesOrder: number;
+  lang: 'en' | 'pl';
+}
+
+const { series, seriesOrder, lang } = Astro.props;
+
+const allPosts = await getCollection('blog', ({ data }) =>
+  !data.draft && data.series === series && data.lang === lang
+);
+allPosts.sort((a, b) => (a.data.seriesOrder ?? 0) - (b.data.seriesOrder ?? 0));
+
+const currentIndex = allPosts.findIndex(p => p.data.seriesOrder === seriesOrder);
+const prev = currentIndex > 0 ? allPosts[currentIndex - 1] : null;
+const next = currentIndex < allPosts.length - 1 ? allPosts[currentIndex + 1] : null;
+const seriesMeta = SERIES[series]?.[lang];
+---
+
+{(prev || next) && (
+  <nav class="series-nav" aria-label="Series navigation">
+    {seriesMeta && <p class="series-label">{seriesMeta.title}</p>}
+    <div class="nav-links">
+      {prev ? (
+        <a href={`/blog/${lang}/${prev.id.split('/').pop()}/`} class="nav-prev">
+          <span class="nav-dir">{lang === 'pl' ? '\u2190 Poprzedni' : '\u2190 Previous'}</span>
+          <span class="nav-title">{prev.data.title}</span>
+        </a>
+      ) : <div />}
+      {next ? (
+        <a href={`/blog/${lang}/${next.id.split('/').pop()}/`} class="nav-next">
+          <span class="nav-dir">{lang === 'pl' ? 'Nast\u0119pny \u2192' : 'Next \u2192'}</span>
+          <span class="nav-title">{next.data.title}</span>
+        </a>
+      ) : <div />}
+    </div>
+  </nav>
+)}
+
+<style>
+  .series-nav {
+    border-top: 1px solid var(--divider);
+    padding-top: 2rem;
+    margin-top: 3rem;
+  }
+  .series-label {
+    color: var(--text-muted);
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 1rem;
+  }
+  .nav-links {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  .nav-prev, .nav-next {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 1rem;
+    background: var(--surface);
+    border: 1px solid var(--surface-border);
+    border-radius: 8px;
+    transition: border-color 0.2s ease;
+  }
+  .nav-next { text-align: right; }
+  .nav-prev:hover, .nav-next:hover { border-color: var(--primary-dim); }
+  .nav-dir { font-size: 13px; color: var(--text-muted); }
+  .nav-title { font-size: 15px; color: var(--text-primary); font-weight: 500; }
+
+  @media (max-width: 640px) {
+    .nav-links { grid-template-columns: 1fr; }
+  }
+</style>

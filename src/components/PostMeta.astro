@@ -1,0 +1,64 @@
+---
+import ReadingTime from './ReadingTime.astro';
+import TagList from './TagList.astro';
+import { SERIES } from '../data/series';
+
+interface Props {
+  date: Date;
+  updated?: Date;
+  tags: string[];
+  lang: 'en' | 'pl';
+  content: string;
+  series?: string;
+}
+
+const { date, updated, tags, lang, content, series } = Astro.props;
+const dateStr = date.toLocaleDateString(lang === 'pl' ? 'pl-PL' : 'en-US', {
+  year: 'numeric', month: 'long', day: 'numeric'
+});
+const seriesMeta = series ? SERIES[series]?.[lang] : undefined;
+---
+
+<div class="post-meta">
+  <div class="meta-row">
+    <time datetime={date.toISOString()}>{dateStr}</time>
+    {updated && (
+      <span class="updated">
+        ({lang === 'pl' ? 'zaktualizowano' : 'updated'} {updated.toLocaleDateString(lang === 'pl' ? 'pl-PL' : 'en-US', { year: 'numeric', month: 'short', day: 'numeric' })})
+      </span>
+    )}
+    <span class="separator">·</span>
+    <ReadingTime content={content} lang={lang} />
+    {seriesMeta && (
+      <>
+        <span class="separator">·</span>
+        <a href={`/blog/${lang}/series/${series}/`} class="series-badge">{seriesMeta.title}</a>
+      </>
+    )}
+  </div>
+  <TagList tags={tags} lang={lang} />
+</div>
+
+<style>
+  .post-meta { margin-bottom: 2rem; }
+  .meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+    font-size: 14px;
+    color: var(--text-muted);
+  }
+  .separator { color: var(--divider); }
+  .updated { font-style: italic; }
+  .series-badge {
+    background: var(--primary-glow-strong);
+    border: 1px solid var(--primary-dim);
+    border-radius: 4px;
+    padding: 0.1rem 0.5rem;
+    font-size: 12px;
+    color: var(--primary);
+  }
+  .series-badge:hover { background: var(--primary-glow); }
+</style>
