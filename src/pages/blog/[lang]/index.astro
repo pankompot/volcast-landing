@@ -3,8 +3,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Header from '../../../components/Header.astro';
 import Footer from '../../../components/Footer.astro';
 import BlogCard from '../../../components/BlogCard.astro';
-// SearchWidget is added in Task 11 after the component is created
-// import SearchWidget from '../../../components/SearchWidget.astro';
+import SearchWidget from '../../../components/SearchWidget.astro';
 import { getCollection } from 'astro:content';
 
 export function getStaticPaths() {
@@ -63,7 +62,7 @@ const jsonLd = {
       </p>
     </div>
 
-    <!-- SearchWidget goes here — added in Task 11 -->
+    <SearchWidget lang={lang} />
 
     {allTags.length > 0 && (
       <div class="tag-pills">

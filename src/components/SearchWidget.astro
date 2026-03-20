@@ -1,0 +1,123 @@
+---
+interface Props {
+  lang: 'en' | 'pl';
+}
+
+const { lang } = Astro.props;
+---
+
+<div class="search-wrapper" id="search" data-lang={lang}></div>
+
+<script>
+  async function initSearch() {
+    const wrapper = document.getElementById('search');
+    if (!wrapper) return;
+
+    const lang = wrapper.dataset.lang;
+
+    // @ts-ignore — Pagefind is loaded at runtime from built assets
+    const pagefind = await import('/_pagefind/pagefind.js');
+    await pagefind.init();
+
+    const input = document.createElement('input');
+    input.type = 'search';
+    input.placeholder = lang === 'pl' ? 'Szukaj artykułów...' : 'Search articles...';
+    input.className = 'search-input';
+
+    const results = document.createElement('div');
+    results.className = 'search-results';
+
+    wrapper.appendChild(input);
+    wrapper.appendChild(results);
+
+    let debounceTimer: ReturnType<typeof setTimeout>;
+
+    input.addEventListener('input', () => {
+      clearTimeout(debounceTimer);
+      debounceTimer = setTimeout(async () => {
+        const query = input.value.trim();
+        if (!query) {
+          results.innerHTML = '';
+          return;
+        }
+
+        const search = await pagefind.search(query);
+        const items = await Promise.all(search.results.slice(0, 8).map((r: any) => r.data()));
+
+        // Sort: current language first
+        items.sort((a: any, b: any) => {
+          const aLang = a.meta?.lang || '';
+          const bLang = b.meta?.lang || '';
+          if (aLang === lang && bLang !== lang) return -1;
+          if (bLang === lang && aLang !== lang) return 1;
+          return 0;
+        });
+
+        results.innerHTML = items.map((item: any) => `
+          <a href="${item.url}" class="search-result">
+            <span class="result-title">${item.meta?.title || item.url}</span>
+            <span class="result-excerpt">${item.excerpt}</span>
+          </a>
+        `).join('');
+      }, 200);
+    });
+  }
+
+  initSearch();
+</script>
+
+<style>
+  .search-wrapper { position: relative; margin-bottom: 2rem; }
+  .search-input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background: var(--surface);
+    border: 1px solid var(--surface-border);
+    border-radius: 8px;
+    color: var(--text-primary);
+    font-size: 16px;
+    font-family: 'DM Sans', sans-serif;
+    outline: none;
+    transition: border-color 0.2s ease;
+  }
+  .search-input:focus { border-color: var(--primary); box-shadow: 0 0 0 3px var(--primary-glow); }
+  .search-input::placeholder { color: var(--text-muted); }
+  .search-results {
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    left: 0;
+    right: 0;
+    background: var(--surface);
+    border: 1px solid var(--surface-border);
+    border-radius: 8px;
+    max-height: 400px;
+    overflow-y: auto;
+    z-index: 50;
+  }
+  .search-results:empty { display: none; }
+  .search-result {
+    display: block;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--surface-border);
+    transition: background 0.2s ease;
+  }
+  .search-result:last-child { border-bottom: none; }
+  .search-result:hover { background: var(--primary-glow); }
+  .result-title {
+    display: block;
+    color: var(--text-primary);
+    font-weight: 500;
+    font-size: 15px;
+    margin-bottom: 0.25rem;
+  }
+  .result-excerpt {
+    display: block;
+    color: var(--text-muted);
+    font-size: 13px;
+    line-height: 1.4;
+  }
+  .result-excerpt :global(mark) {
+    background: var(--primary-glow-strong);
+    color: var(--primary);
+  }
+</style>
