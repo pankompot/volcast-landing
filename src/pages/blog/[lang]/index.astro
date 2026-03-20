@@ -1,0 +1,229 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import BlogCard from '../../../components/BlogCard.astro';
+// SearchWidget is added in Task 11 after the component is created
+// import SearchWidget from '../../../components/SearchWidget.astro';
+import { getCollection } from 'astro:content';
+
+export function getStaticPaths() {
+  return [{ params: { lang: 'en' } }, { params: { lang: 'pl' } }];
+}
+
+const { lang } = Astro.params as { lang: 'en' | 'pl' };
+const otherLang = lang === 'en' ? 'pl' : 'en';
+const translationUrl = `/blog/${otherLang}/`;
+
+const posts = await getCollection('blog', ({ data }) =>
+  !data.draft && data.lang === lang
+);
+posts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+// Collect unique tags
+const allTags = [...new Set(posts.flatMap(p => p.data.tags))].sort();
+
+// Hero / grid logic
+const hasHero = posts.length >= 7;
+const heroPost = hasHero ? posts[0] : null;
+const gridPosts = hasHero ? posts.slice(1) : posts;
+
+// JSON-LD CollectionPage
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: lang === 'pl' ? 'Blog Volcast' : 'Volcast Blog',
+  description: lang === 'pl'
+    ? 'Blog techniczny o energii słonecznej i prognozowaniu PV'
+    : 'Technical blog about solar energy and PV forecasting',
+  inLanguage: lang,
+  url: new URL(`/blog/${lang}/`, Astro.site).href,
+};
+---
+
+<BaseLayout
+  title={lang === 'pl' ? 'Blog' : 'Blog'}
+  description={lang === 'pl'
+    ? 'Blog techniczny o energii słonecznej i prognozowaniu PV'
+    : 'Technical blog about solar energy and PV forecasting'}
+  lang={lang}
+  translationUrl={translationUrl}
+>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+  <Header lang={lang} translationUrl={translationUrl} />
+
+  <main class="listing-main">
+    <div class="listing-header">
+      <h1>{lang === 'pl' ? 'Blog' : 'Blog'}</h1>
+      <p class="listing-subtitle">
+        {lang === 'pl'
+          ? 'Artykuły o energii słonecznej, prognozowaniu PV i fizyce solarnej'
+          : 'Articles about solar energy, PV forecasting, and solar physics'}
+      </p>
+    </div>
+
+    <!-- SearchWidget goes here — added in Task 11 -->
+
+    {allTags.length > 0 && (
+      <div class="tag-pills">
+        {allTags.map(tag => (
+          <a href={`/blog/${lang}/tag/${tag}/`} class="tag-pill">{tag}</a>
+        ))}
+      </div>
+    )}
+
+    {heroPost && (
+      <a href={`/blog/${lang}/${heroPost.id.split('/').pop()}/`} class="hero-card">
+        <div class="hero-content">
+          <span class="hero-badge">{lang === 'pl' ? 'Najnowszy' : 'Latest'}</span>
+          <h2>{heroPost.data.title}</h2>
+          <p>{heroPost.data.description}</p>
+          <span class="hero-date">
+            {heroPost.data.date.toLocaleDateString(lang === 'pl' ? 'pl-PL' : 'en-US', {
+              year: 'numeric', month: 'long', day: 'numeric'
+            })}
+          </span>
+        </div>
+      </a>
+    )}
+
+    <div class={`post-grid ${gridPosts.length < 4 ? 'sparse' : ''}`}>
+      {gridPosts.map(post => (
+        <BlogCard
+          title={post.data.title}
+          description={post.data.description}
+          date={post.data.date}
+          tags={post.data.tags}
+          lang={lang}
+          slug={post.id.split('/').pop()!}
+          content={post.body || ''}
+        />
+      ))}
+    </div>
+  </main>
+
+  <Footer lang={lang} />
+</BaseLayout>
+
+<style>
+  .listing-main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+  }
+
+  .listing-header {
+    margin-bottom: 2rem;
+  }
+
+  .listing-header h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: 42px;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+  }
+
+  .listing-subtitle {
+    color: var(--text-muted);
+    font-size: 18px;
+  }
+
+  .tag-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .tag-pill {
+    background: var(--surface);
+    border: 1px solid var(--surface-border);
+    border-radius: 20px;
+    padding: 0.3rem 0.8rem;
+    font-size: 13px;
+    color: var(--text-muted);
+    transition: border-color 0.2s ease, color 0.2s ease;
+  }
+
+  .tag-pill:hover {
+    border-color: var(--primary-dim);
+    color: var(--primary);
+  }
+
+  .hero-card {
+    display: block;
+    background: var(--surface);
+    border: 1px solid var(--surface-border);
+    border-radius: 16px;
+    padding: 2.5rem;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background-image: radial-gradient(ellipse at 20% 50%, var(--primary-glow) 0%, transparent 60%);
+  }
+
+  .hero-card:hover {
+    border-color: var(--primary-dim);
+    box-shadow: 0 0 30px var(--primary-glow);
+  }
+
+  .hero-content { position: relative; z-index: 1; }
+
+  .hero-badge {
+    display: inline-block;
+    background: var(--primary-glow-strong);
+    border: 1px solid var(--primary-dim);
+    border-radius: 4px;
+    padding: 0.15rem 0.6rem;
+    font-size: 12px;
+    color: var(--primary);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 1rem;
+  }
+
+  .hero-card h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
+  }
+
+  .hero-card p {
+    color: var(--text-secondary);
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    max-width: 600px;
+  }
+
+  .hero-date {
+    color: var(--text-muted);
+    font-size: 14px;
+  }
+
+  .post-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    padding: 2rem 0;
+    background-image: radial-gradient(ellipse at 50% 0%, var(--primary-glow) 0%, transparent 50%);
+  }
+
+  .post-grid.sparse {
+    grid-template-columns: 1fr;
+    max-width: 600px;
+  }
+
+  @media (max-width: 768px) {
+    .post-grid { grid-template-columns: 1fr; }
+    .hero-card { padding: 1.5rem; }
+    .hero-card h2 { font-size: 22px; }
+    .listing-header h1 { font-size: 32px; }
+  }
+</style>
