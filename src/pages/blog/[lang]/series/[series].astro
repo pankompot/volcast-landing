@@ -1,0 +1,123 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import Header from '../../../../components/Header.astro';
+import Footer from '../../../../components/Footer.astro';
+import BlogCard from '../../../../components/BlogCard.astro';
+import { getCollection } from 'astro:content';
+import { SERIES } from '../../../../data/series';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', ({ data }) => !data.draft && data.series);
+  const pairs = new Set<string>();
+
+  for (const post of posts) {
+    pairs.add(`${post.data.lang}/${post.data.series}`);
+  }
+
+  return [...pairs].map(key => {
+    const [lang, series] = key.split('/');
+    return { params: { lang, series } };
+  });
+}
+
+const { lang, series } = Astro.params as { lang: 'en' | 'pl'; series: string };
+const otherLang = lang === 'en' ? 'pl' : 'en';
+const seriesMeta = SERIES[series]?.[lang];
+
+const posts = await getCollection('blog', ({ data }) =>
+  !data.draft && data.lang === lang && data.series === series
+);
+posts.sort((a, b) => (a.data.seriesOrder ?? 0) - (b.data.seriesOrder ?? 0));
+
+const otherLangHasSeries = (await getCollection('blog', ({ data }) =>
+  !data.draft && data.lang === otherLang && data.series === series
+)).length > 0;
+const translationUrl = otherLangHasSeries ? `/blog/${otherLang}/series/${series}/` : undefined;
+---
+
+<BaseLayout
+  title={seriesMeta?.title || series}
+  description={seriesMeta?.description || `${series} series`}
+  lang={lang}
+  translationUrl={translationUrl}
+>
+  <Header lang={lang} translationUrl={translationUrl} />
+
+  <main class="series-page">
+    <h1>{seriesMeta?.title || series}</h1>
+    {seriesMeta?.description && <p class="series-description">{seriesMeta.description}</p>}
+    <a href={`/blog/${lang}/`} class="back-link">
+      {lang === 'pl' ? '← Wróć do bloga' : '← Back to blog'}
+    </a>
+
+    <ol class="series-list">
+      {posts.map((post, idx) => (
+        <li>
+          <span class="series-number">{idx + 1}</span>
+          <BlogCard
+            title={post.data.title}
+            description={post.data.description}
+            date={post.data.date}
+            tags={post.data.tags}
+            lang={lang}
+            slug={post.id.split('/').pop()!}
+            content={post.body || ''}
+          />
+        </li>
+      ))}
+    </ol>
+  </main>
+
+  <Footer lang={lang} />
+</BaseLayout>
+
+<style>
+  .series-page {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+  }
+  h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: 32px;
+    margin-bottom: 0.5rem;
+  }
+  .series-description {
+    color: var(--text-secondary);
+    font-size: 18px;
+    margin-bottom: 0.5rem;
+  }
+  .back-link {
+    display: inline-block;
+    color: var(--text-muted);
+    font-size: 14px;
+    margin-bottom: 2rem;
+  }
+  .back-link:hover { color: var(--text-secondary); }
+  .series-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .series-list li {
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    gap: 1rem;
+    align-items: start;
+  }
+  .series-number {
+    font-family: 'Syne', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--primary-dim);
+    text-align: center;
+    padding-top: 1rem;
+  }
+
+  @media (max-width: 640px) {
+    .series-list li { grid-template-columns: 30px 1fr; }
+    h1 { font-size: 26px; }
+  }
+</style>

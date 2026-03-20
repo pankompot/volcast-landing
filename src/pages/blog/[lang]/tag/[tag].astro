@@ -1,0 +1,99 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import Header from '../../../../components/Header.astro';
+import Footer from '../../../../components/Footer.astro';
+import BlogCard from '../../../../components/BlogCard.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', ({ data }) => !data.draft);
+  const pairs = new Map<string, Set<string>>();
+
+  for (const post of posts) {
+    for (const tag of post.data.tags) {
+      const key = `${post.data.lang}/${tag}`;
+      if (!pairs.has(key)) pairs.set(key, new Set());
+    }
+  }
+
+  return [...pairs.keys()].map(key => {
+    const [lang, tag] = key.split('/');
+    return { params: { lang, tag } };
+  });
+}
+
+const { lang, tag } = Astro.params as { lang: 'en' | 'pl'; tag: string };
+const otherLang = lang === 'en' ? 'pl' : 'en';
+
+const posts = await getCollection('blog', ({ data }) =>
+  !data.draft && data.lang === lang && data.tags.includes(tag)
+);
+posts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+const otherLangHasTag = (await getCollection('blog', ({ data }) =>
+  !data.draft && data.lang === otherLang && data.tags.includes(tag)
+)).length > 0;
+const translationUrl = otherLangHasTag ? `/blog/${otherLang}/tag/${tag}/` : undefined;
+---
+
+<BaseLayout
+  title={`${lang === 'pl' ? 'Posty z tagiem' : 'Posts tagged'}: ${tag}`}
+  description={`${lang === 'pl' ? 'Artykuły z tagiem' : 'Articles tagged'} "${tag}"`}
+  lang={lang}
+  translationUrl={translationUrl}
+>
+  <Header lang={lang} translationUrl={translationUrl} />
+
+  <main class="tag-page">
+    <h1>{lang === 'pl' ? 'Posty z tagiem:' : 'Posts tagged:'} <span class="tag-name">{tag}</span></h1>
+    <a href={`/blog/${lang}/`} class="back-link">
+      {lang === 'pl' ? '← Wróć do bloga' : '← Back to blog'}
+    </a>
+
+    <div class="post-grid">
+      {posts.map(post => (
+        <BlogCard
+          title={post.data.title}
+          description={post.data.description}
+          date={post.data.date}
+          tags={post.data.tags}
+          lang={lang}
+          slug={post.id.split('/').pop()!}
+          content={post.body || ''}
+        />
+      ))}
+    </div>
+  </main>
+
+  <Footer lang={lang} />
+</BaseLayout>
+
+<style>
+  .tag-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+  }
+  h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: 32px;
+    margin-bottom: 0.5rem;
+  }
+  .tag-name { color: var(--primary); }
+  .back-link {
+    display: inline-block;
+    color: var(--text-muted);
+    font-size: 14px;
+    margin-bottom: 2rem;
+  }
+  .back-link:hover { color: var(--text-secondary); }
+  .post-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  @media (max-width: 768px) {
+    .post-grid { grid-template-columns: 1fr; }
+    h1 { font-size: 26px; }
+  }
+</style>
