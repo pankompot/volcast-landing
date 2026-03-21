@@ -12,5 +12,54 @@
       "en/tilt-and-azimuth-explained.md",
       "pl/nachylenie-i-azymut.md"
     ]
+  },
+  {
+    "date": "2026-04-07",
+    "files": [
+      "en/physics-vs-ml-solar-forecasting.md",
+      "pl/fizyka-vs-ml-prognozowanie-solarne.md"
+    ]
+  },
+  {
+    "date": "2026-04-10",
+    "files": [
+      "en/where-weather-forecasts-come-from.md",
+      "pl/skad-sie-biora-prognozy-pogody.md"
+    ]
+  },
+  {
+    "date": "2026-04-14",
+    "files": [
+      "en/why-cloud-cover-hardest-variable.md",
+      "pl/dlaczego-zachmurzenie-najtrudniejsza-zmienna.md"
+    ]
+  },
+  {
+    "date": "2026-04-17",
+    "files": [
+      "en/irradiance-journey-space-to-panel.md",
+      "pl/podroz-naslonecznienia-od-kosmosu-do-panelu.md"
+    ]
+  },
+  {
+    "date": "2026-04-21",
+    "files": [
+      "en/transposition-models.md",
+      "pl/modele-transpozycji.md"
+    ]
+  },
+  {
+    "date": "2026-04-24",
+    "files": [
+      "en/nowcasting-vs-day-ahead.md",
+      "pl/nowcasting-vs-prognoza-dniowa.md"
+    ]
+  },
+  {
+    "date": "2026-04-28",
+    "files": [
+      "en/why-no-training-data-needed.md",
+      "pl/dlaczego-nowe-instalacje-nie-potrzebuja-danych-treningowych.md"
+    ]
   }
 ]
