@@ -1,7 +1,7 @@
 ---
 title: "Physics-Based vs ML-Based Solar Forecasting — Why the Approach Matters"
 description: "Two fundamentally different approaches to predicting solar production. One models the physics, the other learns from data. Here's why the distinction matters for your forecast."
-date: 2026-04-07
+date: 2026-04-14
 tags: ["physics-model", "machine-learning", "forecasting", "methodology"]
 series: "deep-dives"
 seriesOrder: 1

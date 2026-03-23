@@ -1,7 +1,7 @@
 ---
 title: "Prognozowanie solarne oparte na fizyce vs uczenie maszynowe — dlaczego podejście ma znaczenie"
 description: "Dwa zasadniczo różne podejścia do prognozowania produkcji solarnej. Jedno modeluje fizykę, drugie uczy się z danych. Oto dlaczego ta różnica ma znaczenie."
-date: 2026-04-07
+date: 2026-04-14
 tags: ["model-fizyczny", "uczenie-maszynowe", "prognozowanie", "metodologia"]
 series: "deep-dives"
 seriesOrder: 1

@@ -1,7 +1,7 @@
 ---
 title: "Nowcasting vs prognoza dniowa vs tygodniowa — trafność w każdym horyzoncie"
 description: "Prognoza na 15 minut i prognoza na 7 dni to fundamentalnie różne problemy. Co każdy horyzont może realistycznie dostarczyć i gdzie trafność się załamuje."
-date: 2026-04-24
+date: 2026-05-19
 tags: ["nowcasting", "horyzont-prognozy", "trafność", "szeregi-czasowe", "prognozowanie"]
 series: "deep-dives"
 seriesOrder: 6

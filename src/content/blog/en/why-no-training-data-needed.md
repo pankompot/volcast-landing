@@ -1,7 +1,7 @@
 ---
 title: "Why New Installations Don't Need Training Data With Physics-Based Models"
 description: "Most forecast tools need months of history before they work. Physics-based forecasting works from day one. Here's why — and what that means for new PV owners."
-date: 2026-04-28
+date: 2026-05-26
 tags: ["cold-start", "new-installation", "physics-model", "onboarding", "forecasting"]
 series: "deep-dives"
 seriesOrder: 7

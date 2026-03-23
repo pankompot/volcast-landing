@@ -1,7 +1,7 @@
 ---
 title: "Dlaczego nowe instalacje nie potrzebują danych treningowych przy modelach fizycznych"
 description: "Większość narzędzi prognostycznych potrzebuje miesięcy historii. Prognozowanie oparte na fizyce działa od pierwszego dnia. Oto dlaczego — i co to oznacza dla nowych właścicieli PV."
-date: 2026-04-28
+date: 2026-05-26
 tags: ["zimny-start", "nowa-instalacja", "model-fizyczny", "onboarding", "prognozowanie"]
 series: "deep-dives"
 seriesOrder: 7

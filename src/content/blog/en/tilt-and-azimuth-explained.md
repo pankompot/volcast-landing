@@ -1,7 +1,7 @@
 ---
 title: "What Tilt and Azimuth Actually Do to Your Annual Yield"
 description: "Two angles define how much energy your solar panels capture. Learn why they matter and why real-world results are more forgiving than you'd think."
-date: 2026-04-03
+date: 2026-04-07
 tags: ["tilt", "azimuth", "panel-orientation", "pv-physics", "beginner"]
 series: "fundamentals"
 seriesOrder: 4

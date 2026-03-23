@@ -1,7 +1,7 @@
 ---
 title: "Dlaczego zachmurzenie to najtrudniejsza zmienna w prognozowaniu solarnym"
 description: "Temperatura jest przewidywalna. Pozycja Słońca obliczalna. Ale chmury? Chmury to teoria chaosu w działaniu — i największe źródło błędu prognozy solarnej."
-date: 2026-04-14
+date: 2026-04-28
 tags: ["chmury", "niepewność-prognozy", "nasłonecznienie", "pogoda", "prognozowanie"]
 series: "deep-dives"
 seriesOrder: 3

@@ -1,7 +1,7 @@
 ---
 title: "Nowcasting vs Day-Ahead vs Weekly — Accuracy at Every Time Horizon"
 description: "A 15-minute forecast and a 7-day forecast are fundamentally different problems. Here's what each time horizon can realistically deliver and where accuracy breaks down."
-date: 2026-04-24
+date: 2026-05-19
 tags: ["nowcasting", "forecast-horizon", "accuracy", "time-series", "forecasting"]
 series: "deep-dives"
 seriesOrder: 6

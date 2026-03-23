@@ -1,7 +1,7 @@
 ---
 title: "Podróż nasłonecznienia: od kosmosu do Twojego panelu w 8 krokach"
 description: "Podążaj za promieniem słońca od krawędzi atmosfery przez rozpraszanie, absorpcję, chmury i odbicia aż do Twojego pochylonego panelu, gdzie staje się prądem."
-date: 2026-04-17
+date: 2026-05-05
 tags: ["nasłonecznienie", "fizyka-atmosfery", "widmo-słoneczne", "fizyka-pv", "prognozowanie"]
 series: "deep-dives"
 seriesOrder: 4

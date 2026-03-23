@@ -1,7 +1,7 @@
 ---
 title: "Why Cloud Cover Is the Hardest Variable in Solar Prediction"
 description: "Temperature is predictable. Sun position is calculable. But clouds? Clouds are chaos theory in action — and the single biggest source of solar forecast error."
-date: 2026-04-14
+date: 2026-04-28
 tags: ["clouds", "forecast-uncertainty", "irradiance", "weather", "forecasting"]
 series: "deep-dives"
 seriesOrder: 3

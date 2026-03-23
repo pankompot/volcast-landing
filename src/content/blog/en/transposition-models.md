@@ -1,7 +1,7 @@
 ---
 title: "Transposition Models: How Volcast Calculates What Hits Your Tilted Panel"
 description: "Weather data tells us what reaches a horizontal surface. Your panels are tilted. The mathematical bridge between the two is called transposition — and the choice of model matters."
-date: 2026-04-21
+date: 2026-05-12
 tags: ["transposition", "perez-model", "irradiance", "panel-orientation", "forecasting"]
 series: "deep-dives"
 seriesOrder: 5

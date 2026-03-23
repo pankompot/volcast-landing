@@ -1,7 +1,7 @@
 ---
 title: "Skąd się biorą prognozy pogody: modele NWP wyjaśnione dla właścicieli PV"
 description: "Twoja prognoza solarna jest tak dobra, jak dane pogodowe na jej wejściu. Jak działają modele numerycznej prognozy pogody i gdzie zawodzą dla energii słonecznej."
-date: 2026-04-10
+date: 2026-04-21
 tags: ["nwp", "modele-pogodowe", "gfs", "ecmwf", "icon", "prognozowanie"]
 series: "deep-dives"
 seriesOrder: 2

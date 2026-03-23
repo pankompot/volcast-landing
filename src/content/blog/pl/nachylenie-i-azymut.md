@@ -1,7 +1,7 @@
 ---
 title: "Nachylenie i azymut — co naprawdę robią z Twoim rocznym uzyskiem"
 description: "Dwa kąty definiują, ile energii zbierają Twoje panele. Dlaczego mają znaczenie i dlaczego rzeczywistość jest bardziej wyrozumiała niż myślisz."
-date: 2026-04-03
+date: 2026-04-07
 tags: ["nachylenie", "azymut", "orientacja-paneli", "fizyka-pv", "początkujący"]
 series: "fundamentals"
 seriesOrder: 4

@@ -1,7 +1,7 @@
 ---
 title: "The Irradiance Journey: From Space to Your Solar Panel in 8 Steps"
 description: "Follow a beam of sunlight from the edge of Earth's atmosphere through scattering, absorption, clouds, and reflection until it reaches your tilted panel and becomes electricity."
-date: 2026-04-17
+date: 2026-05-05
 tags: ["irradiance", "atmospheric-physics", "solar-spectrum", "pv-physics", "forecasting"]
 series: "deep-dives"
 seriesOrder: 4

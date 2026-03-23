@@ -1,7 +1,7 @@
 ---
 title: "Where Weather Forecasts Come From: NWP Models Explained for PV Owners"
 description: "Your solar forecast is only as good as its weather input. Here's how numerical weather prediction models work, what they get right, and where they fall short for solar energy."
-date: 2026-04-10
+date: 2026-04-21
 tags: ["nwp", "weather-models", "gfs", "ecmwf", "icon", "forecasting"]
 series: "deep-dives"
 seriesOrder: 2

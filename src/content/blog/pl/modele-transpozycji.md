@@ -1,7 +1,7 @@
 ---
 title: "Modele transpozycji: jak Volcast oblicza co trafia na Twój pochylony panel"
 description: "Dane pogodowe mówią o powierzchni poziomej. Twoje panele są pochylone. Matematyczny most między nimi to transpozycja — a wybór modelu ma znaczenie."
-date: 2026-04-21
+date: 2026-05-12
 tags: ["transpozycja", "model-pereza", "nasłonecznienie", "orientacja-paneli", "prognozowanie"]
 series: "deep-dives"
 seriesOrder: 5
