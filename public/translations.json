@@ -17,11 +17,13 @@
     "hero": {
       "title": "Predict solar production<br>with <em>physics</em>",
       "desc": "Advanced Physical Engine. No inverter cloud login. No API keys. Enter your panel parameters — azimuth, tilt, peak power — and get precision forecasts powered by satellite data and physics.",
-      "cta": "Get on Google Play",
-      "note": "Available on Android. iOS coming soon.",
-      "comingSoon": "Coming soon",
+      "cta": "Download Now",
+      "note": "Available on Android and iOS. Free.",
       "googlePlay": {
         "small": "Get it on"
+      },
+      "appStore": {
+        "small": "Download on"
       }
     },
     "features": {
@@ -83,7 +85,7 @@
       "step1Title": "Open HACS",
       "step1Desc": "Open HACS in your Home Assistant.",
       "step2Title": "Custom repositories",
-      "step2Desc": "Click the \u22ee menu (3 dots) → Custom repositories.",
+      "step2Desc": "Click the ⋮ menu (3 dots) → Custom repositories.",
       "step3Title": "Add repository",
       "step3Desc": "https://github.com/volter-labs/volcast-ha-integration",
       "step3Extra": "Add the URL above as an Integration.",
@@ -115,17 +117,7 @@
     "download": {
       "label": "Get Volcast",
       "title": "Start forecasting today",
-      "desc": "Available now on Android. Join the iOS waitlist to be notified on launch day.",
-      "iosDivider": "or",
-      "iosComingSoon": "Coming Soon to App Store",
-      "iosDesc": "Join the iOS waitlist and be the first to know when Volcast launches on iPhone.",
-      "iosPlaceholder": "your@email.com",
-      "iosCta": "Notify Me",
-      "iosJoining": "Joining...",
-      "iosNote": "No spam. We only email once — on launch day.",
-      "iosSuccess": "✓ You're on the iOS waitlist! We'll notify you on launch day.",
-      "iosAlreadyOnList": "You're already on the list! We'll be in touch.",
-      "iosError": "Something went wrong — try again"
+      "desc": "Available on Android and iOS. Download free and start forecasting."
     },
     "faq": {
       "label": "FAQ",
@@ -137,7 +129,7 @@
       "q3": "Is Volcast free?",
       "a3": "Volcast offers a free tier with 2-day forecasts. Premium unlocks the full 7-day forecast, auto-calibration, REST API for Home Assistant, production history, and more — as a one-time purchase, no subscription.",
       "q4": "Which platforms are supported?",
-      "a4": "Volcast is available now on Android (Google Play). iOS is coming soon — join the waitlist above to be notified. Home screen widgets work on both Android (Glance) and iOS (WidgetKit).",
+      "a4": "Volcast is available on Android (Google Play) and iOS (App Store). Home screen widgets work on both Android (Glance) and iOS (WidgetKit).",
       "q5": "How does auto-calibration work?",
       "a5": "You log your actual daily production (just one number). After 5+ data points, the Kalman filter compares your real output against the physical model to fine-tune parameters specific to your installation — accounting for shading, panel degradation, and local factors.",
       "q6": "How does the Home Assistant integration work?",
@@ -167,10 +159,12 @@
     "hero": {
       "title": "Przewiduj uzyski ze słońca<br>dzięki <em>fizyce</em>",
       "desc": "Zaawansowany silnik fizyczny.",
-      "cta": "Pobierz z Google Play",
-      "note": "Dostępne na Androida. Wkrótce na iOS.",
-      "comingSoon": "Już wkrótce",
+      "cta": "Pobierz teraz",
+      "note": "Dostępne na Androida i iOS. Za darmo.",
       "googlePlay": {
+        "small": "Pobierz z"
+      },
+      "appStore": {
         "small": "Pobierz z"
       }
     },
@@ -233,7 +227,7 @@
       "step1Title": "Otwórz HACS",
       "step1Desc": "Otwórz HACS w swoim Home Assistant.",
       "step2Title": "Niestandardowe repozytoria",
-      "step2Desc": "Kliknij menu \u22ee (3 kropki) → Niestandardowe repozytoria.",
+      "step2Desc": "Kliknij menu ⋮ (3 kropki) → Niestandardowe repozytoria.",
       "step3Title": "Dodaj repozytorium",
       "step3Desc": "https://github.com/volter-labs/volcast-ha-integration",
       "step3Extra": "Dodaj powyższy URL jako Integrację.",
@@ -265,17 +259,7 @@
     "download": {
       "label": "Pobierz Volcast",
       "title": "Zacznij prognozować już dziś",
-      "desc": "Dostępne już teraz na Androida.",
-      "iosDivider": "lub",
-      "iosComingSoon": "Wkrótce w App Store",
-      "iosDesc": "Dołącz do listy oczekujących na iOS i dowiedz się jako pierwszy o premierze na iPhone.",
-      "iosPlaceholder": "your@email.com",
-      "iosCta": "Powiadom mnie",
-      "iosJoining": "Zapisywanie...",
-      "iosNote": "Zero spamu. Wyślemy tylko jedną wiadomość — w dniu premiery.",
-      "iosSuccess": "✓ Jesteś na liście oczekujących! Dam znać w dniu premiery.",
-      "iosAlreadyOnList": "Jesteś już na liście! Będziemy w kontakcie.",
-      "iosError": "Coś poszło nie tak — spróbuj ponownie"
+      "desc": "Dostępne na Androida i iOS. Pobierz za darmo i zacznij prognozować."
     },
     "faq": {
       "label": "FAQ",
@@ -287,7 +271,7 @@
       "q3": "Czy Volcast jest darmowy?",
       "a3": "Volcast oferuje darmowy poziom (2 dni prognozy). Premium to jednorazowy zakup odblokowujący 7 dni, autokalibrację i REST API.",
       "q4": "Jakie platformy są obsługiwane?",
-      "a4": "Obecnie Android (Google Play). iOS (App Store) nadchodzi — zapisz się na listę. Widgety działają przez Glance i WidgetKit.",
+      "a4": "Volcast jest dostępny na Androida (Google Play) i iOS (App Store). Widgety działają na obu platformach — Android (Glance) i iOS (WidgetKit).",
       "q5": "Jak działa autokalibracja?",
       "a5": "Wprowadzasz faktyczną produkcję, a filtr Kalman porównuje ją z modelem fizycznym, aby dopasować parametry do Twojej lokalizacji.",
       "q6": "Jak działa integracja z Home Assistant?",
@@ -317,11 +301,13 @@
     "hero": {
       "title": "Solarertrag prognostizieren<br>mit <em>Physik</em>",
       "desc": "Fortschrittliche Physikalische Engine.",
-      "cta": "Jetzt bei Google Play",
-      "note": "Verfügbar für Android. iOS folgt in Kürze.",
-      "comingSoon": "Demnächst verfügbar",
+      "cta": "Jetzt herunterladen",
+      "note": "Verfügbar für Android und iOS. Kostenlos.",
       "googlePlay": {
         "small": "Laden bei"
+      },
+      "appStore": {
+        "small": "Laden im"
       }
     },
     "features": {
@@ -383,7 +369,7 @@
       "step1Title": "HACS öffnen",
       "step1Desc": "Öffnen Sie HACS in Ihrem Home Assistant.",
       "step2Title": "Benutzerdefinierte Repositories",
-      "step2Desc": "Klicken Sie auf das \u22ee-Menü (3 Punkte) → Benutzerdefinierte Repositories.",
+      "step2Desc": "Klicken Sie auf das ⋮-Menü (3 Punkte) → Benutzerdefinierte Repositories.",
       "step3Title": "Repository hinzufügen",
       "step3Desc": "https://github.com/volter-labs/volcast-ha-integration",
       "step3Extra": "Fügen Sie die obige URL als Integration hinzu.",
@@ -415,17 +401,7 @@
     "download": {
       "label": "Volcast holen",
       "title": "Heute mit dem Prognostizieren beginnen",
-      "desc": "Jetzt für Android verfügbar.",
-      "iosDivider": "oder",
-      "iosComingSoon": "Demnächst im App Store",
-      "iosDesc": "Setzen Sie sich auf die iOS-Warteliste für den Launch auf dem iPhone.",
-      "iosPlaceholder": "your@email.com",
-      "iosCta": "Benachrichtigen",
-      "iosJoining": "Anmeldung...",
-      "iosNote": "Kein Spam. Wir mailen nur einmal — am Launch-Tag.",
-      "iosSuccess": "✓ Sie sind auf der iOS-Warteliste! Wir melden uns zum Launch.",
-      "iosAlreadyOnList": "Sie stehen bereits auf der Liste!",
-      "iosError": "Fehler — bitte erneut versuchen"
+      "desc": "Verfügbar für Android und iOS. Kostenlos herunterladen und mit dem Prognostizieren beginnen."
     },
     "faq": {
       "label": "FAQ",
@@ -437,7 +413,7 @@
       "q3": "Ist Volcast kostenlos?",
       "a3": "Es gibt eine kostenlose Version (2-Tage-Prognose). Premium ist ein Einmalkauf für 7 Tage, Auto-Kalibrierung und REST API.",
       "q4": "Welche Plattformen werden unterstützt?",
-      "a4": "Aktuell Android (Google Play). iOS (App Store) folgt bald. Widgets nutzen Glance und WidgetKit.",
+      "a4": "Volcast ist verfügbar für Android (Google Play) und iOS (App Store). Home-Screen Widgets funktionieren auf beiden Plattformen — Android (Glance) und iOS (WidgetKit).",
       "q5": "Wie funktioniert die Auto-Kalibrierung?",
       "a5": "Sie loggen die reale Produktion und der Kalman Filter passt das Modell an lokale Gegebenheiten und Verschattung an.",
       "q6": "Wie funktioniert die Home Assistant Integration?",
@@ -467,11 +443,13 @@
     "hero": {
       "title": "Voorspel zonne-opbrengst<br>met <em>fysica</em>",
       "desc": "Geavanceerde Fysische Engine.",
-      "cta": "Download op Google Play",
-      "note": "Beschikbaar op Android. iOS volgt binnenkort.",
-      "comingSoon": "Binnenkort beschikbaar",
+      "cta": "Nu downloaden",
+      "note": "Beschikbaar op Android en iOS. Gratis.",
       "googlePlay": {
         "small": "Download op"
+      },
+      "appStore": {
+        "small": "Download in"
       }
     },
     "features": {
@@ -533,7 +511,7 @@
       "step1Title": "Open HACS",
       "step1Desc": "Open HACS in uw Home Assistant.",
       "step2Title": "Aangepaste repositories",
-      "step2Desc": "Klik op het \u22ee-menu (3 puntjes) → Aangepaste repositories.",
+      "step2Desc": "Klik op het ⋮-menu (3 puntjes) → Aangepaste repositories.",
       "step3Title": "Repository toevoegen",
       "step3Desc": "https://github.com/volter-labs/volcast-ha-integration",
       "step3Extra": "Voeg bovenstaande URL toe als Integratie.",
@@ -565,17 +543,7 @@
     "download": {
       "label": "Download Volcast",
       "title": "Begin vandaag met voorspellen",
-      "desc": "Nu beschikbaar op Android.",
-      "iosDivider": "of",
-      "iosComingSoon": "Binnenkort in de App Store",
-      "iosDesc": "Schrijf je in voor de iOS wachtlijst en hoor het als eerste wanneer Volcast lanceert op iPhone.",
-      "iosPlaceholder": "your@email.com",
-      "iosCta": "Breng mij op de hoogte",
-      "iosJoining": "Aanmelden...",
-      "iosNote": "Geen spam. We mailen slechts één keer — op de dag van lancering.",
-      "iosSuccess": "✓ Je staat op de iOS wachtlijst! We laten het je weten.",
-      "iosAlreadyOnList": "Je staat al op de lijst!",
-      "iosError": "Er ging iets mis — probeer het opnieuw"
+      "desc": "Beschikbaar op Android en iOS. Download gratis en begin met voorspellen."
     },
     "faq": {
       "label": "FAQ",
@@ -587,7 +555,7 @@
       "q3": "Is Volcast gratis?",
       "a3": "Volcast heeft een gratis versie (2 dagen voorspelling). Premium is een eenmalige aankoop voor 7 dagen, auto-kalibratie en REST API.",
       "q4": "Welke platformen worden ondersteund?",
-      "a4": "Nu op Android (Google Play). iOS (App Store) volgt. Widgets werken via Glance en WidgetKit.",
+      "a4": "Volcast is beschikbaar op Android (Google Play) en iOS (App Store). Startscherm widgets werken op beide platformen — Android (Glance) en iOS (WidgetKit).",
       "q5": "Hoe werkt auto-kalibratie?",
       "a5": "U logt de productie en het Kalman filter vergelijkt dit met het model om parameters voor schaduw en degradatie te verfijnen.",
       "q6": "Hoe werkt de Home Assistant integratie?",
@@ -617,10 +585,12 @@
     "hero": {
       "title": "Predice tu producción solar<br>con <em>física</em>",
       "desc": "Motor Físico Avanzado.",
-      "cta": "Consíguelo en Google Play",
-      "note": "Disponible en Android. iOS próximamente.",
-      "comingSoon": "Próximamente",
+      "cta": "Descargar ahora",
+      "note": "Disponible en Android e iOS. Gratis.",
       "googlePlay": {
+        "small": "Descargar en"
+      },
+      "appStore": {
         "small": "Descargar en"
       }
     },
@@ -683,7 +653,7 @@
       "step1Title": "Abrir HACS",
       "step1Desc": "Abre HACS en tu Home Assistant.",
       "step2Title": "Repositorios personalizados",
-      "step2Desc": "Haz clic en el menú \u22ee (3 puntos) → Repositorios personalizados.",
+      "step2Desc": "Haz clic en el menú ⋮ (3 puntos) → Repositorios personalizados.",
       "step3Title": "Añadir repositorio",
       "step3Desc": "https://github.com/volter-labs/volcast-ha-integration",
       "step3Extra": "Añade la URL anterior como Integración.",
@@ -715,17 +685,7 @@
     "download": {
       "label": "Obtén Volcast",
       "title": "Empieza a predecir hoy",
-      "desc": "Disponible ahora en Android.",
-      "iosDivider": "o",
-      "iosComingSoon": "Próximamente en App Store",
-      "iosDesc": "Únete a la lista de espera para iOS y sé el primero en saber cuándo lanzamos en iPhone.",
-      "iosPlaceholder": "your@email.com",
-      "iosCta": "Notificarme",
-      "iosJoining": "Uniéndote...",
-      "iosNote": "Sin spam. Solo enviamos un email el día del lanzamiento.",
-      "iosSuccess": "✓ ¡Estás en la lista! Te avisaremos el día del lanzamiento.",
-      "iosAlreadyOnList": "¡Ya estás en la lista!",
-      "iosError": "Algo salió mal — inténtalo de nuevo"
+      "desc": "Disponible en Android e iOS. Descarga gratis y empieza a predecir."
     },
     "faq": {
       "label": "FAQ",
@@ -737,7 +697,7 @@
       "q3": "¿Es gratis Volcast?",
       "a3": "Ofrece un nivel gratuito (2 días de pronóstico). Premium es un pago único para 7 días, autocalibración y REST API.",
       "q4": "¿Qué plataformas son compatibles?",
-      "a4": "Actualmente Android (Google Play). iOS (App Store) próximamente. Widgets vía Glance y WidgetKit.",
+      "a4": "Volcast está disponible en Android (Google Play) e iOS (App Store). Los widgets funcionan en ambas plataformas — Android (Glance) e iOS (WidgetKit).",
       "q5": "¿Cómo funciona la autocalibración?",
       "a5": "Registras la producción diaria y el filtro Kalman ajusta el modelo según sombras y degradación local.",
       "q6": "¿Cómo funciona la integración con Home Assistant?",
@@ -767,11 +727,13 @@
     "hero": {
       "title": "Prédisez votre production solaire<br>par la <em>physique</em>",
       "desc": "Moteur Physique Avancé.",
-      "cta": "Disponible sur Google Play",
-      "note": "Disponible sur Android. iOS bientôt disponible.",
-      "comingSoon": "Bientôt disponible",
+      "cta": "Télécharger maintenant",
+      "note": "Disponible sur Android et iOS. Gratuit.",
       "googlePlay": {
         "small": "Disponible sur"
+      },
+      "appStore": {
+        "small": "Télécharger dans l'"
       }
     },
     "features": {
@@ -833,7 +795,7 @@
       "step1Title": "Ouvrir HACS",
       "step1Desc": "Ouvrez HACS dans votre Home Assistant.",
       "step2Title": "Dépôts personnalisés",
-      "step2Desc": "Cliquez sur le menu \u22ee (3 points) → Dépôts personnalisés.",
+      "step2Desc": "Cliquez sur le menu ⋮ (3 points) → Dépôts personnalisés.",
       "step3Title": "Ajouter le dépôt",
       "step3Desc": "https://github.com/volter-labs/volcast-ha-integration",
       "step3Extra": "Ajoutez l'URL ci-dessus en tant qu'Intégration.",
@@ -865,17 +827,7 @@
     "download": {
       "label": "Obtenez Volcast",
       "title": "Commencez à prévoir dès aujourd'hui",
-      "desc": "Maintenant disponible sur Android.",
-      "iosDivider": "ou",
-      "iosComingSoon": "Bientôt sur l'App Store",
-      "iosDesc": "Rejoignez la liste d'attente iOS pour être informé du lancement sur iPhone.",
-      "iosPlaceholder": "your@email.com",
-      "iosCta": "M'informer",
-      "iosJoining": "Inscription...",
-      "iosNote": "Pas de spam. Un seul email envoyé le jour du lancement.",
-      "iosSuccess": "✓ Vous êtes sur la liste d'attente ! On vous prévient au lancement.",
-      "iosAlreadyOnList": "Vous êtes déjà sur la liste !",
-      "iosError": "Une erreur est survenue — réessayez"
+      "desc": "Disponible sur Android et iOS. Téléchargez gratuitement et commencez à prévoir."
     },
     "faq": {
       "label": "FAQ",
@@ -887,7 +839,7 @@
       "q3": "Est-ce que Volcast est gratuit ?",
       "a3": "Volcast propose un niveau gratuit (2 jours de prévisions). Premium est un achat unique pour 7 jours, auto-calibration et REST API.",
       "q4": "Quelles plateformes sont supportées ?",
-      "a4": "Android (Google Play) actuellement. iOS (App Store) arrive — inscrivez-vous à la liste. Widgets via Glance et WidgetKit.",
+      "a4": "Volcast est disponible sur Android (Google Play) et iOS (App Store). Les widgets fonctionnent sur les deux plateformes — Android (Glance) et iOS (WidgetKit).",
       "q5": "Comment fonctionne l'auto-calibration ?",
       "a5": "Vous saisissez votre production réelle et le filtre Kalman ajuste le modèle selon l'ombrage et l'usure des panneaux.",
       "q6": "Comment fonctionne l'intégration Home Assistant ?",
@@ -917,10 +869,12 @@
     "hero": {
       "title": "Прогнозуйте сонячну генерацію<br>за допомогою <em>фізики</em>",
       "desc": "Вдосконалений фізичний рушій.",
-      "cta": "Завантажити з Google Play",
-      "note": "Доступно на Android. iOS незабаром.",
-      "comingSoon": "Незабаром",
+      "cta": "Завантажити зараз",
+      "note": "Доступно на Android та iOS. Безкоштовно.",
       "googlePlay": {
+        "small": "Завантажити з"
+      },
+      "appStore": {
         "small": "Завантажити з"
       }
     },
@@ -983,7 +937,7 @@
       "step1Title": "Відкрити HACS",
       "step1Desc": "Відкрийте HACS у вашому Home Assistant.",
       "step2Title": "Користувацькі репозиторії",
-      "step2Desc": "Натисніть меню \u22ee (3 крапки) → Користувацькі репозиторії.",
+      "step2Desc": "Натисніть меню ⋮ (3 крапки) → Користувацькі репозиторії.",
       "step3Title": "Додати репозиторій",
       "step3Desc": "https://github.com/volter-labs/volcast-ha-integration",
       "step3Extra": "Додайте URL вище як Інтеграцію.",
@@ -1015,17 +969,7 @@
     "download": {
       "label": "Отримати Volcast",
       "title": "Почніть прогнозувати вже сьогодні",
-      "desc": "Вже доступно на Android.",
-      "iosDivider": "або",
-      "iosComingSoon": "Незабаром в App Store",
-      "iosDesc": "Приєднуйтесь до списку очікування iOS, щоб дізнатися про запуск на iPhone першими.",
-      "iosPlaceholder": "your@email.com",
-      "iosCta": "Сповістити мене",
-      "iosJoining": "Приєднання...",
-      "iosNote": "Без спаму. Ми надішлемо лише один лист у день запуску.",
-      "iosSuccess": "✓ Ви в списку очікування! Ми повідомимо вас у день запуску.",
-      "iosAlreadyOnList": "Ви вже у списку!",
-      "iosError": "Щось пішло не так — спробуйте ще раз"
+      "desc": "Доступно на Android та iOS. Завантажте безкоштовно і почніть прогнозувати."
     },
     "faq": {
       "label": "FAQ",
@@ -1037,7 +981,7 @@
       "q3": "Чи Volcast безкоштовний?",
       "a3": "Є безкоштовний рівень (прогноз на 2 дні). Premium — це одноразова покупка для 7 днів, автокалібрування та REST API.",
       "q4": "Які платформи підтримуються?",
-      "a4": "Наразі Android (Google Play). iOS (App Store) незабаром. Віджети працюють через Glance та WidgetKit.",
+      "a4": "Volcast доступний на Android (Google Play) та iOS (App Store). Віджети працюють на обох платформах — Android (Glance) та iOS (WidgetKit).",
       "q5": "Як працює автокалібрування?",
       "a5": "Ви вводите фактичну генерацію, і фільтр Kalman коригує модель відповідно до затінення та деградації панелей.",
       "q6": "Як працює інтеграція з Home Assistant?",
@@ -1067,11 +1011,13 @@
     "hero": {
       "title": "Preveja a produção solar<br>com <em>física</em>",
       "desc": "Motor Físico Avançado.",
-      "cta": "Disponível no Google Play",
-      "note": "Disponível para Android. iOS em breve.",
-      "comingSoon": "Em breve",
+      "cta": "Transferir agora",
+      "note": "Disponível para Android e iOS. Gratuito.",
       "googlePlay": {
         "small": "Obter no"
+      },
+      "appStore": {
+        "small": "Transferir na"
       }
     },
     "features": {
@@ -1133,7 +1079,7 @@
       "step1Title": "Abrir HACS",
       "step1Desc": "Abra o HACS no seu Home Assistant.",
       "step2Title": "Repositórios personalizados",
-      "step2Desc": "Clique no menu \u22ee (3 pontos) → Repositórios personalizados.",
+      "step2Desc": "Clique no menu ⋮ (3 pontos) → Repositórios personalizados.",
       "step3Title": "Adicionar repositório",
       "step3Desc": "https://github.com/volter-labs/volcast-ha-integration",
       "step3Extra": "Adicione o URL acima como Integração.",
@@ -1165,17 +1111,7 @@
     "download": {
       "label": "Obter Volcast",
       "title": "Comece a prever hoje",
-      "desc": "Disponível agora para Android.",
-      "iosDivider": "ou",
-      "iosComingSoon": "Brevemente na App Store",
-      "iosDesc": "Adira à lista de espera iOS e seja o primeiro a saber quando lançarmos para iPhone.",
-      "iosPlaceholder": "your@email.com",
-      "iosCta": "Notificar-me",
-      "iosJoining": "A aderir...",
-      "iosNote": "Sem spam. Apenas enviamos um email no dia do lançamento.",
-      "iosSuccess": "✓ Está na lista de espera! Avisamos no dia do lançamento.",
-      "iosAlreadyOnList": "Já está na lista!",
-      "iosError": "Algo correu mal — tente novamente"
+      "desc": "Disponível para Android e iOS. Transfira gratuitamente e comece a prever."
     },
     "faq": {
       "label": "FAQ",
@@ -1187,7 +1123,7 @@
       "q3": "O Volcast é gratuito?",
       "a3": "Oferece um nível gratuito (2 dias de previsão). Premium é uma compra única para 7 dias, auto-calibração e REST API.",
       "q4": "Que plataformas são suportadas?",
-      "a4": "Android (Google Play) atualmente. iOS (App Store) em breve. Widgets via Glance e WidgetKit.",
+      "a4": "Volcast está disponível para Android (Google Play) e iOS (App Store). Os widgets funcionam em ambas as plataformas — Android (Glance) e iOS (WidgetKit).",
       "q5": "Como funciona a auto-calibração?",
       "a5": "Insere a produção real e o filtro Kalman ajusta o modelo conforme as sombras e degradação dos painéis.",
       "q6": "Como funciona a integração Home Assistant?",
@@ -1217,11 +1153,13 @@
     "hero": {
       "title": "Preveja a produção solar<br>com <em>física</em>",
       "desc": "Motor Físico Avançado.",
-      "cta": "Baixe no Google Play",
-      "note": "Disponível para Android. iOS em breve.",
-      "comingSoon": "Em breve",
+      "cta": "Baixar agora",
+      "note": "Disponível para Android e iOS. Gratuito.",
       "googlePlay": {
         "small": "Baixe no"
+      },
+      "appStore": {
+        "small": "Baixe na"
       }
     },
     "features": {
@@ -1283,7 +1221,7 @@
       "step1Title": "Abrir HACS",
       "step1Desc": "Abra o HACS no seu Home Assistant.",
       "step2Title": "Repositórios personalizados",
-      "step2Desc": "Clique no menu \u22ee (3 pontos) → Repositórios personalizados.",
+      "step2Desc": "Clique no menu ⋮ (3 pontos) → Repositórios personalizados.",
       "step3Title": "Adicionar repositório",
       "step3Desc": "https://github.com/volter-labs/volcast-ha-integration",
       "step3Extra": "Adicione a URL acima como Integração.",
@@ -1315,17 +1253,7 @@
     "download": {
       "label": "Baixe o Volcast",
       "title": "Comece a prever hoje",
-      "desc": "Disponível agora para Android.",
-      "iosDivider": "ou",
-      "iosComingSoon": "Em breve na App Store",
-      "iosDesc": "Entre na lista de espera do iOS e seja o primeiro a saber quando lançarmos para iPhone.",
-      "iosPlaceholder": "your@email.com",
-      "iosCta": "Notificar-me",
-      "iosJoining": "Entrando...",
-      "iosNote": "Sem spam. Apenas um email no dia do lançamento.",
-      "iosSuccess": "✓ Você está na lista! Avisaremos no dia do lançamento.",
-      "iosAlreadyOnList": "Você já está na lista!",
-      "iosError": "Algo deu errado — tente novamente"
+      "desc": "Disponível para Android e iOS. Baixe grátis e comece a prever."
     },
     "faq": {
       "label": "FAQ",
@@ -1337,7 +1265,7 @@
       "q3": "O Volcast é gratuito?",
       "a3": "Oferece um nível gratuito (2 dias de previsão). Premium é uma compra única para 7 dias, auto-calibração e REST API.",
       "q4": "Quais plataformas são suportadas?",
-      "a4": "Android (Google Play) no momento. iOS (App Store) em breve. Widgets via Glance e WidgetKit.",
+      "a4": "Volcast está disponível para Android (Google Play) e iOS (App Store). Os widgets funcionam em ambas as plataformas — Android (Glance) e iOS (WidgetKit).",
       "q5": "Como funciona a auto-calibração?",
       "a5": "Você informa a produção real e o filtro Kalman ajusta o modelo conforme sombras e degradação local.",
       "q6": "Como funciona a integração Home Assistant?",
@@ -1367,11 +1295,13 @@
     "hero": {
       "title": "Prezice producția solară<br>prin <em>fizică</em>",
       "desc": "Motor Fizic Avansat.",
-      "cta": "Descarcă din Google Play",
-      "note": "Disponibil pe Android. iOS în curând.",
-      "comingSoon": "În curând",
+      "cta": "Descarcă acum",
+      "note": "Disponibil pe Android și iOS. Gratuit.",
       "googlePlay": {
         "small": "Descarcă de pe"
+      },
+      "appStore": {
+        "small": "Descarcă din"
       }
     },
     "features": {
@@ -1433,7 +1363,7 @@
       "step1Title": "Deschide HACS",
       "step1Desc": "Deschideți HACS în Home Assistant.",
       "step2Title": "Depozite personalizate",
-      "step2Desc": "Apăsați meniul \u22ee (3 puncte) → Depozite personalizate.",
+      "step2Desc": "Apăsați meniul ⋮ (3 puncte) → Depozite personalizate.",
       "step3Title": "Adăugare depozit",
       "step3Desc": "https://github.com/volter-labs/volcast-ha-integration",
       "step3Extra": "Adăugați URL-ul de mai sus ca Integrare.",
@@ -1465,17 +1395,7 @@
     "download": {
       "label": "Obține Volcast",
       "title": "Începeți prognoza azi",
-      "desc": "Disponibil acum pe Android.",
-      "iosDivider": "sau",
-      "iosComingSoon": "În curând în App Store",
-      "iosDesc": "Înscrieți-vă pe lista de așteptare iOS pentru a afla primii când lansăm pe iPhone.",
-      "iosPlaceholder": "your@email.com",
-      "iosCta": "Anunță-mă",
-      "iosJoining": "Înscriere...",
-      "iosNote": "Fără spam. Trimitem un singur email în ziua lansării.",
-      "iosSuccess": "✓ Sunteți pe listă! Vă vom anunța la lansare.",
-      "iosAlreadyOnList": "Sunteți deja pe listă!",
-      "iosError": "Ceva nu a mers bine — reîncercați"
+      "desc": "Disponibil pe Android și iOS. Descărcați gratuit și începeți prognoza."
     },
     "faq": {
       "label": "FAQ",
@@ -1487,7 +1407,7 @@
       "q3": "Volcast este gratuit?",
       "a3": "Oferă un nivel gratuit (2 zile prognoză). Premium este o achiziție unică pentru 7 zile, auto-calibrare și REST API.",
       "q4": "Ce platforme sunt suportate?",
-      "a4": "Android (Google Play) acum. iOS (App Store) urmează. Widget-urile folosesc Glance și WidgetKit.",
+      "a4": "Volcast este disponibil pe Android (Google Play) și iOS (App Store). Widget-urile funcționează pe ambele platforme — Android (Glance) și iOS (WidgetKit).",
       "q5": "Cum funcționează auto-calibrarea?",
       "a5": "Introduceți producția reală, iar filtrul Kalman ajustează modelul conform umbririi și degradării locale.",
       "q6": "Cum funcționează integrarea Home Assistant?",
@@ -1517,11 +1437,13 @@
     "hero": {
       "title": "Předpovídejte solární výrobu<br>pomocí <em>fyziky</em>",
       "desc": "Pokročilý fyzikální model.",
-      "cta": "Stáhnout na Google Play",
-      "note": "Dostupné pro Android. iOS již brzy.",
-      "comingSoon": "Již brzy",
+      "cta": "Stáhnout nyní",
+      "note": "Dostupné pro Android a iOS. Zdarma.",
       "googlePlay": {
         "small": "Stáhnout na"
+      },
+      "appStore": {
+        "small": "Stáhnout v"
       }
     },
     "features": {
@@ -1583,7 +1505,7 @@
       "step1Title": "Otevřít HACS",
       "step1Desc": "Otevřete HACS ve svém Home Assistant.",
       "step2Title": "Vlastní repozitáře",
-      "step2Desc": "Klikněte na menu \u22ee (3 tečky) → Vlastní repozitáře.",
+      "step2Desc": "Klikněte na menu ⋮ (3 tečky) → Vlastní repozitáře.",
       "step3Title": "Přidat repozitář",
       "step3Desc": "https://github.com/volter-labs/volcast-ha-integration",
       "step3Extra": "Přidejte výše uvedenou URL jako Integraci.",
@@ -1615,17 +1537,7 @@
     "download": {
       "label": "Získat Volcast",
       "title": "Začněte předpovídat ještě dnes",
-      "desc": "Nyní k dispozici pro Android.",
-      "iosDivider": "nebo",
-      "iosComingSoon": "Již brzy v App Store",
-      "iosDesc": "Přidejte se na čekací listinu pro iOS a dozvíte se o spuštění pro iPhone jako první.",
-      "iosPlaceholder": "your@email.com",
-      "iosCta": "Upozornit mě",
-      "iosJoining": "Přihlašování...",
-      "iosNote": "Žádný spam. Píšeme jen jednou — v den spuštění.",
-      "iosSuccess": "✓ Jste na seznamu! Ozveme se v den spuštění.",
-      "iosAlreadyOnList": "Na seznamu již jste!",
-      "iosError": "Něco se nepovedlo — zkuste to znovu"
+      "desc": "Dostupné pro Android a iOS. Stáhněte zdarma a začněte předpovídat."
     },
     "faq": {
       "label": "FAQ",
@@ -1637,7 +1549,7 @@
       "q3": "Je Volcast zdarma?",
       "a3": "Volcast nabízí bezplatnou úroveň (2 dny předpovědi). Premium je jednorázový nákup pro 7 dní, autokalibraci a REST API.",
       "q4": "Jaké platformy jsou podporovány?",
-      "a4": "Aktuálně Android (Google Play). iOS (App Store) se připravuje. Widgety využívají Glance a WidgetKit.",
+      "a4": "Volcast je dostupný pro Android (Google Play) a iOS (App Store). Widgety fungují na obou platformách — Android (Glance) a iOS (WidgetKit).",
       "q5": "Jak funguje autokalibrace?",
       "a5": "Zadáváte reálnou výrobu a Kalmanův filtr upravuje model podle zastínění a degradace panelů.",
       "q6": "Jak funguje integrace s Home Assistant?",
@@ -1667,11 +1579,13 @@
     "hero": {
       "title": "Predpovedajte solárnu výrobu<br>pomocou <em>fyziky</em>",
       "desc": "Pokročilý fyzikálny model.",
-      "cta": "Stiahnuť na Google Play",
-      "note": "Dostupné pre Android. iOS už čoskoro.",
-      "comingSoon": "Už čoskoro",
+      "cta": "Stiahnuť teraz",
+      "note": "Dostupné pre Android a iOS. Zadarmo.",
       "googlePlay": {
         "small": "Stiahnuť na"
+      },
+      "appStore": {
+        "small": "Stiahnuť v"
       }
     },
     "features": {
@@ -1733,7 +1647,7 @@
       "step1Title": "Otvoriť HACS",
       "step1Desc": "Otvorte HACS vo svojom Home Assistant.",
       "step2Title": "Vlastné repozitáre",
-      "step2Desc": "Kliknite na menu \u22ee (3 bodky) → Vlastné repozitáre.",
+      "step2Desc": "Kliknite na menu ⋮ (3 bodky) → Vlastné repozitáre.",
       "step3Title": "Pridať repozitár",
       "step3Desc": "https://github.com/volter-labs/volcast-ha-integration",
       "step3Extra": "Pridajte vyššie uvedenú URL ako Integráciu.",
@@ -1765,17 +1679,7 @@
     "download": {
       "label": "Získať Volcast",
       "title": "Začnite predpovedať ešte dnes",
-      "desc": "Teraz k dispozícii pre Android.",
-      "iosDivider": "alebo",
-      "iosComingSoon": "Už čoskoro v App Store",
-      "iosDesc": "Pridajte sa na čakaciu listinu pre iOS a dozviete sa o spustení pre iPhone ako prví.",
-      "iosPlaceholder": "your@email.com",
-      "iosCta": "Upozorniť ma",
-      "iosJoining": "Prihlasovanie...",
-      "iosNote": "Žiadny spam. Píšeme len raz — v deň spustenia.",
-      "iosSuccess": "✓ Ste na zozname! Ozveme sa v deň spustenia.",
-      "iosAlreadyOnList": "Na zozname už ste!",
-      "iosError": "Niečo sa nepodarilo — skúste to znova"
+      "desc": "Dostupné pre Android a iOS. Stiahnite zadarmo a začnite predpovedať."
     },
     "faq": {
       "label": "FAQ",
@@ -1787,7 +1691,7 @@
       "q3": "Je Volcast zadarmo?",
       "a3": "Volcast ponúka bezplatnú úroveň (2 dni predpovede). Premium je jednorazový nákup pre 7 dní, autokalibráciu a REST API.",
       "q4": "Aké platformy sú podporované?",
-      "a4": "Aktuálne Android (Google Play). iOS (App Store) sa pripravuje. Widgety využívajú Glance a WidgetKit.",
+      "a4": "Volcast je dostupný pre Android (Google Play) a iOS (App Store). Widgety fungujú na oboch platformách — Android (Glance) a iOS (WidgetKit).",
       "q5": "Ako funguje autokalibrácia?",
       "a5": "Zadávate reálnu výrobu a Kalmanov filter upravuje model podľa zatienenia a degradácie panelov.",
       "q6": "Ako funguje integrácia s Home Assistant?",

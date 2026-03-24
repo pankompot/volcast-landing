@@ -6,7 +6,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const LOCALES = ['en','pl','de','nl','es','fr','uk','pt','pt-br','ro','cs','sk'];
+const LOCALES = ['en','cs','de','es','fr','nl','pl','pt','pt-br','ro','sk','uk'];
 const BASE_URL = 'https://volcast.app';
 
 // BCP 47 hreflang mapping

@@ -12,17 +12,17 @@
   <meta property="og:url" content="https://volcast.app/uk/">
   <link rel="canonical" href="https://volcast.app/uk/">
   <link rel="alternate" hreflang="en" href="https://volcast.app/en/">
-  <link rel="alternate" hreflang="pl" href="https://volcast.app/pl/">
+  <link rel="alternate" hreflang="cs" href="https://volcast.app/cs/">
   <link rel="alternate" hreflang="de" href="https://volcast.app/de/">
-  <link rel="alternate" hreflang="nl" href="https://volcast.app/nl/">
   <link rel="alternate" hreflang="es" href="https://volcast.app/es/">
   <link rel="alternate" hreflang="fr" href="https://volcast.app/fr/">
-  <link rel="alternate" hreflang="uk" href="https://volcast.app/uk/">
+  <link rel="alternate" hreflang="nl" href="https://volcast.app/nl/">
+  <link rel="alternate" hreflang="pl" href="https://volcast.app/pl/">
   <link rel="alternate" hreflang="pt" href="https://volcast.app/pt/">
   <link rel="alternate" hreflang="pt-BR" href="https://volcast.app/pt-br/">
   <link rel="alternate" hreflang="ro" href="https://volcast.app/ro/">
-  <link rel="alternate" hreflang="cs" href="https://volcast.app/cs/">
   <link rel="alternate" hreflang="sk" href="https://volcast.app/sk/">
+  <link rel="alternate" hreflang="uk" href="https://volcast.app/uk/">
   <link rel="alternate" hreflang="x-default" href="https://volcast.app/en/">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg viewBox='0 0 80 80' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M18 18 L40 62 L62 18' stroke='%2300FF9D' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='40' cy='12' r='4' fill='%2300FF9D'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -377,11 +377,6 @@
       box-shadow: 0 0 20px rgba(0, 255, 157, 0.1);
       opacity: 1;
     }
-    .store-badge--disabled {
-      pointer-events: none;
-      opacity: 0.35;
-    }
-
     /* ================================================================
        HERO
        ================================================================ */
@@ -951,7 +946,7 @@
     }
 
     /* ================================================================
-       APP DOWNLOAD / iOS WAITLIST
+       APP DOWNLOAD
        ================================================================ */
     .download-section {
       text-align: center;
@@ -1004,101 +999,6 @@
     .download-store-badge .store-badge-text span {
       font-size: 17px;
     }
-    .ios-divider {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      margin: 32px 0;
-      color: var(--text-muted);
-      font-size: 13px;
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-    .ios-divider::before,
-    .ios-divider::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: var(--surface-border);
-    }
-    .ios-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(129, 140, 248, 0.08);
-      border: 1px solid rgba(129, 140, 248, 0.15);
-      border-radius: 20px;
-      padding: 8px 20px;
-      margin-bottom: 16px;
-    }
-    .ios-badge svg {
-      width: 18px;
-      height: 18px;
-    }
-    .ios-badge span {
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--secondary);
-      letter-spacing: 0.5px;
-    }
-    .ios-form {
-      display: flex;
-      gap: 12px;
-      max-width: 440px;
-      margin: 16px auto 0;
-    }
-    .ios-input {
-      flex: 1;
-      background: var(--canvas);
-      border: 1px solid var(--divider);
-      border-radius: var(--radius-sm);
-      padding: 12px 16px;
-      font-family: var(--font-body);
-      font-size: 14px;
-      color: var(--text-primary);
-      outline: none;
-      transition: border-color 0.2s;
-    }
-    .ios-input::placeholder { color: var(--text-muted); }
-    .ios-input:focus { border-color: var(--secondary); }
-    .ios-btn {
-      background: var(--secondary);
-      color: var(--canvas);
-      font-family: var(--font-body);
-      font-size: 14px;
-      font-weight: 600;
-      padding: 12px 24px;
-      border-radius: var(--radius-sm);
-      border: none;
-      cursor: pointer;
-      white-space: nowrap;
-      transition: box-shadow 0.3s, transform 0.2s;
-      box-shadow: 0 0 16px rgba(129, 140, 248, 0.15);
-    }
-    .ios-btn:hover {
-      box-shadow: 0 0 32px rgba(129, 140, 248, 0.35);
-      transform: translateY(-1px);
-    }
-    .ios-btn:disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
-      transform: none;
-      box-shadow: none;
-    }
-    .ios-note {
-      font-size: 13px;
-      color: var(--text-muted);
-      margin-top: 12px;
-    }
-    .ios-success {
-      display: none;
-      color: var(--secondary);
-      font-size: 15px;
-      font-weight: 500;
-      margin-top: 16px;
-    }
-
     /* ================================================================
        FAQ
        ================================================================ */
@@ -1222,7 +1122,6 @@
       .mockup-frame:nth-child(3) { transform: rotateY(-3deg); }
       .mockup-frame img { border-radius: 12px; }
       .download-card { padding: 40px 28px; }
-      .ios-form { flex-direction: column; }
       .download-stores { flex-direction: column; align-items: center; }
       .footer .container {
         flex-direction: column;
@@ -1291,7 +1190,7 @@
         <li><a href="#home-assistant">Home Assistant</a></li>
         <li><a href="#faq">FAQ</a></li>
         <li><a href="/blog/en/">Blog</a></li>
-        <li><a href="https://play.google.com/store/apps/details?id=com.volcast.app" target="_blank" rel="noopener" class="nav-cta">Завантажити</a></li>
+        <li><a href="#download" class="nav-cta">Завантажити</a></li>
       </ul>
       <div class="nav-right">
         <div class="lang-switcher" id="langSwitcher">
@@ -1304,17 +1203,17 @@
           </button>
           <div class="lang-dropdown" id="langDropdown">
               <a href="/en/" class="lang-option" data-lang="en">English</a>
-              <a href="/pl/" class="lang-option" data-lang="pl">Polski</a>
+              <a href="/cs/" class="lang-option" data-lang="cs">Čeština</a>
               <a href="/de/" class="lang-option" data-lang="de">Deutsch</a>
-              <a href="/nl/" class="lang-option" data-lang="nl">Nederlands</a>
               <a href="/es/" class="lang-option" data-lang="es">Español</a>
               <a href="/fr/" class="lang-option" data-lang="fr">Français</a>
-              <a href="/uk/" class="lang-option active" aria-current="page" data-lang="uk">Українська</a>
+              <a href="/nl/" class="lang-option" data-lang="nl">Nederlands</a>
+              <a href="/pl/" class="lang-option" data-lang="pl">Polski</a>
               <a href="/pt/" class="lang-option" data-lang="pt">Português</a>
               <a href="/pt-br/" class="lang-option" data-lang="pt-br">Português (BR)</a>
               <a href="/ro/" class="lang-option" data-lang="ro">Română</a>
-              <a href="/cs/" class="lang-option" data-lang="cs">Čeština</a>
               <a href="/sk/" class="lang-option" data-lang="sk">Slovenčina</a>
+              <a href="/uk/" class="lang-option active" aria-current="page" data-lang="uk">Українська</a>
           </div>
         </div>
       </div>
@@ -1332,11 +1231,11 @@
       <h1>Прогнозуйте сонячну генерацію<br>за допомогою <em>фізики</em></h1>
       <p class="hero-desc">Вдосконалений фізичний рушій.</p>
       <div class="hero-actions">
-        <a href="https://play.google.com/store/apps/details?id=com.volcast.app" target="_blank" rel="noopener" class="btn-primary">
-          Завантажити з Google Play
+        <a href="#download" class="btn-primary">
+          Завантажити зараз
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
         </a>
-        <p class="hero-note">Доступно на Android. iOS незабаром.</p>
+        <p class="hero-note">Доступно на Android та iOS. Безкоштовно.</p>
         <div class="store-badges">
           <div class="store-badges-row">
             <a href="https://play.google.com/store/apps/details?id=com.volcast.app" target="_blank" rel="noopener" class="store-badge store-badge--active" aria-label="Google Play">
@@ -1346,10 +1245,10 @@
                 <span>Google Play</span>
               </div>
             </a>
-            <a href="#download" class="store-badge store-badge--disabled" tabindex="-1" aria-label="App Store — Незабаром">
+            <a href="https://apps.apple.com/app/volcast-solar-forecast/id6758962799" target="_blank" rel="noopener" class="store-badge store-badge--active" aria-label="App Store">
               <svg viewBox="0 0 24 24" fill="#94A3B8" xmlns="http://www.w3.org/2000/svg"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
               <div class="store-badge-text">
-                <small>Незабаром</small>
+                <small>Завантажити з</small>
                 <span>App Store</span>
               </div>
             </a>
@@ -1608,14 +1507,14 @@ curl -H <span class="code-str">"X-API-Key: vk_your_api_key"</span> \
   </section>
 
   <!-- ============================================================
-       DOWNLOAD / iOS WAITLIST
+       DOWNLOAD
        ============================================================ -->
   <section class="section download-section" id="download">
     <div class="container">
       <div class="glass-card download-card reveal">
         <p class="section-label">Отримати Volcast</p>
         <h2 class="section-title">Почніть прогнозувати вже сьогодні</h2>
-        <p class="section-desc" style="margin: 0 auto;">Вже доступно на Android.</p>
+        <p class="section-desc" style="margin: 0 auto;">Доступно на Android та iOS. Завантажте безкоштовно і почніть прогнозувати.</p>
 
         <div class="download-stores">
           <a href="https://play.google.com/store/apps/details?id=com.volcast.app" target="_blank" rel="noopener" class="download-store-badge">
@@ -1625,28 +1524,14 @@ curl -H <span class="code-str">"X-API-Key: vk_your_api_key"</span> \
               <span>Google Play</span>
             </div>
           </a>
+          <a href="https://apps.apple.com/app/volcast-solar-forecast/id6758962799" target="_blank" rel="noopener" class="download-store-badge">
+            <svg viewBox="0 0 24 24" fill="#94A3B8" xmlns="http://www.w3.org/2000/svg"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+            <div class="store-badge-text">
+              <small>Завантажити з</small>
+              <span>App Store</span>
+            </div>
+          </a>
         </div>
-
-        <div class="ios-divider">або</div>
-
-        <div class="ios-badge">
-          <svg viewBox="0 0 24 24" fill="#818CF8" xmlns="http://www.w3.org/2000/svg"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-          <span>Незабаром в App Store</span>
-        </div>
-        <p style="font-size: 15px; color: var(--text-secondary); margin-bottom: 4px;">Приєднуйтесь до списку очікування iOS, щоб дізнатися про запуск на iPhone першими.</p>
-
-        <form class="ios-form" id="iosForm">
-          <input
-            type="email"
-            class="ios-input"
-            placeholder="your@email.com"
-            required
-            aria-label="Email"
-          >
-          <button type="submit" class="ios-btn">Сповістити мене</button>
-        </form>
-        <p class="ios-note">Без спаму. Ми надішлемо лише один лист у день запуску.</p>
-        <p class="ios-success" id="iosSuccess">✓ Ви в списку очікування! Ми повідомимо вас у день запуску.</p>
       </div>
     </div>
   </section>
@@ -1687,7 +1572,7 @@ curl -H <span class="code-str">"X-API-Key: vk_your_api_key"</span> \
             Які платформи підтримуються?
             <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
           </button>
-          <div class="faq-answer"><div class="faq-answer-inner">Наразі Android (Google Play). iOS (App Store) незабаром. Віджети працюють через Glance та WidgetKit.</div></div>
+          <div class="faq-answer"><div class="faq-answer-inner">Volcast доступний на Android (Google Play) та iOS (App Store). Віджети працюють на обох платформах — Android (Glance) та iOS (WidgetKit).</div></div>
         </div>
         <div class="faq-item">
           <button class="faq-question">
@@ -1817,80 +1702,6 @@ curl -H <span class="code-str">"X-API-Key: vk_your_api_key"</span> \
     }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
     document.querySelectorAll('.reveal').forEach(function(el) { observer.observe(el); });
 
-    // iOS Waitlist — Supabase
-    var SUPABASE_URL = 'https://jzihchpmkhawegqcfbeo.supabase.co';
-    var SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp6aWhjaHBta2hhd2VncWNmYmVvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjgxMjk3MjQsImV4cCI6MjA4MzcwNTcyNH0.3_JqkMh-D2nfx5J1pDtWTf4Z2pqtwetS_OLFtqdKvvA';
-
-    document.getElementById('iosForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      var btn = e.target.querySelector('.ios-btn');
-      var input = e.target.querySelector('.ios-input');
-      var email = input.value.trim();
-      if (!email) return;
-
-      btn.disabled = true;
-      btn.textContent = 'Приєднання...';
-
-      fetch(SUPABASE_URL + '/rest/v1/waitlist', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'apikey': SUPABASE_ANON_KEY,
-          'Authorization': 'Bearer ' + SUPABASE_ANON_KEY,
-          'Prefer': 'return=minimal'
-        },
-        body: JSON.stringify({ email: email, source: 'ios-waitlist' })
-      }).then(function(res) {
-        if (res.ok || res.status === 201) {
-          e.target.style.display = 'none';
-          document.querySelector('.ios-note').style.display = 'none';
-          document.getElementById('iosSuccess').style.display = 'block';
-        } else if (res.status === 409) {
-          e.target.style.display = 'none';
-          document.querySelector('.ios-note').style.display = 'none';
-          var msg = document.getElementById('iosSuccess');
-          msg.textContent = 'Ви вже у списку!';
-          msg.style.display = 'block';
-        } else {
-          throw new Error('HTTP ' + res.status);
-        }
-      }).catch(function() {
-        btn.disabled = false;
-        btn.textContent = 'Сповістити мене';
-        input.style.borderColor = 'var(--error)';
-        input.placeholder = 'Щось пішло не так — спробуйте ще раз';
-        input.value = '';
-      });
-    });
-  </script>
-
-  <!-- iOS notify confirmation toast (waitlist launch email → edge function redirect) -->
-  <script>
-    (function() {
-      if (window.location.hash !== '#ios-confirmed') return;
-
-      var toast = document.createElement('div');
-      toast.textContent = "Thanks! We'll notify you when Volcast is on the App Store.";
-      toast.style.cssText = 'position:fixed;bottom:32px;left:50%;transform:translateX(-50%) translateY(20px);' +
-        'background:#0F1218;color:#00FF9D;font-family:var(--font-body);font-size:15px;font-weight:500;' +
-        'padding:16px 28px;border-radius:12px;border:1px solid rgba(0,255,157,0.3);' +
-        'box-shadow:0 0 30px rgba(0,255,157,0.15);z-index:9999;opacity:0;' +
-        'transition:opacity 0.4s,transform 0.4s;max-width:90vw;text-align:center;';
-      document.body.appendChild(toast);
-
-      requestAnimationFrame(function() {
-        toast.style.opacity = '1';
-        toast.style.transform = 'translateX(-50%) translateY(0)';
-      });
-
-      setTimeout(function() {
-        toast.style.opacity = '0';
-        toast.style.transform = 'translateX(-50%) translateY(20px)';
-        setTimeout(function() { toast.remove(); }, 400);
-      }, 5000);
-
-      history.replaceState(null, '', window.location.pathname);
-    })();
   </script>
 </body>
 </html>
