@@ -33,26 +33,26 @@ import '../styles/global.css';
 <body>
   <div class="links-page">
     <div class="container">
-      <!-- Logo -->
-      <div class="logo">
-        <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" width="64" height="64">
-          <path d="M18 18 L40 62 L62 18" stroke="#00FF9D" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-          <line x1="25" y1="30" x2="40" y2="54" stroke="#00FF9D" stroke-width="1.5" opacity="0.4"/>
-          <line x1="55" y1="30" x2="40" y2="54" stroke="#00FF9D" stroke-width="1.5" opacity="0.4"/>
-          <line x1="29" y1="26" x2="51" y2="26" stroke="#00FF9D" stroke-width="1.5" opacity="0.4"/>
-          <line x1="33" y1="36" x2="47" y2="36" stroke="#00FF9D" stroke-width="1.5" opacity="0.4"/>
-          <circle cx="40" cy="12" r="4" fill="#00FF9D"/>
-          <g stroke="#00FF9D" stroke-width="1.5" stroke-linecap="round" opacity="0.5">
-            <line x1="40" y1="4" x2="40" y2="6"/>
-            <line x1="48" y1="12" x2="46" y2="12"/>
-            <line x1="32" y1="12" x2="34" y2="12"/>
-          </g>
-        </svg>
-      </div>
-
-      <!-- Title -->
-      <h1 class="title">Volcast</h1>
-      <p class="subtitle">by VolterLabs</p>
+      <!-- Logo + Title (links to main site) -->
+      <a href="https://volcast.app" class="brand-link">
+        <div class="logo">
+          <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" width="64" height="64">
+            <path d="M18 18 L40 62 L62 18" stroke="#00FF9D" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+            <line x1="25" y1="30" x2="40" y2="54" stroke="#00FF9D" stroke-width="1.5" opacity="0.4"/>
+            <line x1="55" y1="30" x2="40" y2="54" stroke="#00FF9D" stroke-width="1.5" opacity="0.4"/>
+            <line x1="29" y1="26" x2="51" y2="26" stroke="#00FF9D" stroke-width="1.5" opacity="0.4"/>
+            <line x1="33" y1="36" x2="47" y2="36" stroke="#00FF9D" stroke-width="1.5" opacity="0.4"/>
+            <circle cx="40" cy="12" r="4" fill="#00FF9D"/>
+            <g stroke="#00FF9D" stroke-width="1.5" stroke-linecap="round" opacity="0.5">
+              <line x1="40" y1="4" x2="40" y2="6"/>
+              <line x1="48" y1="12" x2="46" y2="12"/>
+              <line x1="32" y1="12" x2="34" y2="12"/>
+            </g>
+          </svg>
+        </div>
+        <h1 class="title">Volcast</h1>
+        <p class="subtitle">by VolterLabs</p>
+      </a>
 
       <!-- Promo badge -->
       <div class="promo">
@@ -125,6 +125,15 @@ import '../styles/global.css';
       display: flex;
       flex-direction: column;
       align-items: center;
+      gap: 0;
+    }
+
+    /* Brand link */
+    .brand-link {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-decoration: none;
       gap: 0;
     }
 
