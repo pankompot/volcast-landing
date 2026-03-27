@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Volcast — Předpověď výroby fotovoltaiky</title>
+  <title>Volcast — Rocket Science on Your Roof</title>
   <meta name="description" content="Předpovídejte svou solární produkci pomocí pokročilého fyzikálního modelu.">
   <meta name="theme-color" content="#05070A">
-  <meta property="og:title" content="Volcast — Předpověď výroby fotovoltaiky">
+  <meta property="og:title" content="Volcast — Rocket Science on Your Roof">
   <meta property="og:description" content="Předpovídejte výrobu elektřiny pomocí fyziky. Bez přihlášení ke střídači, bez API klíčů.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://volcast.app/cs/">
@@ -385,7 +385,6 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      text-align: center;
       padding: 120px 24px 80px;
       position: relative;
       overflow: hidden;
@@ -419,13 +418,35 @@
       33% { transform: translate(30px, -20px) scale(1.05); }
       66% { transform: translate(-20px, 15px) scale(0.97); }
     }
-    .hero-content { position: relative; z-index: 2; max-width: 720px; }
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+      max-width: 1120px;
+      width: 100%;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+    .hero-label {
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 20px;
+    }
     .hero h1 {
       font-family: var(--font-display);
-      font-size: clamp(28px, 7vw, 72px);
+      font-size: clamp(36px, 6vw, 56px);
       font-weight: 800;
       color: var(--text-primary);
-      line-height: 1.05;
+      line-height: 1.08;
       margin-bottom: 24px;
       letter-spacing: -1px;
       overflow-wrap: break-word;
@@ -439,17 +460,48 @@
       background-clip: text;
     }
     .hero-desc {
-      font-size: 18px;
+      font-size: 17px;
       line-height: 1.7;
       color: var(--text-secondary);
       max-width: 520px;
-      margin: 0 auto 40px;
+      margin-bottom: 40px;
     }
     .hero-actions {
       display: flex;
       flex-direction: column;
-      align-items: center;
+      align-items: flex-start;
       gap: 16px;
+    }
+    .hero-mockup {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .hero-mockup::before {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 280px; height: 500px;
+      background: radial-gradient(ellipse, rgba(0, 255, 157, 0.12) 0%, rgba(0, 255, 157, 0.03) 50%, transparent 75%);
+      filter: blur(60px);
+      pointer-events: none;
+    }
+    .hero-phone {
+      position: relative;
+      max-width: 320px;
+      width: 100%;
+      border-radius: 40px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 80px rgba(0, 255, 157, 0.08);
+    }
+    .hero-phone img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 40px;
     }
     .btn-primary {
       display: inline-flex;
@@ -582,84 +634,27 @@
     }
 
     /* ================================================================
-       SCREENSHOTS
+       FEATURE SCREENSHOTS
        ================================================================ */
-    .screenshots {
-      background: linear-gradient(180deg, transparent, rgba(0, 255, 157, 0.02) 50%, transparent);
-    }
-    .mockup-stage {
-      position: relative;
-      max-width: 880px;
-      margin: 0 auto;
-    }
-    .mockup-stage::before {
-      content: '';
-      position: absolute;
-      top: 45%; left: 50%;
-      transform: translate(-50%, -50%);
-      width: 260px; height: 480px;
-      background: radial-gradient(ellipse, rgba(0, 255, 157, 0.10) 0%, rgba(0, 255, 157, 0.03) 50%, transparent 75%);
-      filter: blur(50px);
-      pointer-events: none;
-      z-index: 0;
-    }
-    .mockup-stage::after {
-      content: '';
-      position: absolute;
-      top: 55%; right: 5%;
-      transform: translateY(-50%);
-      width: 200px; height: 300px;
-      background: radial-gradient(ellipse, rgba(129, 140, 248, 0.06) 0%, transparent 70%);
-      filter: blur(40px);
-      pointer-events: none;
-      z-index: 0;
-    }
-    .mockup-grid {
+    .feature-card-with-img {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 28px;
-      position: relative;
-      z-index: 1;
-      perspective: 1200px;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      align-items: center;
     }
-    .mockup-frame {
-      position: relative;
-      border-radius: 16px;
+    .feature-card-img {
+      width: 140px;
+      flex-shrink: 0;
+      border-radius: 20px;
       overflow: hidden;
-      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
-                  box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
     }
-    .mockup-frame:nth-child(1) { transform: rotateY(5deg); }
-    .mockup-frame:nth-child(2) {
-      transform: translateY(-28px) scale(1.06);
-      z-index: 2;
-    }
-    .mockup-frame:nth-child(3) { transform: rotateY(-5deg); }
-    .mockup-frame:nth-child(1):hover {
-      transform: rotateY(2deg) translateY(-10px);
-    }
-    .mockup-frame:nth-child(2):hover {
-      transform: translateY(-36px) scale(1.07);
-    }
-    .mockup-frame:nth-child(3):hover {
-      transform: rotateY(-2deg) translateY(-10px);
-    }
-    .mockup-frame img {
-      width: 100%; height: auto;
+    .feature-card-img img {
+      width: 100%;
+      height: auto;
       display: block;
-      border-radius: 16px;
-    }
-    .mockup-reflection {
-      position: relative;
-      max-width: 880px;
-      margin: -4px auto 0;
-      height: 80px;
-      z-index: 1;
-      background: linear-gradient(to bottom, rgba(0, 255, 157, 0.015) 0%, transparent 100%);
-      -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, transparent 100%);
-      mask-image: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, transparent 100%);
-      border-radius: 0 0 40px 40px;
-      pointer-events: none;
+      border-radius: 20px;
     }
 
     /* ================================================================
@@ -1105,22 +1100,22 @@
         border-bottom: 1px solid var(--surface-border);
         gap: 20px;
       }
+      .hero-inner {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 48px;
+      }
+      .hero-content { text-align: center; }
+      .hero-actions { align-items: center; }
+      .hero-phone { max-width: 260px; }
       .features-grid { grid-template-columns: 1fr; }
+      .feature-card-with-img { grid-template-columns: 1fr auto; }
+      .feature-card-img { width: 110px; }
       .steps {
         grid-template-columns: 1fr;
         gap: 48px;
       }
       .steps::before { display: none; }
-      .mockup-grid {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 12px;
-        perspective: 800px;
-      }
-      .mockup-frame { border-radius: 12px; }
-      .mockup-frame:nth-child(1) { transform: rotateY(3deg); }
-      .mockup-frame:nth-child(2) { transform: translateY(-14px) scale(1.04); }
-      .mockup-frame:nth-child(3) { transform: rotateY(-3deg); }
-      .mockup-frame img { border-radius: 12px; }
       .download-card { padding: 40px 28px; }
       .download-stores { flex-direction: column; align-items: center; }
       .footer .container {
@@ -1153,9 +1148,8 @@
       .hero h1 { font-size: clamp(24px, 7vw, 40px); }
       .section { padding: 64px 0; }
       .section-header { margin-bottom: 40px; }
-      .mockup-frame { border-radius: 12px; }
-      .mockup-frame img { border-radius: 12px; }
-      .mockup-reflection { height: 40px; }
+      .feature-card-with-img { grid-template-columns: 1fr; }
+      .feature-card-img { width: 100%; max-width: 200px; margin: 0 auto; }
       .trust-strip { padding: 60px 0; }
     }
   </style>
@@ -1227,10 +1221,12 @@
     <div class="hero-orb hero-orb--1"></div>
     <div class="hero-orb hero-orb--2"></div>
     <div class="hero-orb hero-orb--3"></div>
-    <div class="hero-content">
-      <h1>Předpovídejte solární výrobu<br>pomocí <em>fyziky</em></h1>
-      <p class="hero-desc">Pokročilý fyzikální model.</p>
-      <div class="hero-actions">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <p class="hero-label">APLIKACE PRO SOLÁRNÍ PŘEDPOVĚĎ</p>
+        <h1><em>Rocket science</em><br>on your roof.</h1>
+        <p class="hero-desc">Předpovídej svou solární produkci hodinu po hodině — díky satelitním datům, fyzice atmosféry a Kalmanovu filtru původně vyvinutému pro NASA.</p>
+        <div class="hero-actions">
         <a href="#download" class="btn-primary">
           Stáhnout nyní
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
@@ -1253,6 +1249,11 @@
               </div>
             </a>
           </div>
+        </div>
+      </div>
+      <div class="hero-mockup">
+        <div class="hero-phone">
+          <img src="/img/cs/forecast.png" alt="Volcast solar forecast app" loading="eager">
         </div>
       </div>
     </div>
@@ -1283,19 +1284,29 @@
           <h3>Autokalibrace</h3>
           <p>Zaznamenávejte skutečnou výrobu a Kalmanův filtr se časem naučí specifika vašeho systému.</p>
         </div>
-        <div class="glass-card feature-card reveal">
-          <div class="feature-icon feature-icon--emerald">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00FF9D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
+        <div class="glass-card feature-card feature-card-with-img reveal">
+          <div>
+            <div class="feature-icon feature-icon--emerald">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00FF9D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
+            </div>
+            <h3>Chytrá upozornění</h3>
+            <p>Dostávejte upozornění, když se předpověď výrazně změní nebo když je nejlepší čas pro zapnutí náročných spotřebičů.</p>
           </div>
-          <h3>Chytrá upozornění</h3>
-          <p>Dostávejte upozornění, když se předpověď výrazně změní nebo když je nejlepší čas pro zapnutí náročných spotřebičů.</p>
+          <div class="feature-card-img">
+            <img src="/img/cs/notifications.png" alt="Volcast notifications" loading="lazy">
+          </div>
         </div>
-        <div class="glass-card feature-card reveal">
-          <div class="feature-icon feature-icon--indigo">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#818CF8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+        <div class="glass-card feature-card feature-card-with-img reveal">
+          <div>
+            <div class="feature-icon feature-icon--indigo">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#818CF8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+            </div>
+            <h3>Widgety na domovskou obrazovku</h3>
+            <p>Přehledné widgety pro Android (Glance) a iOS (WidgetKit) ukazující předpověď bez otevírání aplikace.</p>
           </div>
-          <h3>Widgety na domovskou obrazovku</h3>
-          <p>Přehledné widgety pro Android (Glance) a iOS (WidgetKit) ukazující předpověď bez otevírání aplikace.</p>
+          <div class="feature-card-img">
+            <img src="/img/cs/widgets.png" alt="Volcast widgets" loading="lazy">
+          </div>
         </div>
       </div>
     </div>
@@ -1327,33 +1338,6 @@
           <h3>Kalibrace a optimalizace</h3>
           <p>Zapisujte reálnou výrobu a model se sám zkalibruje.</p>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       SCREENSHOTS
-       ============================================================ -->
-  <section class="section screenshots" id="screenshots">
-    <div class="container">
-      <div class="section-header reveal">
-        <p class="section-label">Náhled</p>
-        <h2 class="section-title">Navrženo pro přehlednost</h2>
-        <p class="section-desc">Tmavé, na data zaměřené rozhraní, které dává informace o vaší energii do popředí.</p>
-      </div>
-      <div class="mockup-stage">
-        <div class="mockup-grid reveal">
-          <div class="mockup-frame">
-            <img src="/img/cs/forecast.png" alt="7denní předpověď Volcast s hodinovým rozpisem" loading="lazy">
-          </div>
-          <div class="mockup-frame">
-            <img src="/img/cs/widgets.png" alt="Widgety Volcast s předpovědí na dnes a zítra" loading="lazy">
-          </div>
-          <div class="mockup-frame">
-            <img src="/img/cs/notifications.png" alt="Upozornění na změnu předpovědi Volcast" loading="lazy">
-          </div>
-        </div>
-        <div class="mockup-reflection"></div>
       </div>
     </div>
   </section>
@@ -1513,7 +1497,7 @@ curl -H <span class="code-str">"X-API-Key: vk_your_api_key"</span> \
     <div class="container">
       <div class="glass-card download-card reveal">
         <p class="section-label">Získat Volcast</p>
-        <h2 class="section-title">Začněte předpovídat ještě dnes</h2>
+        <h2 class="section-title">Rocket science on your roof</h2>
         <p class="section-desc" style="margin: 0 auto;">Dostupné pro Android a iOS. Stáhněte zdarma a začněte předpovídat.</p>
 
         <div class="download-stores">
@@ -1602,7 +1586,7 @@ curl -H <span class="code-str">"X-API-Key: vk_your_api_key"</span> \
           <path d="M18 18 L40 62 L62 18" stroke="#00FF9D" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
           <circle cx="40" cy="12" r="4" fill="#00FF9D"/>
         </svg>
-        <span><strong>Volcast</strong> — Aplikace pro předpověď solární výroby</span>
+        <span><strong>Volcast</strong> — Rocket science on your roof.</span>
       </div>
       <ul class="footer-links">
         <li><a href="mailto:hello@volcast.app">hello@volcast.app</a></li>
