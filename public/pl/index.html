@@ -1221,11 +1221,12 @@
     <div class="hero-orb hero-orb--1"></div>
     <div class="hero-orb hero-orb--2"></div>
     <div class="hero-orb hero-orb--3"></div>
-    <div class="hero-content">
-      <p class="hero-slogan">Rocket science on your roof</p>
-      <h1>Przewiduj uzyski ze słońca<br>dzięki <em>fizyce</em></h1>
-      <p class="hero-desc">Zaawansowany silnik fizyczny.</p>
-      <div class="hero-actions">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <p class="hero-label">APLIKACJA DO PROGNOZ SOLARNYCH</p>
+        <h1><em>Rocket science</em><br>on your roof.</h1>
+        <p class="hero-desc">Prognozuj produkcję paneli godzina po godzinie — dzięki danym satelitarnym, fizyce atmosfery i filtrowi Kalmana rodem z NASA.</p>
+        <div class="hero-actions">
         <a href="#download" class="btn-primary">
           Pobierz teraz
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
@@ -1248,6 +1249,11 @@
               </div>
             </a>
           </div>
+        </div>
+      </div>
+      <div class="hero-mockup">
+        <div class="hero-phone">
+          <img src="/img/pl/forecast.png" alt="Volcast solar forecast app" loading="eager">
         </div>
       </div>
     </div>
@@ -1278,19 +1284,29 @@
           <h3>Autokalibracja</h3>
           <p>Rejestruj rzeczywistą produkcję, a filtr Kalman nauczy się Twojej instalacji z biegiem czasu.</p>
         </div>
-        <div class="glass-card feature-card reveal">
-          <div class="feature-icon feature-icon--emerald">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00FF9D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
+        <div class="glass-card feature-card feature-card-with-img reveal">
+          <div>
+            <div class="feature-icon feature-icon--emerald">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00FF9D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
+            </div>
+            <h3>Inteligentne Powiadomienia</h3>
+            <p>Otrzymuj alerty, gdy prognoza na jutro ulegnie znaczącej zmianie lub gdy warto uruchomić energochłonne urządzenia.</p>
           </div>
-          <h3>Inteligentne Powiadomienia</h3>
-          <p>Otrzymuj alerty, gdy prognoza na jutro ulegnie znaczącej zmianie lub gdy warto uruchomić energochłonne urządzenia.</p>
+          <div class="feature-card-img">
+            <img src="/img/pl/notifications.png" alt="Volcast notifications" loading="lazy">
+          </div>
         </div>
-        <div class="glass-card feature-card reveal">
-          <div class="feature-icon feature-icon--indigo">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#818CF8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+        <div class="glass-card feature-card feature-card-with-img reveal">
+          <div>
+            <div class="feature-icon feature-icon--indigo">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#818CF8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+            </div>
+            <h3>Widgety na Ekran Blokady</h3>
+            <p>Przejrzyste widgety na Android (Glance) i iOS (WidgetKit) pokazujące prognozy bez otwierania aplikacji.</p>
           </div>
-          <h3>Widgety na Ekran Blokady</h3>
-          <p>Przejrzyste widgety na Android (Glance) i iOS (WidgetKit) pokazujące prognozy bez otwierania aplikacji.</p>
+          <div class="feature-card-img">
+            <img src="/img/pl/widgets.png" alt="Volcast widgets" loading="lazy">
+          </div>
         </div>
       </div>
     </div>
@@ -1322,33 +1338,6 @@
           <h3>Kalibruj i optymalizuj</h3>
           <p>Zapisuj faktyczną produkcję, a model samoczynnie się skalibruje.</p>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       SCREENSHOTS
-       ============================================================ -->
-  <section class="section screenshots" id="screenshots">
-    <div class="container">
-      <div class="section-header reveal">
-        <p class="section-label">Podgląd</p>
-        <h2 class="section-title">Zaprojektowany dla przejrzystości</h2>
-        <p class="section-desc">Ciemny, skupiony na danych interfejs, który stawia informacje o Twojej energii na pierwszym planie.</p>
-      </div>
-      <div class="mockup-stage">
-        <div class="mockup-grid reveal">
-          <div class="mockup-frame">
-            <img src="/img/pl/forecast.png" alt="7-dniowa prognoza Volcast z godzinowym rozbiciem mocy i danymi o szczytach produkcji" loading="lazy">
-          </div>
-          <div class="mockup-frame">
-            <img src="/img/pl/widgets.png" alt="Widgety Volcast pokazujące prognozę na dziś i jutro z wykresem wielodniowym" loading="lazy">
-          </div>
-          <div class="mockup-frame">
-            <img src="/img/pl/notifications.png" alt="Powiadomienie o zmianie prognozy Volcast oraz konfiguracja paneli" loading="lazy">
-          </div>
-        </div>
-        <div class="mockup-reflection"></div>
       </div>
     </div>
   </section>
