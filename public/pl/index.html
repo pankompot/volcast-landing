@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Volcast — Prognozowanie produkcji z fotowoltaiki</title>
+  <title>Volcast — Rocket Science on Your Roof</title>
   <meta name="description" content="Przewiduj uzyski ze słońca dzięki zaawansowanemu silnikowi fizycznemu.">
   <meta name="theme-color" content="#05070A">
-  <meta property="og:title" content="Volcast — Prognozowanie produkcji z fotowoltaiki">
+  <meta property="og:title" content="Volcast — Rocket Science on Your Roof">
   <meta property="og:description" content="Przewiduj produkcję ze słońca w oparciu o fizykę. Bez logowania do falownika, bez kluczy API.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://volcast.app/pl/">
@@ -385,7 +385,6 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      text-align: center;
       padding: 120px 24px 80px;
       position: relative;
       overflow: hidden;
@@ -419,13 +418,35 @@
       33% { transform: translate(30px, -20px) scale(1.05); }
       66% { transform: translate(-20px, 15px) scale(0.97); }
     }
-    .hero-content { position: relative; z-index: 2; max-width: 720px; }
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+      max-width: 1120px;
+      width: 100%;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+    .hero-label {
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 20px;
+    }
     .hero h1 {
       font-family: var(--font-display);
-      font-size: clamp(28px, 7vw, 72px);
+      font-size: clamp(36px, 6vw, 56px);
       font-weight: 800;
       color: var(--text-primary);
-      line-height: 1.05;
+      line-height: 1.08;
       margin-bottom: 24px;
       letter-spacing: -1px;
       overflow-wrap: break-word;
@@ -438,28 +459,49 @@
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
-    .hero-slogan {
-      font-family: var(--font-body);
-      font-size: 15px;
-      font-weight: 600;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--primary);
-      margin-bottom: 20px;
-      opacity: 0.9;
-    }
     .hero-desc {
-      font-size: 18px;
+      font-size: 17px;
       line-height: 1.7;
       color: var(--text-secondary);
       max-width: 520px;
-      margin: 0 auto 40px;
+      margin-bottom: 40px;
     }
     .hero-actions {
       display: flex;
       flex-direction: column;
-      align-items: center;
+      align-items: flex-start;
       gap: 16px;
+    }
+    .hero-mockup {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .hero-mockup::before {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 280px; height: 500px;
+      background: radial-gradient(ellipse, rgba(0, 255, 157, 0.12) 0%, rgba(0, 255, 157, 0.03) 50%, transparent 75%);
+      filter: blur(60px);
+      pointer-events: none;
+    }
+    .hero-phone {
+      position: relative;
+      max-width: 320px;
+      width: 100%;
+      border-radius: 40px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 80px rgba(0, 255, 157, 0.08);
+    }
+    .hero-phone img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 40px;
     }
     .btn-primary {
       display: inline-flex;
@@ -592,84 +634,27 @@
     }
 
     /* ================================================================
-       SCREENSHOTS
+       FEATURE SCREENSHOTS
        ================================================================ */
-    .screenshots {
-      background: linear-gradient(180deg, transparent, rgba(0, 255, 157, 0.02) 50%, transparent);
-    }
-    .mockup-stage {
-      position: relative;
-      max-width: 880px;
-      margin: 0 auto;
-    }
-    .mockup-stage::before {
-      content: '';
-      position: absolute;
-      top: 45%; left: 50%;
-      transform: translate(-50%, -50%);
-      width: 260px; height: 480px;
-      background: radial-gradient(ellipse, rgba(0, 255, 157, 0.10) 0%, rgba(0, 255, 157, 0.03) 50%, transparent 75%);
-      filter: blur(50px);
-      pointer-events: none;
-      z-index: 0;
-    }
-    .mockup-stage::after {
-      content: '';
-      position: absolute;
-      top: 55%; right: 5%;
-      transform: translateY(-50%);
-      width: 200px; height: 300px;
-      background: radial-gradient(ellipse, rgba(129, 140, 248, 0.06) 0%, transparent 70%);
-      filter: blur(40px);
-      pointer-events: none;
-      z-index: 0;
-    }
-    .mockup-grid {
+    .feature-card-with-img {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 28px;
-      position: relative;
-      z-index: 1;
-      perspective: 1200px;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      align-items: center;
     }
-    .mockup-frame {
-      position: relative;
-      border-radius: 16px;
+    .feature-card-img {
+      width: 140px;
+      flex-shrink: 0;
+      border-radius: 20px;
       overflow: hidden;
-      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
-                  box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
     }
-    .mockup-frame:nth-child(1) { transform: rotateY(5deg); }
-    .mockup-frame:nth-child(2) {
-      transform: translateY(-28px) scale(1.06);
-      z-index: 2;
-    }
-    .mockup-frame:nth-child(3) { transform: rotateY(-5deg); }
-    .mockup-frame:nth-child(1):hover {
-      transform: rotateY(2deg) translateY(-10px);
-    }
-    .mockup-frame:nth-child(2):hover {
-      transform: translateY(-36px) scale(1.07);
-    }
-    .mockup-frame:nth-child(3):hover {
-      transform: rotateY(-2deg) translateY(-10px);
-    }
-    .mockup-frame img {
-      width: 100%; height: auto;
+    .feature-card-img img {
+      width: 100%;
+      height: auto;
       display: block;
-      border-radius: 16px;
-    }
-    .mockup-reflection {
-      position: relative;
-      max-width: 880px;
-      margin: -4px auto 0;
-      height: 80px;
-      z-index: 1;
-      background: linear-gradient(to bottom, rgba(0, 255, 157, 0.015) 0%, transparent 100%);
-      -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, transparent 100%);
-      mask-image: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, transparent 100%);
-      border-radius: 0 0 40px 40px;
-      pointer-events: none;
+      border-radius: 20px;
     }
 
     /* ================================================================
@@ -1115,22 +1100,22 @@
         border-bottom: 1px solid var(--surface-border);
         gap: 20px;
       }
+      .hero-inner {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 48px;
+      }
+      .hero-content { text-align: center; }
+      .hero-actions { align-items: center; }
+      .hero-phone { max-width: 260px; }
       .features-grid { grid-template-columns: 1fr; }
+      .feature-card-with-img { grid-template-columns: 1fr auto; }
+      .feature-card-img { width: 110px; }
       .steps {
         grid-template-columns: 1fr;
         gap: 48px;
       }
       .steps::before { display: none; }
-      .mockup-grid {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 12px;
-        perspective: 800px;
-      }
-      .mockup-frame { border-radius: 12px; }
-      .mockup-frame:nth-child(1) { transform: rotateY(3deg); }
-      .mockup-frame:nth-child(2) { transform: translateY(-14px) scale(1.04); }
-      .mockup-frame:nth-child(3) { transform: rotateY(-3deg); }
-      .mockup-frame img { border-radius: 12px; }
       .download-card { padding: 40px 28px; }
       .download-stores { flex-direction: column; align-items: center; }
       .footer .container {
@@ -1163,9 +1148,8 @@
       .hero h1 { font-size: clamp(24px, 7vw, 40px); }
       .section { padding: 64px 0; }
       .section-header { margin-bottom: 40px; }
-      .mockup-frame { border-radius: 12px; }
-      .mockup-frame img { border-radius: 12px; }
-      .mockup-reflection { height: 40px; }
+      .feature-card-with-img { grid-template-columns: 1fr; }
+      .feature-card-img { width: 100%; max-width: 200px; margin: 0 auto; }
       .trust-strip { padding: 60px 0; }
     }
   </style>
