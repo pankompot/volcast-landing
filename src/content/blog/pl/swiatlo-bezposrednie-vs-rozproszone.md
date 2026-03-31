@@ -6,7 +6,7 @@ tags: ["nasłonecznienie", "promieniowanie-rozproszone", "promieniowanie-bezpoś
 series: "fundamentals"
 seriesOrder: 3
 lang: pl
-draft: true
+draft: false
 seo:
   ogTitle: "Światło bezpośrednie vs rozproszone — dlaczego panele działają w pochmurne dni"
   keywords: ["promieniowanie bezpośrednie vs rozproszone", "dlaczego panele działają w pochmurny dzień", "nasłonecznienie rozproszone", "GHI DNI DHI"]

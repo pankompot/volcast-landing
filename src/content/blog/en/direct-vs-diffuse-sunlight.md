@@ -6,7 +6,7 @@ tags: ["irradiance", "diffuse-radiation", "direct-beam", "pv-physics", "beginner
 series: "fundamentals"
 seriesOrder: 3
 lang: en
-draft: true
+draft: false
 seo:
   ogTitle: "Direct vs Diffuse Sunlight — Why Solar Panels Work on Cloudy Days"
   keywords: ["direct vs diffuse solar radiation", "why solar panels work cloudy days", "diffuse irradiance", "GHI DNI DHI explained"]
