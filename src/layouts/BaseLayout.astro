@@ -11,6 +11,7 @@ interface Props {
   ogDescription?: string;
   keywords?: string[];
   translationUrl?: string;
+  noindex?: boolean;
 }
 
 const {
@@ -23,6 +24,7 @@ const {
   ogDescription,
   keywords,
   translationUrl,
+  noindex,
 } = Astro.props;
 
 const otherLang = lang === 'en' ? 'pl' : 'en';
@@ -39,6 +41,7 @@ const displayOgDescription = ogDescription || description;
   <meta name="theme-color" content="#05070A" />
   <title>{siteTitle}</title>
   <meta name="description" content={description.substring(0, 155)} />
+  {noindex && <meta name="robots" content="noindex, follow" />}
   {keywords && keywords.length > 0 && (
     <meta name="keywords" content={keywords.join(', ')} />
   )}

@@ -41,6 +41,7 @@ const translationUrl = otherLangHasTag ? `/blog/${otherLang}/tag/${tag}/` : unde
   description={`${lang === 'pl' ? 'Artykuły z tagiem' : 'Articles tagged'} "${tag}"`}
   lang={lang}
   translationUrl={translationUrl}
+  noindex={true}
 >
   <Header lang={lang} translationUrl={translationUrl} />
 
