@@ -6,7 +6,7 @@ tags: ["nachylenie", "azymut", "orientacja-paneli", "fizyka-pv", "początkujący
 series: "fundamentals"
 seriesOrder: 4
 lang: pl
-draft: true
+draft: false
 seo:
   ogTitle: "Nachylenie i azymut paneli słonecznych — jak orientacja wpływa na uzysk"
   keywords: ["kąt nachylenia paneli słonecznych", "azymut paneli", "optymalna orientacja paneli", "nachylenie a produkcja"]

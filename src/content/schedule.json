@@ -1,12 +1,5 @@
 [
   {
-    "date": "2026-04-07",
-    "files": [
-      "en/tilt-and-azimuth-explained.md",
-      "pl/nachylenie-i-azymut.md"
-    ]
-  },
-  {
     "date": "2026-04-14",
     "files": [
       "en/physics-vs-ml-solar-forecasting.md",

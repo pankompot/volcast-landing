@@ -6,7 +6,7 @@ tags: ["tilt", "azimuth", "panel-orientation", "pv-physics", "beginner"]
 series: "fundamentals"
 seriesOrder: 4
 lang: en
-draft: true
+draft: false
 seo:
   ogTitle: "Solar Panel Tilt and Azimuth Explained — How Orientation Affects Your Yield"
   keywords: ["solar panel tilt angle", "azimuth angle solar panels", "optimal solar panel orientation", "panel tilt vs production"]
