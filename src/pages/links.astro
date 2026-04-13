@@ -29,6 +29,9 @@ import '../styles/global.css';
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" />
+
+  <!-- Umami Analytics (cookieless, GDPR-compliant) -->
+  <script defer src="https://analytics.volcast.app/script.js" data-website-id="a65df92a-e317-413f-8f84-7af9a9b1bba8"></script>
 </head>
 <body>
   <div class="links-page">
@@ -62,12 +65,12 @@ import '../styles/global.css';
 
       <!-- Primary links -->
       <div class="links-section">
-        <a href="https://apps.apple.com/app/volcast-solar-forecast/id6758962799" class="link-btn primary" target="_blank" rel="noopener">
+        <a href="https://apps.apple.com/app/volcast-solar-forecast/id6758962799" class="link-btn primary" target="_blank" rel="noopener" data-umami-event="app_store_click" data-umami-event-store="apple" data-umami-event-location="links_page">
           <span class="btn-indicator"></span>
           <span class="btn-label">Download on App Store</span>
           <svg class="btn-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
-        <a href="https://play.google.com/store/apps/details?id=com.volcast.app" class="link-btn primary" target="_blank" rel="noopener">
+        <a href="https://play.google.com/store/apps/details?id=com.volcast.app" class="link-btn primary" target="_blank" rel="noopener" data-umami-event="app_store_click" data-umami-event-store="google_play" data-umami-event-location="links_page">
           <span class="btn-indicator"></span>
           <span class="btn-label">Get it on Google Play</span>
           <svg class="btn-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>

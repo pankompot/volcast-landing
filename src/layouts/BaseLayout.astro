@@ -89,6 +89,9 @@ const displayOgDescription = ogDescription || description;
     logo: new URL('/img/og-default.png', Astro.site).href,
   })} />
 
+  <!-- Umami Analytics (cookieless, GDPR-compliant) -->
+  <script defer src="https://analytics.volcast.app/script.js" data-website-id="a65df92a-e317-413f-8f84-7af9a9b1bba8"></script>
+
   <slot name="head" />
 </head>
 <body>
