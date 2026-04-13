@@ -24,7 +24,8 @@
       },
       "appStore": {
         "small": "Download on"
-      }
+      },
+      "label": "Solar forecasting app"
     },
     "features": {
       "label": "Features",
@@ -166,7 +167,8 @@
       },
       "appStore": {
         "small": "Pobierz z"
-      }
+      },
+      "label": "APLIKACJA DO PROGNOZ SOLARNYCH"
     },
     "features": {
       "label": "Możliwości",
@@ -308,7 +310,8 @@
       },
       "appStore": {
         "small": "Laden im"
-      }
+      },
+      "label": "SOLAR-PROGNOSE-APP"
     },
     "features": {
       "label": "Funktionen",
@@ -450,7 +453,8 @@
       },
       "appStore": {
         "small": "Download in"
-      }
+      },
+      "label": "ZONNE-ENERGIE VOORSPELLINGSAPP"
     },
     "features": {
       "label": "Functies",
@@ -592,7 +596,8 @@
       },
       "appStore": {
         "small": "Descargar en"
-      }
+      },
+      "label": "APP DE PRONÓSTICO SOLAR"
     },
     "features": {
       "label": "Funciones",
@@ -734,7 +739,8 @@
       },
       "appStore": {
         "small": "Télécharger dans l'"
-      }
+      },
+      "label": "APPLICATION DE PRÉVISION SOLAIRE"
     },
     "features": {
       "label": "Fonctionnalités",
@@ -876,7 +882,8 @@
       },
       "appStore": {
         "small": "Завантажити з"
-      }
+      },
+      "label": "ДОДАТОК ДЛЯ СОНЯЧНИХ ПРОГНОЗІВ"
     },
     "features": {
       "label": "Функції",
@@ -1018,7 +1025,8 @@
       },
       "appStore": {
         "small": "Transferir na"
-      }
+      },
+      "label": "APP DE PREVISÃO SOLAR"
     },
     "features": {
       "label": "Funcionalidades",
@@ -1160,7 +1168,8 @@
       },
       "appStore": {
         "small": "Baixe na"
-      }
+      },
+      "label": "APP DE PREVISÃO SOLAR"
     },
     "features": {
       "label": "Funcionalidades",
@@ -1302,7 +1311,8 @@
       },
       "appStore": {
         "small": "Descarcă din"
-      }
+      },
+      "label": "APLICAȚIE DE PROGNOZĂ SOLARĂ"
     },
     "features": {
       "label": "Funcții",
@@ -1444,7 +1454,8 @@
       },
       "appStore": {
         "small": "Stáhnout v"
-      }
+      },
+      "label": "APLIKACE PRO SOLÁRNÍ PŘEDPOVĚĎ"
     },
     "features": {
       "label": "Funkce",
@@ -1586,7 +1597,8 @@
       },
       "appStore": {
         "small": "Stiahnuť v"
-      }
+      },
+      "label": "APLIKÁCIA NA SOLÁRNU PREDPOVEĎ"
     },
     "features": {
       "label": "Funkcie",
