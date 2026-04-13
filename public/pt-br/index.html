@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Volcast — Rocket Science on Your Roof</title>
+  <title>Volcast — App de Previsão Solar</title>
   <meta name="description" content="Preveja sua produção solar com um motor físico avançado.">
   <meta name="theme-color" content="#05070A">
-  <meta property="og:title" content="Volcast — Rocket Science on Your Roof">
+  <meta property="og:title" content="Volcast — App de Previsão Solar">
   <meta property="og:description" content="Preveja sua produção solar com física. Sem login no inversor, sem chaves API.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://volcast.app/pt-br/">
@@ -28,6 +28,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet">
+  <!-- Umami Analytics (cookieless, GDPR-compliant) -->
+  <script defer src="https://analytics.volcast.app/script.js" data-website-id="a65df92a-e317-413f-8f84-7af9a9b1bba8"></script>
   <style>
     /* ================================================================
        DESIGN TOKENS — Midnight Emerald
@@ -1227,9 +1229,9 @@
     <div class="hero-orb hero-orb--3"></div>
     <div class="hero-inner">
       <div class="hero-content">
-        <p class="hero-label">APP DE PREVISÃO SOLAR</p>
+        <p class="hero-label">[hero.label]</p>
         <h1><em>Rocket science</em><br>on your roof.</h1>
-        <p class="hero-desc">Preveja sua produção solar hora a hora — com dados de satélite, física atmosférica e um filtro de Kalman originalmente desenvolvido para a NASA.</p>
+        <p class="hero-desc">Motor Físico Avançado.</p>
         <div class="hero-actions">
         <a href="#download" class="btn-primary">
           Baixar agora
@@ -1238,14 +1240,14 @@
         <p class="hero-note">Disponível para Android e iOS. Gratuito.</p>
         <div class="store-badges">
           <div class="store-badges-row">
-            <a href="https://play.google.com/store/apps/details?id=com.volcast.app" target="_blank" rel="noopener" class="store-badge store-badge--active" aria-label="Google Play">
+            <a href="https://play.google.com/store/apps/details?id=com.volcast.app" target="_blank" rel="noopener" class="store-badge store-badge--active" aria-label="Google Play" data-umami-event="app_store_click" data-umami-event-store="google_play" data-umami-event-location="hero">
               <svg viewBox="0 0 24 24" fill="#94A3B8" xmlns="http://www.w3.org/2000/svg"><path d="M3.61 1.814A1.82 1.82 0 0 0 3 3.266v17.468a1.82 1.82 0 0 0 .61 1.452l.076.06L14.04 12l-.003-.003.003-.003L3.686 1.754l-.076.06z"/><path d="m17.5 15.478-3.462-3.475.003-.003-3.462-3.475 3.462-3.475.078.045 4.105 2.333c1.173.666 1.173 1.757 0 2.424L17.5 15.478z" opacity=".7"/><path d="m17.578 15.523-3.54-3.52L3.686 22.247c.387.408 1.026.458 1.747.06l12.145-6.784z" opacity=".5"/><path d="M17.578 8.477 5.433 1.693C4.712 1.295 4.073 1.345 3.686 1.753L14.038 12l3.54-3.523z" opacity=".85"/></svg>
               <div class="store-badge-text">
                 <small>Baixe no</small>
                 <span>Google Play</span>
               </div>
             </a>
-            <a href="https://apps.apple.com/app/volcast-solar-forecast/id6758962799" target="_blank" rel="noopener" class="store-badge store-badge--active" aria-label="App Store">
+            <a href="https://apps.apple.com/app/volcast-solar-forecast/id6758962799" target="_blank" rel="noopener" class="store-badge store-badge--active" aria-label="App Store" data-umami-event="app_store_click" data-umami-event-store="apple" data-umami-event-location="hero">
               <svg viewBox="0 0 24 24" fill="#94A3B8" xmlns="http://www.w3.org/2000/svg"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
               <div class="store-badge-text">
                 <small>Baixe na</small>
@@ -1253,6 +1255,7 @@
               </div>
             </a>
           </div>
+        </div>
         </div>
       </div>
       <div class="hero-mockup">
@@ -1296,7 +1299,9 @@
             <h3>Notificações Inteligentes</h3>
             <p>Receba alertas quando a previsão mudar ou quando for o melhor momento para ligar aparelhos pesados.</p>
           </div>
-          <div class="feature-card-img"><img src="/img/pt-br/notifications.png" alt="Volcast notifications" loading="lazy"></div>
+          <div class="feature-card-img">
+            <img src="/img/pt-br/notifications.png" alt="Volcast notifications" loading="lazy">
+          </div>
         </div>
         <div class="glass-card feature-card feature-card-with-img reveal">
           <div>
@@ -1306,7 +1311,9 @@
             <h3>Widgets de Tela Inicial</h3>
             <p>Widgets práticos para Android (Glance) e iOS (WidgetKit) que mostram sua previsão sem abrir o app.</p>
           </div>
-          <div class="feature-card-img"><img src="/img/pt-br/widgets.png" alt="Volcast widgets" loading="lazy"></div>
+          <div class="feature-card-img">
+            <img src="/img/pt-br/widgets.png" alt="Volcast widgets" loading="lazy">
+          </div>
         </div>
       </div>
     </div>
@@ -1501,14 +1508,14 @@ curl -H <span class="code-str">"X-API-Key: vk_your_api_key"</span> \
         <p class="section-desc" style="margin: 0 auto;">Disponível para Android e iOS. Baixe grátis e comece a prever.</p>
 
         <div class="download-stores">
-          <a href="https://play.google.com/store/apps/details?id=com.volcast.app" target="_blank" rel="noopener" class="download-store-badge">
+          <a href="https://play.google.com/store/apps/details?id=com.volcast.app" target="_blank" rel="noopener" class="download-store-badge" data-umami-event="app_store_click" data-umami-event-store="google_play" data-umami-event-location="download_section">
             <svg viewBox="0 0 24 24" fill="#94A3B8" xmlns="http://www.w3.org/2000/svg"><path d="M3.61 1.814A1.82 1.82 0 0 0 3 3.266v17.468a1.82 1.82 0 0 0 .61 1.452l.076.06L14.04 12l-.003-.003.003-.003L3.686 1.754l-.076.06z"/><path d="m17.5 15.478-3.462-3.475.003-.003-3.462-3.475 3.462-3.475.078.045 4.105 2.333c1.173.666 1.173 1.757 0 2.424L17.5 15.478z" opacity=".7"/><path d="m17.578 15.523-3.54-3.52L3.686 22.247c.387.408 1.026.458 1.747.06l12.145-6.784z" opacity=".5"/><path d="M17.578 8.477 5.433 1.693C4.712 1.295 4.073 1.345 3.686 1.753L14.038 12l3.54-3.523z" opacity=".85"/></svg>
             <div class="store-badge-text">
               <small>Baixe no</small>
               <span>Google Play</span>
             </div>
           </a>
-          <a href="https://apps.apple.com/app/volcast-solar-forecast/id6758962799" target="_blank" rel="noopener" class="download-store-badge">
+          <a href="https://apps.apple.com/app/volcast-solar-forecast/id6758962799" target="_blank" rel="noopener" class="download-store-badge" data-umami-event="app_store_click" data-umami-event-store="apple" data-umami-event-location="download_section">
             <svg viewBox="0 0 24 24" fill="#94A3B8" xmlns="http://www.w3.org/2000/svg"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
             <div class="store-badge-text">
               <small>Baixe na</small>
