@@ -6,7 +6,7 @@ tags: ["physics-model", "machine-learning", "forecasting", "methodology"]
 series: "deep-dives"
 seriesOrder: 1
 lang: en
-draft: true
+draft: false
 seo:
   ogTitle: "Physics vs ML Solar Forecasting — Which Approach Is More Accurate?"
   keywords: ["physics based solar forecast", "machine learning solar prediction", "solar forecast comparison", "PV production forecast methods"]

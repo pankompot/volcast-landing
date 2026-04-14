@@ -6,7 +6,7 @@ tags: ["model-fizyczny", "uczenie-maszynowe", "prognozowanie", "metodologia"]
 series: "deep-dives"
 seriesOrder: 1
 lang: pl
-draft: true
+draft: false
 seo:
   ogTitle: "Fizyka vs ML w prognozowaniu solarnym — które podejście jest trafniejsze?"
   keywords: ["prognoza solarna oparta na fizyce", "uczenie maszynowe prognoza PV", "porównanie metod prognozy solarnej", "metody prognozowania produkcji PV"]
