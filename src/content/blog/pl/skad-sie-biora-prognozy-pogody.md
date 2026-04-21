@@ -6,7 +6,7 @@ tags: ["nwp", "modele-pogodowe", "gfs", "ecmwf", "icon", "prognozowanie"]
 series: "deep-dives"
 seriesOrder: 2
 lang: pl
-draft: true
+draft: false
 seo:
   ogTitle: "Modele prognozy pogody wyjaśnione dla energii solarnej — GFS, ECMWF, ICON"
   keywords: ["numeryczna prognoza pogody a fotowoltaika", "GFS ECMWF prognoza solarna", "rozdzielczość modeli pogodowych", "modele NWP", "dane pogodowe dla PV"]

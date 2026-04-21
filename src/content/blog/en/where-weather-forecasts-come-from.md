@@ -6,7 +6,7 @@ tags: ["nwp", "weather-models", "gfs", "ecmwf", "icon", "forecasting"]
 series: "deep-dives"
 seriesOrder: 2
 lang: en
-draft: true
+draft: false
 seo:
   ogTitle: "Weather Forecast Models Explained for Solar Energy — GFS, ECMWF, ICON"
   keywords: ["numerical weather prediction solar", "GFS ECMWF solar forecast", "weather model resolution", "NWP models explained", "weather data for solar"]
