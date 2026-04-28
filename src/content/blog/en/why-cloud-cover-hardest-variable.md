@@ -6,7 +6,7 @@ tags: ["clouds", "forecast-uncertainty", "irradiance", "weather", "forecasting"]
 series: "deep-dives"
 seriesOrder: 3
 lang: en
-draft: true
+draft: false
 seo:
   ogTitle: "Why Clouds Are the Hardest Part of Solar Forecasting"
   keywords: ["cloud cover solar forecast", "solar prediction uncertainty", "cloud types PV production", "forecast error clouds"]

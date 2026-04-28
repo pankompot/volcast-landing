@@ -6,7 +6,7 @@ tags: ["chmury", "niepewność-prognozy", "nasłonecznienie", "pogoda", "prognoz
 series: "deep-dives"
 seriesOrder: 3
 lang: pl
-draft: true
+draft: false
 seo:
   ogTitle: "Dlaczego chmury to najtrudniejsza część prognozowania solarnego"
   keywords: ["zachmurzenie prognoza solarna", "niepewność prognozy PV", "rodzaje chmur produkcja PV", "błąd prognozy chmury"]
