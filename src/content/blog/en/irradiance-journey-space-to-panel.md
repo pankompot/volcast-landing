@@ -6,7 +6,7 @@ tags: ["irradiance", "atmospheric-physics", "solar-spectrum", "pv-physics", "for
 series: "deep-dives"
 seriesOrder: 4
 lang: en
-draft: true
+draft: false
 seo:
   ogTitle: "From Space to Solar Panel — The Complete Irradiance Journey"
   keywords: ["solar irradiance atmosphere", "how sunlight reaches solar panels", "atmospheric attenuation solar", "irradiance modeling steps"]

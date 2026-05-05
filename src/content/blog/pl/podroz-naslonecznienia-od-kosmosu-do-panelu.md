@@ -6,7 +6,7 @@ tags: ["nasłonecznienie", "fizyka-atmosfery", "widmo-słoneczne", "fizyka-pv", 
 series: "deep-dives"
 seriesOrder: 4
 lang: pl
-draft: true
+draft: false
 seo:
   ogTitle: "Od kosmosu do panelu słonecznego — kompletna podróż nasłonecznienia"
   keywords: ["nasłonecznienie atmosfera", "jak światło dociera do paneli", "tłumienie atmosferyczne", "modelowanie nasłonecznienia"]

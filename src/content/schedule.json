@@ -1,12 +1,5 @@
 [
   {
-    "date": "2026-05-05",
-    "files": [
-      "en/irradiance-journey-space-to-panel.md",
-      "pl/podroz-naslonecznienia-od-kosmosu-do-panelu.md"
-    ]
-  },
-  {
     "date": "2026-05-12",
     "files": [
       "en/transposition-models.md",
