@@ -6,7 +6,7 @@ tags: ["transpozycja", "model-pereza", "nasłonecznienie", "orientacja-paneli", 
 series: "deep-dives"
 seriesOrder: 5
 lang: pl
-draft: true
+draft: false
 seo:
   ogTitle: "Modele transpozycji — przeliczanie nasłonecznienia na pochylony panel"
   keywords: ["model transpozycji solar", "model Pereza nasłonecznienie", "nasłonecznienie pochyłej powierzchni", "obliczanie POA"]

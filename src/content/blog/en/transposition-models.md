@@ -6,7 +6,7 @@ tags: ["transposition", "perez-model", "irradiance", "panel-orientation", "forec
 series: "deep-dives"
 seriesOrder: 5
 lang: en
-draft: true
+draft: false
 seo:
   ogTitle: "Transposition Models Explained — Converting Horizontal Irradiance to Your Tilted Panel"
   keywords: ["transposition model solar", "Perez irradiance model", "tilted surface irradiance", "POA irradiance calculation"]

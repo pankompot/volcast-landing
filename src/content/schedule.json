@@ -1,12 +1,5 @@
 [
   {
-    "date": "2026-05-12",
-    "files": [
-      "en/transposition-models.md",
-      "pl/modele-transpozycji.md"
-    ]
-  },
-  {
     "date": "2026-05-19",
     "files": [
       "en/nowcasting-vs-day-ahead.md",
