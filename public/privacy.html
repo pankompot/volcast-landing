@@ -312,6 +312,15 @@
         <li>Daily actual production values (kWh) with corresponding dates</li>
         <li>Calibration metrics derived from comparing actual vs. forecast data</li>
       </ul>
+      <p>If you connect <strong>Home Assistant</strong> via API key (premium feature), we additionally store:</p>
+      <ul>
+        <li>Hourly production readings (kWh per hour) and peak power (W) submitted by the integration</li>
+        <li>Optional battery telemetry (state of charge, charge power) — used to detect inverter curtailment</li>
+      </ul>
+      <p>
+        If your premium subscription lapses, Home Assistant submissions are still accepted and stored, but they no longer update your calibration and are not displayed in the app.
+        Stored data remains accessible to you again upon re-purchase, or is deleted with the rest of your account on request (see Section 5).
+      </p>
 
       <h3>2.5 Preferences &amp; Settings</h3>
       <ul>
@@ -375,6 +384,11 @@
             <td>Auto-calibration of forecasts</td>
             <td>Actual production data, historical weather</td>
             <td>Contract performance (Art. 6(1)(b))</td>
+          </tr>
+          <tr>
+            <td>Forecast model improvement (aggregate, anonymized)</td>
+            <td>Hourly production and forecast accuracy data, aggregated across users — never linked back to individuals, never shared with third parties</td>
+            <td>Legitimate interest (Art. 6(1)(f)) — improving service quality</td>
           </tr>
           <tr>
             <td>Push notifications</td>

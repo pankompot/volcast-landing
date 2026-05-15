@@ -311,6 +311,15 @@
         <li>Dzienne wartości rzeczywistej produkcji (kWh) wraz z odpowiadającymi datami</li>
         <li>Metryki kalibracji wynikające z porównania danych rzeczywistych z prognozowanymi</li>
       </ul>
+      <p>Jeśli podłączysz <strong>Home Assistant</strong> przez klucz API (funkcja premium), dodatkowo przechowujemy:</p>
+      <ul>
+        <li>Godzinowe odczyty produkcji (kWh na godzinę) oraz moc szczytową (W) wysyłane przez integrację</li>
+        <li>Opcjonalne dane baterii (stan naładowania, moc ładowania) — wykorzystywane do wykrywania ograniczeń mocy inwertera (curtailment)</li>
+      </ul>
+      <p>
+        Po wygaśnięciu subskrypcji premium dane z Home Assistant są nadal przyjmowane i przechowywane, ale nie aktualizują kalibracji ani nie są wyświetlane w aplikacji.
+        Zachowane dane stają się ponownie dostępne po wznowieniu premium lub są usuwane razem z całym kontem na żądanie (patrz sekcja 5).
+      </p>
 
       <h3>2.5 Preferencje i ustawienia</h3>
       <ul>
@@ -374,6 +383,11 @@
             <td>Autokalibracja prognoz</td>
             <td>Rzeczywiste dane produkcji, historyczne dane pogodowe</td>
             <td>Wykonanie umowy (art. 6 ust. 1 lit. b)</td>
+          </tr>
+          <tr>
+            <td>Poprawa modelu prognozy (zagregowane, zanonimizowane)</td>
+            <td>Godzinowe dane produkcji i dokładności prognoz, zagregowane po wszystkich użytkownikach — nigdy nie łączone z konkretną osobą, nigdy nie udostępniane podmiotom trzecim</td>
+            <td>Prawnie uzasadniony interes (art. 6 ust. 1 lit. f) — poprawa jakości usługi</td>
           </tr>
           <tr>
             <td>Powiadomienia push</td>
