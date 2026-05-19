@@ -6,7 +6,7 @@ tags: ["nowcasting", "forecast-horizon", "accuracy", "time-series", "forecasting
 series: "deep-dives"
 seriesOrder: 6
 lang: en
-draft: true
+draft: false
 seo:
   ogTitle: "Solar Forecast Accuracy by Time Horizon — Nowcasting to Weekly"
   keywords: ["solar nowcasting", "day ahead solar forecast accuracy", "solar forecast time horizon", "short term solar prediction"]

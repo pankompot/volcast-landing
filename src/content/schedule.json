@@ -1,12 +1,5 @@
 [
   {
-    "date": "2026-05-19",
-    "files": [
-      "en/nowcasting-vs-day-ahead.md",
-      "pl/nowcasting-vs-prognoza-dniowa.md"
-    ]
-  },
-  {
     "date": "2026-05-26",
     "files": [
       "en/why-no-training-data-needed.md",

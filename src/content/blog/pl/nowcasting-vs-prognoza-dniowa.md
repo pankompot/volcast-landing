@@ -6,7 +6,7 @@ tags: ["nowcasting", "horyzont-prognozy", "trafność", "szeregi-czasowe", "prog
 series: "deep-dives"
 seriesOrder: 6
 lang: pl
-draft: true
+draft: false
 seo:
   ogTitle: "Trafność prognozy solarnej według horyzontu — od nowcastingu do tygodniowej"
   keywords: ["nowcasting solarny", "trafność prognozy dzień naprzód", "horyzont prognozy solarnej", "krótkoterminowa prognoza PV"]
